@@ -1,0 +1,17 @@
+C:\cloudasp\testWebApp\Onecalendar.Portal\OneCalendar.BusinessComponent\bin\Debug\OneCalendar.BusinessComponent.dll
+C:\cloudasp\testWebApp\Onecalendar.Portal\OneCalendar.BusinessComponent\bin\Debug\OneCalendar.BusinessComponent.pdb
+C:\cloudasp\testWebApp\Onecalendar.Portal\OneCalendar.BusinessComponent\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\cloudasp\testWebApp\Onecalendar.Portal\OneCalendar.BusinessComponent\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\cloudasp\testWebApp\Onecalendar.Portal\OneCalendar.BusinessComponent\bin\Debug\NCS.IConnect.Helpers.Data.dll
+C:\cloudasp\testWebApp\Onecalendar.Portal\OneCalendar.BusinessComponent\bin\Debug\NCS.IConnect.Transactions.dll
+C:\cloudasp\testWebApp\Onecalendar.Portal\OneCalendar.BusinessComponent\bin\Debug\NCS.IConnect.Core.dll
+C:\cloudasp\testWebApp\Onecalendar.Portal\OneCalendar.BusinessComponent\obj\Debug\OneCalendar.BusinessComponent.dll
+C:\cloudasp\testWebApp\Onecalendar.Portal\OneCalendar.BusinessComponent\obj\Debug\OneCalendar.BusinessComponent.pdb
+C:\cloudasp\testWebApp\Onecalendar.Portal\OneCalendar.BusinessComponent\obj\Debug\OneCalendar.BusinessComponent.csprojResolveAssemblyReference.cache
+C:\cloudasp\testWebApp\Onecalendar.Portal\OneCalendar.BusinessComponent\bin\Debug\Onecalendar.BusinessEntity.dll
+C:\cloudasp\testWebApp\Onecalendar.Portal\OneCalendar.BusinessComponent\bin\Debug\Onecalendar.BusinessEntity.pdb
+C:\cloudasp\testWebApp\Onecalendar.Portal\OneCalendar.BusinessComponent\bin\Debug\Microsoft.Practices.Unity.dll
+C:\cloudasp\testWebApp\Onecalendar.Portal\OneCalendar.BusinessComponent\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\cloudasp\testWebApp\Onecalendar.Portal\OneCalendar.BusinessComponent\bin\Debug\Microsoft.Practices.Unity.Interception.dll
+C:\cloudasp\testWebApp\Onecalendar.Portal\OneCalendar.BusinessComponent\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
+C:\cloudasp\testWebApp\Onecalendar.Portal\OneCalendar.BusinessComponent\bin\Debug\NCS.IConnect.Common.dll

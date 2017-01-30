@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onecalendar.WebPortal", "Onecalendar.WebPortal\Onecalendar.WebPortal.csproj", "{DA4CB6B8-D4D0-4CB0-86CD-0DD5D1D3E2E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneCalendar.BusinessComponent", "OneCalendar.BusinessComponent\OneCalendar.BusinessComponent.csproj", "{22DB3256-1609-413A-A0AB-5E10706CC0B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onecalendar.BusinessEntity", "Onecalendar.BusinessEntity\Onecalendar.BusinessEntity.csproj", "{DF5DE009-9F7A-44A3-8778-443BD432B0E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA4CB6B8-D4D0-4CB0-86CD-0DD5D1D3E2E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA4CB6B8-D4D0-4CB0-86CD-0DD5D1D3E2E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA4CB6B8-D4D0-4CB0-86CD-0DD5D1D3E2E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA4CB6B8-D4D0-4CB0-86CD-0DD5D1D3E2E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22DB3256-1609-413A-A0AB-5E10706CC0B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22DB3256-1609-413A-A0AB-5E10706CC0B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22DB3256-1609-413A-A0AB-5E10706CC0B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22DB3256-1609-413A-A0AB-5E10706CC0B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF5DE009-9F7A-44A3-8778-443BD432B0E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF5DE009-9F7A-44A3-8778-443BD432B0E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF5DE009-9F7A-44A3-8778-443BD432B0E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF5DE009-9F7A-44A3-8778-443BD432B0E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
