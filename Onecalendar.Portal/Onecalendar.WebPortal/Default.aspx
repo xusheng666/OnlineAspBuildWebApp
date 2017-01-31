@@ -43,18 +43,7 @@
             </div>--%>
             <div class="clearing"></div>
             <div class="wrap-1">
-                    <asp:GridView CssClass="gridview" ID="gvwDash" runat="server" Visible="false" ShowHeaderEmpty="true" AutoGenerateColumns="false" Width="100%">
-                        <Columns>
-                            <asp:BoundField HeaderText="Name" DataField="COURSE_NAME" HeaderStyle-Width="0%" />
-                            <asp:BoundField HeaderText="Description" DataField="COURSE_DETAIL" HeaderStyle-Width="55%" />
-                            <asp:TemplateField HeaderText="Action" HeaderStyle-Width="8%" ItemStyle-HorizontalAlign="Center">
-                                <ItemTemplate>
-                                    <asp:HyperLink ID="View" runat="server"
-                                        NavigateUrl='<%# "~/Secure/Course/CourseDetailView.aspx?CourseId=" + Eval("COURSEID")  %>'>View</asp:HyperLink>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                        </Columns>
-                    </asp:GridView>
+                    
                 <div class="title">
                         <h1>Avaiable Courses</h1>
                     </div>

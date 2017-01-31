@@ -15,8 +15,6 @@ namespace Onecalendar.WebPortal
         protected void Page_Load(object sender, EventArgs e)
         {
             DataTable dt = _bc.getAllCourses() as DataTable;
-            this.gvwDash.DataSource = dt;
-            this.gvwDash.DataBind();
 
             this.lvCourses.DataSource = dt;
             this.lvCourses.DataBind();

@@ -35,18 +35,21 @@
             <div class="header-wrap">
                 <div class="header">
                     <div class="logo">
-                        <h1>One Calendar</h1>
+                        <a href="#"><img src="<%= ResolveUrl("~/Content/images/C1_Logo.jpg")%>" alt="Home" /></a>
                     </div>
-                    <div class="menu">
+                    
+                </div>
+                <div class="menu-wrap">
+                <div class="menu">
                         <ul>
                             <li ><a href="<%= ResolveUrl("~/Default.aspx")%>">Home</a></li>
                             <li ><a href="<%= ResolveUrl("~/About.aspx")%>">About </a></li>
                             <li ><a href="<%= ResolveUrl("~/Courses.aspx")%>">Courses </a></li>
                             <li ><a href="<%= ResolveUrl("~/Contact.aspx")%>">Contact</a></li>
-                            <li ><a href="<%= ResolveUrl("~/Public/Login/LoginSignup.aspx")%>">Register</a></li>
+                            <li ><a href="<%= ResolveUrl("~/Public/UserRegistration.aspx")%>">Register</a></li>
                         </ul>
+                    </div> 
                     </div>
-                </div>
             </div>
         </header>
         <div id="body">

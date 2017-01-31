@@ -42,7 +42,7 @@
                 <h1>Quick contact</h1>
             </div>
             <div class="content">
-                <h2>Class aptent taciti soc Mauris porta turpis sed ligula congue ut mollis</h2>
+                <%--<h2>Below is the contact information</h2>--%>
             </div>
             <div class="content">
                 <p>

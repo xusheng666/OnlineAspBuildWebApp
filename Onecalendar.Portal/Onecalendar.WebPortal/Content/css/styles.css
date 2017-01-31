@@ -12,7 +12,7 @@ a:hover{color:#ee3233;}
 /*-------------------------------------------------
 GENERAL CLASSES
 -------------------------------------------------*/
-.mar-top30{margin-top:30px !important;}
+.mar-top30{margin-top:10px !important;}
 .mar-right30{ margin-right:30px;}
 .mar-right20{ margin-right:20px;}
 .padding-right{padding-right:30px;}
@@ -24,19 +24,22 @@ GENERAL CLASSES
 .clearing { clear:both;}
 .page{margin:0 auto; overflow:hidden;}
 .panel{ overflow:hidden;}
+.padding-bottom { padding-bottom:10px;}
 .title{}
 .content{}
 .button a{text-decoration:none; display:block; width:107px; height:35px; background:#ee3233; color:#ffffff; font-family: 'Pontano Sans', sans-serif;  line-height:35px; text-align:center; font-size:15px;}
 .button a:hover{ background:#66a7c5;}
+.button{padding:4px 7px;background:#66a7c5; color:#ffffff; text-transform:uppercase; font-family:'Oswald', sans-serif;border:0px solid;margin-top:10px;}
 .page{ width:1000px; margin:0 auto;overflow:hidden;}
 /*-------------------------------------------------
 HEADER CLASSES
 -------------------------------------------------*/
-.header-wrap{background:#ee3233; overflow:hidden; padding-top:20px; padding-bottom:20px;}
-.header{width:1000px; margin:0 auto;}
-.logo h1{ float:left; color:#ffffff; font-size:35px;}
+.header-wrap{ overflow:hidden; padding-top:10px; padding-bottom:10px;}
+.header{ width:1000px;margin:0 auto;}
+.logo h1{float:left; color:#ffffff; font-size:35px;}
 
-.menu{ float:right;}
+.menu-wrap { background:#ee3233;float:right;width:100%; }
+.menu{width:1000px;margin:0 auto; }
 .menu ul li{ list-style:none; float:left; font-size:18px; padding:10px;}
 .menu ul li a{color:#ffffff; text-decoration:none; padding:10px;}
 .menu ul li a:hover{ background:#66a7c5; padding:10px;}
@@ -76,8 +79,9 @@ MAIN COLUMAS CLASSES
 /*-------------------------------------------------
 MAIN CONTENT CLASSES
 -------------------------------------------------*/
-.gridview{ text-align:center;}
-    .gridview th { background:#66a7c5; }
+.gridview{ text-align:center; }
+    .gridview th { margin:10px 0px;padding:5px 5px;background:#fb3535; }
+    .gridview td { margin:10px 0px;padding:5px 5px; }
 .primary-col .wrap-1 .title h1 { padding-bottom: 0px!important;}
 /*-------------------------------------------------
 BLOCK CLASSES
@@ -138,7 +142,7 @@ CONTACT FORM CLASSS
 /*-------------------------------------------------
 FOOTER CLASSES
 -------------------------------------------------*/
-.footer-wrap{ background:#ee3233; overflow:hidden; padding:40px 40px;}
+.footer-wrap{ background:#ee3233; overflow:hidden; padding:20px 20px;}
 .footer{width:1000px; margin:0 auto;}
 .footer h1{color:#243036; padding-bottom:20px;}
 .footer p{ color:#ffffff; padding-bottom:20px;}
