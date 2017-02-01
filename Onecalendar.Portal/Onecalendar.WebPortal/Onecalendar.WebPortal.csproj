@@ -255,7 +255,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="packages.config" />
-    <Content Include="Courses.aspx" />
+    <Content Include="Secure\Course\Courses.aspx" />
     <Content Include="Config\SIT_AppSettings.config" />
     <Content Include="Config\ConnectionStrings.config" />
     <Content Include="ConfigFiles\dataMapping.config" />
@@ -298,6 +298,7 @@
     <Content Include="Global.asax" />
     <Content Include="CustomControl\SideBarCustControl.ascx" />
     <Content Include="Public\Login\LoginSignup.aspx" />
+    <Content Include="Secure\Course\AddCourse.aspx" />
     <Content Include="Secure\User\UserManage.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -386,6 +387,13 @@
     <Compile Include="Public\UserRegistration.aspx.designer.cs">
       <DependentUpon>UserRegistration.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Secure\Course\AddCourse.aspx.cs">
+      <DependentUpon>AddCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Secure\Course\AddCourse.aspx.designer.cs">
+      <DependentUpon>AddCourse.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Secure\User\UserManage.aspx.cs">
       <DependentUpon>UserManage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -400,17 +408,16 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
-    <Compile Include="Courses.aspx.cs">
+    <Compile Include="Secure\Course\Courses.aspx.cs">
       <DependentUpon>Courses.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Courses.aspx.designer.cs">
+    <Compile Include="Secure\Course\Courses.aspx.designer.cs">
       <DependentUpon>Courses.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Secure\Course\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />

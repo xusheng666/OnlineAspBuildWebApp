@@ -27,7 +27,7 @@ namespace Onecalendar.WebPortal
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/");
+            Response.Redirect("~/Secure/Course/AddCourse.aspx");
         }
     }
 }

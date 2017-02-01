@@ -22,7 +22,7 @@
                 <%--<h1>Submenu here</h1>--%>
             </div>
             <div class="content">
-                <img src="Content/images/icon1.png" alt="icon" class="float-left mar-right20" />
+                <img src="<%= ResolveUrl("~/Content/images/icon1.png")%>" alt="icon" class="float-left mar-right20" />
                 <h2>Browser By</h2>
                 <div class="clearing"></div>
                 <ul>
@@ -36,24 +36,7 @@
     </div>
     <div class="clearing"></div>
     
-    <div class="quick-contact bdr-bottom-none">
-        <div class="panel">
-            <div class="title">
-                <h1>Quick contact</h1>
-            </div>
-            <div class="content">
-                <%--<h2>Below is the contact information</h2>--%>
-            </div>
-            <div class="content">
-                <p>
-                    <img src="Content/images/icon3.png" alt="icon" class="mar-right20" />BlockNo, Street name, City name, Country
-                </p>
-                <p>
-                    <img src="Content/images/icon4.png" alt="icon" class="mar-right20" />(000) 8888 888888 / 889 / 880
-                </p>
-            </div>
-        </div>
-    </div>
+    
 </div>
 <!---side-bar--->
 <div class="clearing"></div>

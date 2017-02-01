@@ -26,8 +26,8 @@
                             <asp:ImageField DataImageUrlField="PictureURL" HeaderStyle-Width="35%"></asp:ImageField>
                             <asp:TemplateField HeaderText="Action" HeaderStyle-Width="10%" ItemStyle-HorizontalAlign="Center">
                                 <ItemTemplate>
-                                    <asp:HyperLink ID="View" runat="server"
-                                        NavigateUrl='<%# "~/Secure/Course/CourseDetailView.aspx?CourseId=" + Eval("COURSEID")  %>'>View</asp:HyperLink>
+                                    <asp:HyperLink ID="Edit" runat="server"
+                                        NavigateUrl='<%# "~/Secure/Course/CourseDetailView.aspx?CourseId=" + Eval("COURSEID")  %>'>Edit</asp:HyperLink>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

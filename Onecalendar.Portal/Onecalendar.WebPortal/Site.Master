@@ -11,6 +11,7 @@
 <script type="text/javascript" src="<%= ResolveUrl("~/Content/js/carouselScript.js")%>"></script>
 <head runat="server">
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%: Page.Title %> - Tuition Online</title>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -35,21 +36,22 @@
             <div class="header-wrap">
                 <div class="header">
                     <div class="logo">
-                        <a href="#"><img src="<%= ResolveUrl("~/Content/images/C1_Logo.jpg")%>" alt="Home" /></a>
+                        <a href="#">
+                            <img src="<%= ResolveUrl("~/Content/images/C1_Logo.jpg")%>" alt="Home" /></a>
                     </div>
-                    
+
                 </div>
                 <div class="menu-wrap">
-                <div class="menu">
+                    <div class="menu">
                         <ul>
-                            <li ><a href="<%= ResolveUrl("~/Default.aspx")%>">Home</a></li>
-                            <li ><a href="<%= ResolveUrl("~/About.aspx")%>">About </a></li>
-                            <li ><a href="<%= ResolveUrl("~/Courses.aspx")%>">Courses </a></li>
-                            <li ><a href="<%= ResolveUrl("~/Contact.aspx")%>">Contact</a></li>
-                            <li ><a href="<%= ResolveUrl("~/Public/UserRegistration.aspx")%>">Register</a></li>
+                            <li><a href="<%= ResolveUrl("~/Default.aspx")%>">Home</a></li>
+                            <li><a href="<%= ResolveUrl("~/About.aspx")%>">About </a></li>
+                            <li><a href="<%= ResolveUrl("~/Secure/Course/Courses.aspx")%>">Courses </a></li>
+                            <li><a href="<%= ResolveUrl("~/Contact.aspx")%>">Contact</a></li>
+                            <li><a href="<%= ResolveUrl("~/Public/UserRegistration.aspx")%>">Register</a></li>
                         </ul>
-                    </div> 
                     </div>
+                </div>
             </div>
         </header>
         <div id="body">
@@ -60,50 +62,10 @@
         </div>
         <footer>
             <div class="footer-wrap">
-                <%--<div class="footer">
-                    <div class="content mar-right30">
-                        <h1>Useful links</h1>
-                        <ul>
-                            <li>Curabitur euismod risus vitaesl facilisis vitae</li>
-                            <li>Aenean sed nunc id metus pulvinar rutrum</li>
-                            <li class="bdr-bottom-none">Fusce vitae ante nisi, eleifend lobortis diam</li>
-                        </ul>
-                    </div>
-                    <div class="content  mar-right30 padding-right">
-                        <h1>Newsletter</h1>
-                        <p>Curabitur euismod risus vitaesl facilisis vitae Aenean sed nunc id metus</p>
-                        <div class="newsletter">
-                            <input name="" type="text" class="nl-textfiled" />
-                            <img src="<%= ResolveUrl("~/Content/images/signupbt.jpg")%>" alt="signup" />
-                        </div>
-                    </div>
-                    <div class="content">
-                        <h1>Follow us</h1>
-                        <div class="social">
-                            <ul>
-                                <li><a href="#">
-                                    <img src="<%= ResolveUrl("~/Content/images/aim.png")%>" alt="aim" /></a></li>
-                                <li><a href="#">
-                                    <img src="<%= ResolveUrl("~/Content/images/facebook.png")%>" alt="aim" /></a></li>
-                                <li><a href="#">
-                                    <img src="<%= ResolveUrl("~/Content/images/tiwter.png")%>" alt="aim" /></a></li>
-                                <li><a href="#">
-                                    <img src="<%= ResolveUrl("~/Content/images/linkedin.png")%>" alt="aim" /></a></li>
-                            </ul>
-                        </div>
-                        <p class="mar-top30">
-                            Mail Us<br />
-                            <a href="mailto:info@businessname.com">info@businessname.com</a>
-                        </p>
-                    </div>
-                    <div class="clearing"></div>
-                </div>--%>
-                <%--<div class="clearing"></div>--%>
-                <%--<div class="clearing"></div>--%>
                 <div class="footer">
-                        <div>
-                            <p>Copyright (c) <%= DateTime.Now.Year %> CalendarOne Pte. Ltd. All rights reserved. </p>
-                        </div>
+                    <div>
+                        <p>Copyright (c) <%= DateTime.Now.Year %> CalendarOne Pte. Ltd. All rights reserved. </p>
+                    </div>
                 </div>
             </div>
         </footer>

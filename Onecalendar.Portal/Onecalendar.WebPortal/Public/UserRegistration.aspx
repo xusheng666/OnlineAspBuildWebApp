@@ -6,6 +6,11 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <div class="page mar-top30">
+        <div class="title">
+            <h1>User Register</h1>
+            <br />
+            <h2></h2>
+        </div>
         <div class="content">
             <div class="contact-form">
                 <label>
