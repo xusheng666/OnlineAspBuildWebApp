@@ -156,10 +156,6 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="Contact.aspx" />
-    <Content Include="Content\css\bootstrap-theme.css" />
-    <Content Include="Content\css\bootstrap-theme.min.css" />
-    <Content Include="Content\css\bootstrap.css" />
-    <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\onecalendar.css" />
     <Content Include="Content\css\styles.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
@@ -255,6 +251,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="packages.config" />
+    <Content Include="Public\Login\Logout.aspx" />
     <Content Include="Secure\Course\Courses.aspx" />
     <Content Include="Config\SIT_AppSettings.config" />
     <Content Include="Config\ConnectionStrings.config" />
@@ -297,11 +294,12 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="CustomControl\SideBarCustControl.ascx" />
-    <Content Include="Public\Login\LoginSignup.aspx" />
+    <Content Include="Public\Login\Login.aspx" />
     <Content Include="Secure\Course\AddCourse.aspx" />
     <Content Include="Secure\User\UserManage.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
+    <Content Include="Web.sitemap" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -373,12 +371,19 @@
     <Compile Include="CustomControl\SideBarCustControl.ascx.designer.cs">
       <DependentUpon>SideBarCustControl.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Public\Login\LoginSignup.aspx.cs">
-      <DependentUpon>LoginSignup.aspx</DependentUpon>
+    <Compile Include="Public\Login\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Public\Login\LoginSignup.aspx.designer.cs">
-      <DependentUpon>LoginSignup.aspx</DependentUpon>
+    <Compile Include="Public\Login\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Public\Login\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Public\Login\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Public\UserRegistration.aspx.cs">
       <DependentUpon>UserRegistration.aspx</DependentUpon>
@@ -424,6 +429,7 @@
     <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SiteMap.sitemap" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -34,37 +34,51 @@
     
     <div class="page">
         <div class="primary-col">
-            <%--<div class="generic">
-                <div class=" panel">
+            <div class="generic">
+                <div class="panel">
                     <div class="title">
-                        <h1>Below are list of avaiable courses:</h1>
-                    </div>
-                </div>
-            </div>--%>
-            <div class="clearing"></div>
-            <div class="wrap-1">
-                    
-                <div class="title">
                         <h1>Avaiable Courses</h1>
                     </div>
-                
-                <asp:ListView runat="server" ID="lvCourses">
-                  <LayoutTemplate>
-                    <table runat="server" id="table1" >
-                      <tr runat="server" id="itemPlaceholder" ></tr>
-                    </table>
-                  </LayoutTemplate>
-                  <ItemTemplate>
-                      <tr runat="server">
-                          <td runat="server">
-                              <div class="content mar-top30">
-                                  <img src="Content/images/img7.jpg" alt="image" class="float-left mar-right30" />
-                                  <h2><%#Eval("COURSE_NAME") %></h2>
-                                  <p><%#Eval("COURSE_DETAIL") %></p>
-                              </div>
-                          </td>
-                      </tr>
-                  </ItemTemplate>
+                </div>
+            </div>
+            <div class="clearing"></div>
+            <div class="wrap-1">
+                <asp:ListView runat="server" ID="lvCourses" OnPagePropertiesChanging="OnPagePropertiesChanging"
+                    GroupPlaceholderID="groupPlaceHolder1" ItemPlaceholderID="itemPlaceHolder1">
+                    <LayoutTemplate>
+                        <table>
+                            <%--<tr runat="server" id="itemPlaceholder"></tr>--%>
+                            <asp:PlaceHolder runat="server" ID="groupPlaceHolder1"></asp:PlaceHolder>
+                            <tr>
+                                <td colspan="3">
+                                    <asp:DataPager ID="DataPager1" runat="server" PagedControlID="lvCourses" PageSize="4">
+                                        <Fields>
+                                            <asp:NextPreviousPagerField ButtonType="Link" ShowFirstPageButton="false" ShowPreviousPageButton="true"
+                                                ShowNextPageButton="false" />
+                                            <asp:NumericPagerField ButtonType="Link" />
+                                            <asp:NextPreviousPagerField ButtonType="Link" ShowNextPageButton="true" ShowLastPageButton="false" ShowPreviousPageButton="false" />
+                                        </Fields>
+                                    </asp:DataPager>
+                                </td>
+                            </tr>
+                        </table>
+                    </LayoutTemplate>
+                    <GroupTemplate>
+                        <tr>
+                            <asp:PlaceHolder runat="server" ID="itemPlaceHolder1"></asp:PlaceHolder>
+                        </tr>
+                    </GroupTemplate>
+                    <ItemTemplate>
+                        <tr runat="server">
+                            <td runat="server">
+                                <div class="content mar-top30">
+                                    <img src="Content/images/img7.jpg" alt="image" class="float-left mar-right30" />
+                                    <h2><%#Eval("COURSE_NAME") %></h2>
+                                    <p><%#Eval("COURSE_DETAIL") %></p>
+                                </div>
+                            </td>
+                        </tr>
+                    </ItemTemplate>
                 </asp:ListView>
             </div>
             <%--<div class="generic bdr-bottom-none">

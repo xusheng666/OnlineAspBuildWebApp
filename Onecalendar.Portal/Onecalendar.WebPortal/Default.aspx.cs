@@ -14,6 +14,20 @@ namespace Onecalendar.WebPortal
         CourseBCService _bc = new CourseBCService();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!this.IsPostBack)
+            {
+                this.BindListView();
+            }
+        }
+
+        protected void OnPagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
+        {
+            (lvCourses.FindControl("DataPager1") as DataPager).SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
+            this.BindListView();
+        }
+
+        private void BindListView()
+        {
             DataTable dt = _bc.getAllCourses() as DataTable;
 
             this.lvCourses.DataSource = dt;

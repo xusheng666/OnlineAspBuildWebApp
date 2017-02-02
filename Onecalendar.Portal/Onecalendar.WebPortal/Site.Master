@@ -41,16 +41,37 @@
                     </div>
 
                 </div>
+                <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" SiteMapProvider="AspXmlSiteMapProvider"
+                    ShowStartingNode="false" />
                 <div class="menu-wrap">
                     <div class="menu">
-                        <ul>
-                            <li><a href="<%= ResolveUrl("~/Default.aspx")%>">Home</a></li>
+
+                        <div style="z-index: 1000;float:left;">
+                            <asp:Menu ID="NavigationMenu" runat="server" CssClass="NAVMENU" EnableViewState="false"
+                                IncludeStyleBlock="false" Orientation="Horizontal" DataSourceID="SiteMapDataSource1"
+                                StaticDisplayLevels="1" MaximumDynamicDisplayLevels="1" Style="top: -1px;" OnMenuItemDataBound="NavigationMenu_MenuItemDataBound" />
+                             </div>
+                        
+                            <%--<li><a href="<%= ResolveUrl("~/Default.aspx")%>">Home</a></li>
                             <li><a href="<%= ResolveUrl("~/About.aspx")%>">About </a></li>
                             <li><a href="<%= ResolveUrl("~/Secure/Course/Courses.aspx")%>">Courses </a></li>
                             <li><a href="<%= ResolveUrl("~/Contact.aspx")%>">Contact</a></li>
-                            <li><a href="<%= ResolveUrl("~/Public/UserRegistration.aspx")%>">Register</a></li>
-                        </ul>
+                            <li><a href="<%= ResolveUrl("~/Public/UserRegistration.aspx")%>">Register</a></li>--%>
+                       
+                        
                     </div>
+                    <div style="float:right;margin-top:10px;margin-right:20%;position:relative;">
+                            <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+
+                            <LoggedInTemplate>
+                                <asp:LoginName ID="HeadLoginName" runat="server" />
+                                <!--<asp:HyperLink ID="ProfileLink" runat="server" NavigateUrl="~/Secure/MaintainPersonalUserProfile.aspx">profile</asp:HyperLink>-->
+                                [
+                            <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out"
+                                LogoutPageUrl="~/Public/Login/Logout.aspx" />
+                                ]</span>
+                            </LoggedInTemplate>
+                        </asp:LoginView></div>
                 </div>
             </div>
         </header>

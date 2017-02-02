@@ -35,6 +35,8 @@ namespace Onecalendar.WebPortal.Public
                 userDS.T_CMN001_USER.AddT_CMN001_USERRow(userRow);
                 _bc.SaveUser(userDS);
                 //this.msgTxt.Text = "Successful!";
+
+                Response.Redirect("~/Public/Login/Login.aspx");
             }
         }
     }
