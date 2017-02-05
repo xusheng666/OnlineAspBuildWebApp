@@ -21,18 +21,19 @@ namespace Onecalendar.WebPortal.Secure.Course
                 if (!String.IsNullOrEmpty(courseId))
                 {
                     DataTable course = _bc.getCourseById(courseId);
-                    if (course.Rows.Count>0)
+                    if (course.Rows.Count > 0)
                     {
                         courseName.Text = course.Rows[0]["COURSE_NAME"].ToString();
                         description.Text = course.Rows[0]["COURSE_DETAIL"].ToString();
                         this.image.ImageUrl = course.Rows[0]["COURSE_IMAGEPATH"].ToString();
+
+                        this.EventDataBind();
                     }
                     else
                     {
                         ShowMessage("No Course Found!", MessageSeverity.Information);
                     }
                 }
-                
             }
         }
 
@@ -60,37 +61,144 @@ namespace Onecalendar.WebPortal.Secure.Course
 
                 Response.Redirect("~/Secure/Course/Courses.aspx");
             }
-           
         }
 
+        protected void EventDataBind()
+        {
+            string courseId = ViewState["CourseId"].ToString();
+
+            // Create Data Table
+            DataTable dt = new DataTable();
+            dt.Columns.Add("COURSEEVENTID", typeof(string));
+            dt.Columns.Add("SCHEDULE", typeof(string));
+            dt.Columns.Add("LOCATION", typeof(string));
+            dt.Columns.Add("PRICE", typeof(string));
+
+            // fetch the events under this course
+            DataTable courseEvents = _bc.getCourseEventByCourseId(courseId);
+            if (courseEvents.Rows.Count == 0)
+            {
+                dt.Rows.Add(dt.NewRow());// to display the gridview
+                gvwCourseEvents.DataSource = dt;
+                gvwCourseEvents.DataBind();
+
+                gvwCourseEvents.Columns[4].Visible = false;
+                foreach (GridViewRow row in gvwCourseEvents.Rows)
+                {
+                    if (row.RowType == DataControlRowType.DataRow)
+                    {
+                        LinkButton lb = ((LinkButton)row.FindControl("lnkRemove"));
+                        lb.Visible = false;
+                    }
+                }
+            }
+            else
+            {// for have existing records
+                foreach (DataRow item in courseEvents.Rows)
+                {
+                    dt.Rows.Add(item["COURSEEVENTID"], item["SCHEDULE"],item["LOCATION"], item["Price"]);
+                }
+
+                this.gvwCourseEvents.DataSource = courseEvents;
+                this.gvwCourseEvents.DataBind();
+
+                if (gvwCourseEvents.Rows.Count > 0)
+                {
+                    gvwCourseEvents.UseAccessibleHeader = true;
+                    gvwCourseEvents.HeaderRow.TableSection = TableRowSection.TableHeader;
+                }
+
+                gvwCourseEvents.Columns[4].Visible = true;
+            }
+        }
+
+        #region
+        /// <summary>
+        /// 
+        /// below are for the gridview controls
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        // This event is raised when the Cancel button of a row in edit mode is clicked, 
+        //but before the row exits edit mode
         protected void gvwDash_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
-
-        }
-
-        protected void gvwDash_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-
+            gvwCourseEvents.EditIndex = -1;
+            EventDataBind();
         }
 
         protected void gvwDash_RowEditing(object sender, GridViewEditEventArgs e)
         {
-
+            gvwCourseEvents.EditIndex = e.NewEditIndex;
+            EventDataBind();
         }
 
+        // Adding new Event
+        protected void AddNewEvent(object sender, EventArgs e)
+        {
+            string eventSchedule = ((TextBox)gvwCourseEvents.FooterRow.FindControl("txtNewSchedule")).Text;
+            string eventLocation = ((TextBox)gvwCourseEvents.FooterRow.FindControl("txtNewLocation")).Text;
+            string eventPrice = ((TextBox)gvwCourseEvents.FooterRow.FindControl("txtNewPrice")).Text;
+
+            // below to add new event
+            string courseId = ViewState["CourseId"].ToString();
+            BIZCourseDataSet courseDS = new BIZCourseDataSet();
+            BIZCourseDataSet.T_BIZ002_COURSE_EVENTRow courseRow = courseDS.T_BIZ002_COURSE_EVENT.NewT_BIZ002_COURSE_EVENTRow();
+            courseRow.COURSEEVENTID = Utility.NewDataKey();
+            courseRow.COURSEID = courseId;
+            courseRow.SCHEDULE = eventSchedule;
+            courseRow.LOCATION = eventLocation;
+            courseRow.PRICE = eventPrice;
+
+            Utility.UpdateCommonFields(courseRow);
+            courseDS.T_BIZ002_COURSE_EVENT.AddT_BIZ002_COURSE_EVENTRow(courseRow);
+
+            _bc.UpdateTable(courseDS.T_BIZ002_COURSE_EVENT);
+            // end of add new event
+
+            // Rebind Grid view
+            this.EventDataBind();
+        }
+
+        // Updating a event
         protected void gvwDash_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
+            string eventId = ((Label)gvwCourseEvents.Rows[e.RowIndex].FindControl("txtEventId")).Text;
+            string eventSchedule = ((TextBox)gvwCourseEvents.Rows[e.RowIndex].FindControl("txtSchedule")).Text;
+            string eventLocation = ((TextBox)gvwCourseEvents.Rows[e.RowIndex].FindControl("txtLocation")).Text;
+            string eventPrice = ((TextBox)gvwCourseEvents.Rows[e.RowIndex].FindControl("txtPrice")).Text;
 
+            // update event start
+            BIZCourseDataSet eventDS = _bc.getEventDataSetById(eventId);
+
+            BIZCourseDataSet.T_BIZ002_COURSE_EVENTRow eventRow = (BIZCourseDataSet.T_BIZ002_COURSE_EVENTRow)eventDS.T_BIZ002_COURSE_EVENT.Rows[0];
+            eventRow.SCHEDULE = eventSchedule;
+            eventRow.LOCATION = eventLocation;
+            eventRow.PRICE = eventPrice;
+
+            _bc.UpdateTable(eventDS.T_BIZ002_COURSE_EVENT);
+            // end of add new event
+
+            gvwCourseEvents.EditIndex = -1;
+            // Rebind Grid view
+            this.EventDataBind();
         }
 
-        protected void gvwDash_RowCommand(object sender, GridViewCommandEventArgs e)
+        // Deleting event
+        protected void DeleteEvent(object sender, EventArgs e)
         {
+            LinkButton lnkRemove = (LinkButton)sender;
+            String eventId = lnkRemove.CommandArgument;
 
+            _bc.DeleteCourseEventByID(eventId);
+            // Rebind Grid view
+            this.EventDataBind();
         }
+        #endregion
 
-        protected void gvwDash_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        protected void btnBackCourses_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Secure/Course/Courses.aspx");
         }
     }
 }

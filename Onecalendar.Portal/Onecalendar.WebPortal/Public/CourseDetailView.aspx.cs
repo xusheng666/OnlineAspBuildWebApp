@@ -19,11 +19,21 @@ namespace Onecalendar.WebPortal.Public
                 if (!String.IsNullOrEmpty(courseId))
                 {
                     DataTable course = _bc.getCourseById(courseId);
+
                     if (course.Rows.Count>0)
                     {
                         courseName.Text = course.Rows[0]["COURSE_NAME"].ToString();
                         description.Text = course.Rows[0]["COURSE_DETAIL"].ToString();
                         this.image.ImageUrl = course.Rows[0]["COURSE_IMAGEPATH"].ToString();
+
+                        // fetch the events under this course
+                        DataTable courseEvents = _bc.getCourseEventByCourseId(courseId);
+                        if (courseEvents.Rows.Count==0)
+                        {
+                            courseEvents = new DataTable();
+                        }
+                        this.gvwCourseEvents.DataSource = courseEvents;
+                        this.gvwCourseEvents.DataBind();
                     }
                     else
                     {

@@ -145,12 +145,12 @@ CONTACT FORM CLASSS
 Course FORM CLASSS
 -------------------------------------------------*/
 
-.course-form { background:#f1f1f1; padding:30px; width:640px; float:left; margin-bottom:50px; float:left;}
+.course-form { background:#f1f1f1; padding:30px; width:740px; float:left; margin-bottom:50px; float:left;}
 .course-form label {display: block; padding:10px 0 10px 0;}
 .course-form label span {display: block; color:#939191;font-size:14px; float:left; width:120px; text-align:left; padding:5px 20px 0 0;}
 .img {margin:10px 0px;}
-.course-form .input_text {padding:10px 10px;width:360px;background:#ffffff;border:0px solid; color:#939191;}
-.course-form .message{padding:10px 10px;width:360px; background:#ffffff; border:0px solid;overflow:hidden;height:150px; color:#939191; font-size:14px;}
+.course-form .input_text {padding:10px 10px;width:460px;background:#ffffff;border:0px solid; color:#939191;}
+.course-form .message{padding:10px 10px;width:460px; background:#ffffff; border:0px solid;overflow:hidden;height:150px; color:#939191; font-size:14px;}
 .course-form .button{padding:4px 7px;background:#66a7c5; color:#ffffff; text-transform:uppercase; font-family:'Oswald', sans-serif;border:0px solid;margin-left:140px;margin-top:20px;}
 
 

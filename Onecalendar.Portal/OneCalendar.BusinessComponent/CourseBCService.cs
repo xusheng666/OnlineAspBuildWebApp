@@ -29,5 +29,20 @@ namespace OneCalendar.BusinessComponent
         {
             _da.DeleteCourseByID(courseid);
         }
+
+        public DataTable getCourseEventByCourseId(string courseId)
+        {
+            return _da.getCourseEventByCourseId(courseId);
+        }
+
+        public BIZCourseDataSet getEventDataSetById(string eventId)
+        {
+            return _da.getEventDataSetById(eventId);
+        }
+
+        public void DeleteCourseEventByID(String eventId)
+        {
+            _da.DeleteCourseEventByID(eventId);
+        }
     }
 }

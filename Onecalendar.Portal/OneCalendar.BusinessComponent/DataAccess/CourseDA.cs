@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Onecalendar.BusinessEntity;
+using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +20,11 @@ namespace OneCalendar.BusinessComponent.DataAccess
             return QueryDataTableWithParameters(SPNameConstants.P_QUERY_COURSE_BY_ID_FOR_VIEW, courseID);
         }
 
+        public DataTable getCourseEventByCourseId(String courseID)
+        {
+            return QueryDataTableWithParameters(SPNameConstants.P_QUERY_COURSE_EVENTS_BY_ID_FOR_VIEW, courseID);
+        }
+
         public void DeleteCourseByID(String courseID)
         {
             UpdateSPWithParameters(SPNameConstants.P_DELETE_COURSE_BY_ID, courseID);
@@ -26,6 +33,20 @@ namespace OneCalendar.BusinessComponent.DataAccess
         public DataSet getCourseDataSetById(String courseID)
         {
             return QueryDataSetWithParameters(SPNameConstants.P_QUERY_COURSE_BY_ID_FOR_VIEW, courseID);
+        }
+
+        public Onecalendar.BusinessEntity.BIZCourseDataSet getEventDataSetById(string eventId)
+        {
+            BIZCourseDataSet ds = new BIZCourseDataSet();
+            DbCommand cmd = this.Helper.BuildDbCommand(SPNameConstants.P_QUERY_EVENT_BY_EVENT_ID);
+            this.Helper.AssignParameterValues(cmd, eventId);
+            this.Helper.Fill(ds.T_BIZ002_COURSE_EVENT, cmd);
+            return ds;
+        }
+
+        internal void DeleteCourseEventByID(string eventId)
+        {
+            UpdateSPWithParameters(SPNameConstants.P_DELETE_COURSE_EVENT_BY_ID, eventId);
         }
     }
 }

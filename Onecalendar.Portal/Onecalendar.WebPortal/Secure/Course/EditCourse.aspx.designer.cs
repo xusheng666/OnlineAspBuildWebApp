@@ -49,6 +49,24 @@ namespace Onecalendar.WebPortal.Secure.Course {
         protected global::System.Web.UI.WebControls.TextBox description;
         
         /// <summary>
+        /// UpdatePanelCR control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelCR;
+        
+        /// <summary>
+        /// gvwCourseEvents control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvwCourseEvents;
+        
+        /// <summary>
         /// btnUpdateCourse control.
         /// </summary>
         /// <remarks>
@@ -58,12 +76,12 @@ namespace Onecalendar.WebPortal.Secure.Course {
         protected global::System.Web.UI.WebControls.Button btnUpdateCourse;
         
         /// <summary>
-        /// gvwDash control.
+        /// btnBackCourses control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvwDash;
+        protected global::System.Web.UI.WebControls.Button btnBackCourses;
     }
 }

@@ -26,6 +26,20 @@
                     <span>Description</span>
                     <asp:Label TextMode="MultiLine" ID="description" class="message" runat="server" />
                 </label>
+                <label>
+                    <span style="width:50%;margin:10px 0px;">Events under this course:</span>
+                </label>
+                <label>
+                    <asp:GridView CssClass="gridview" ID="gvwCourseEvents" runat="server" Visible="true"
+                        ShowHeaderEmpty="true" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false" Width="90%">
+                        <Columns>
+                            <asp:BoundField DataField="SCHEDULE" HeaderText="Schedule" />
+                            <asp:BoundField DataField="LOCATION" HeaderText="Location" />
+                            <asp:BoundField DataField="PRICE" HeaderText="Price (S$)" />
+                        </Columns>
+                        <EmptyDataTemplate>No Record Available</EmptyDataTemplate>
+                    </asp:GridView>
+                </label>
                 <asp:Button runat="server" ID="btnBackHome" class="button" Text="Go Home" OnClick="btnBackHome_Click" />
             </div>
         </div>
