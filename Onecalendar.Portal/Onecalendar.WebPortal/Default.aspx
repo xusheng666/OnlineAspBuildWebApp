@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Onecalendar.WebPortal._Default" %>
+
 <%@ Register Src="~/CustomControl/SideBarCustControl.ascx" TagPrefix="uc1" TagName="SideBarCustControl" %>
 <asp:Content runat="server" ID="FeaturedContent" ContentPlaceHolderID="FeaturedContent">
     <%-- below for slides show in the home page --%>
@@ -31,22 +32,29 @@
     </section>--%>
 </asp:Content>
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    
+
     <div class="page">
         <div class="primary-col">
             <div class="generic">
                 <div class="panel">
-                    <div class="title">
+                    <div class="title" style="float: left;">
                         <h1>Avaiable Courses</h1>
                     </div>
+                    <div style="float: right;">
+                        <div class="searchtext">
+                            <asp:TextBox ID="searchKey" runat="server" type="text" name="s" value="" placeholder="Search" CssClass="searchtext" />
+                        </div>
+                        <a><img src="<%= ResolveUrl("~/Content/images/search-bt.jpg")%>" alt="search" /></a>
+                    </div>
                 </div>
+                <hr />
             </div>
             <div class="clearing"></div>
             <div class="wrap-1">
                 <asp:ListView runat="server" ID="lvCourses" OnPagePropertiesChanging="OnPagePropertiesChanging"
-                    GroupPlaceholderID="groupPlaceHolder1" ItemPlaceholderID="itemPlaceHolder1">
+                    GroupPlaceholderID="groupPlaceHolder1" ItemPlaceholderID="itemPlaceHolder1"  OnItemCommand="lvCourses_ItemCommand" >
                     <LayoutTemplate>
-                        <table>
+                        <table style="width:100%;">
                             <%--<tr runat="server" id="itemPlaceholder"></tr>--%>
                             <asp:PlaceHolder runat="server" ID="groupPlaceHolder1"></asp:PlaceHolder>
                             <tr>
@@ -72,8 +80,8 @@
                         <tr runat="server">
                             <td runat="server">
                                 <div class="content mar-top30">
-                                    <img src="Content/images/img7.jpg" alt="image" class="float-left mar-right30" />
-                                    <h2><%#Eval("COURSE_NAME") %></h2>
+                                    <img src="<%#Eval("COURSE_IMAGEPATH")%>" alt="image" class="float-left mar-right30 imgdisplay" />
+                                    <asp:LinkButton ID="courseName" runat="server" CommandName="view" CommandArgument='<%#Eval("COURSEID")%>'><h2><%#Eval("COURSE_NAME") %></h2></asp:LinkButton>
                                     <p><%#Eval("COURSE_DETAIL") %></p>
                                 </div>
                             </td>
@@ -99,7 +107,7 @@
             <div class="clearing"></div>
         </div>
         <!---primary-col--->
-        <uc1:sidebarcustcontrol runat="server" id="SideBarCustControl" />
+        <uc1:SideBarCustControl runat="server" ID="SideBarCustControl" />
         <!---side-bar--->
         <div class="clearing"></div>
     </div>

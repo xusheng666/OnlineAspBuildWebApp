@@ -7,6 +7,7 @@ using System.Text;
 using Microsoft.Practices.EnterpriseLibrary.Data.Configuration;
 using System.Reflection;
 using System.Data;
+using Onecalendar.BusinessEntity;
 
 namespace OneCalendar.BusinessComponent
 {
@@ -146,6 +147,16 @@ namespace OneCalendar.BusinessComponent
                 throw new NotImplementedException("Parameters more than 3 is not implemented yet!");
             }
             return dt;
+        }
+
+        // below is the general query method with dynamic parameters passed in up to 3
+        public DataSet QueryDataSetWithParameters(string SPName, params string[] paramsArray)
+        {
+            BIZCourseDataSet ds = new BIZCourseDataSet();
+            DbCommand cmd = this.Helper.BuildDbCommand(SPName);
+            this.Helper.AssignParameterValues(cmd, paramsArray[0]);
+            this.Helper.Fill(ds.T_BIZ001_COURSE, cmd);
+            return ds;
         }
     }
 }

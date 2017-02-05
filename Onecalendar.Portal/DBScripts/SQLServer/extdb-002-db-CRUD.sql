@@ -25,7 +25,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 22-01-2017
+Date    : 05-02-2017
 Desc    : Insert record into T_CMN001_USER
 Returns: 0 if successful, else SQL error code
 
@@ -128,7 +128,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 22-01-2017
+Date    : 05-02-2017
 Desc    : Update records to T_CMN001_USER
 Returns: 0 if successful, else SQL error code
 
@@ -205,7 +205,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 22-01-2017
+Date    : 05-02-2017
 Desc    : Delete records from T_CMN001_USER
 Returns: 0 if successful, else SQL error code
 
@@ -288,7 +288,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 22-01-2017
+Date    : 05-02-2017
 Desc    : Retrieves records from T_CMN001_USER
 Returns: 0 if successful, else SQL error code
 
@@ -351,19 +351,19 @@ BEGIN
 END
 SET XACT_ABORT OFF
 GO
------------------------------------------- 
--- below is for business tables;
-------------------------------------------
-IF OBJECT_ID( 'dbo.P_BIZ001_COURSE_I', 'P' ) IS NOT NULL
-    DROP  PROCEDURE  dbo.P_BIZ001_COURSE_I
+  
+
+IF OBJECT_ID( 'dbo.P_BIZ002_COURSE_EVENT_I', 'P' ) IS NOT NULL
+    DROP  PROCEDURE  dbo.P_BIZ002_COURSE_EVENT_I
 GO
 
-CREATE PROCEDURE P_BIZ001_COURSE_I
+CREATE PROCEDURE P_BIZ002_COURSE_EVENT_I
 (
+  @p_courseeventid nvarchar(36),
   @p_courseid nvarchar(36),
-  @p_userid nvarchar(36),
-  @p_course_name nvarchar(66),
-  @p_course_detail nvarchar(2000),
+  @p_schedule nvarchar(500),
+  @p_location nvarchar(500),
+  @p_price nvarchar(50),
   @p_created_by nvarchar(256),
   @p_created_time datetime,
   @p_transaction_id varchar(50)
@@ -374,7 +374,322 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 30-01-2017
+Date    : 05-02-2017
+Desc    : Insert record into T_BIZ002_COURSE_EVENT
+Returns: 0 if successful, else SQL error code
+
+Change Revision
+-----------------------------------------------------
+Date           Author            Remark
+
+*/
+
+-- do your settings here...
+SET NOCOUNT ON
+--It will stop stored procedure when there is error, but if the stored procedure will be called by others, the caller stored procedure should check the return value.
+--For example, 
+/*
+	--Application ID Validation and Retrieval
+	EXEC @v_error = P_IC_APP_GET_ID @p_app_name, @v_app_id OUTPUT
+	IF @v_error <> 0 RETURN  @v_error
+
+*/
+SET XACT_ABORT ON
+
+-- declare and initialize local variables here... 
+
+-- do your business transaction   
+BEGIN
+
+    INSERT INTO T_BIZ002_COURSE_EVENT
+    (
+      COURSEEVENTID,
+      COURSEID,
+      SCHEDULE,
+      LOCATION,
+      PRICE,
+      CREATED_BY,
+      CREATED_TIME,
+      LAST_UPDATED_BY,
+      LAST_UPDATED_TIME,
+      VERSION_NO,
+      TRANSACTION_ID
+    )
+    VALUES 
+    (
+	  @p_courseeventid,
+	  @p_courseid,
+	  @p_schedule,
+	  @p_location,
+	  @p_price,
+	  @p_created_by,
+	  @p_created_time,
+	  @p_created_by,
+	  @p_created_time,
+	  1,
+	  @p_transaction_id
+    )
+   
+    
+    
+    --Recommend when the stored procedure will be called by other stored procedure
+    RETURN @@ERROR
+END 
+SET NOCOUNT OFF
+SET XACT_ABORT OFF
+GO
+  
+
+IF OBJECT_ID( 'dbo.P_BIZ002_COURSE_EVENT_U', 'P' ) IS NOT NULL
+  DROP  PROCEDURE  dbo.P_BIZ002_COURSE_EVENT_U
+GO
+
+CREATE PROCEDURE P_BIZ002_COURSE_EVENT_U
+(
+	@o_courseeventid nvarchar(36),
+	@p_courseid nvarchar(36),
+	@p_schedule nvarchar(500),
+	@p_location nvarchar(500),
+	@p_price nvarchar(50),
+	@p_last_updated_by nvarchar(256),
+	@p_last_updated_time datetime,
+	@o_version_no int,
+	@p_transaction_id varchar(50)
+)
+
+AS
+	
+/*
+Module  : 
+Author  : SQL Generator
+Date    : 05-02-2017
+Desc    : Update records to T_BIZ002_COURSE_EVENT
+Returns: 0 if successful, else SQL error code
+
+Change Revision
+-----------------------------------------------------
+Date           Author            Remark
+
+*/
+
+-- do your settings here...
+SET NOCOUNT ON
+--It will stop stored procedure when there is error, but if the stored procedure will be called by others, the caller stored procedure should check the return value.
+--For example, 
+/*
+	--Application ID Validation and Retrieval
+	EXEC @v_error = P_IC_APP_GET_ID @p_app_name, @v_app_id OUTPUT
+	IF @v_error <> 0 RETURN  @v_error
+
+*/
+SET XACT_ABORT ON
+
+-- declare and initialize local variables here...
+
+-- do your business transaction
+BEGIN
+    UPDATE T_BIZ002_COURSE_EVENT
+    SET COURSEID = @p_courseid,
+        SCHEDULE = @p_schedule,
+        LOCATION = @p_location,
+        PRICE = @p_price,
+        LAST_UPDATED_BY = @p_last_updated_by,
+        LAST_UPDATED_TIME = @p_last_updated_time,
+        VERSION_NO = VERSION_NO+1,
+        TRANSACTION_ID = @p_transaction_id
+        
+    WHERE COURSEEVENTID  = @o_courseeventid
+    AND VERSION_NO  = @o_version_no
+    ;
+
+    IF @@ROWCOUNT = 0
+    BEGIN
+        RAISERROR('ConcurrentUpdated', 16, 1)
+
+        --Recommend when the stored procedure will be called by other stored procedure
+        RETURN @@ERROR
+    END
+
+END
+
+SET NOCOUNT OFF
+SET XACT_ABORT OFF
+GO
+  
+
+IF OBJECT_ID( 'dbo.P_BIZ002_COURSE_EVENT_D', 'P' ) IS NOT NULL
+    DROP  PROCEDURE  dbo.P_BIZ002_COURSE_EVENT_D
+GO
+
+CREATE PROCEDURE P_BIZ002_COURSE_EVENT_D
+(
+	@o_courseeventid nvarchar(36),
+	@p_last_updated_by nvarchar(256),
+	@p_last_updated_time datetime,
+	@o_version_no int,
+	@p_transaction_id varchar(50)
+)
+AS
+
+/*
+Module  : 
+Author  : SQL Generator
+Date    : 05-02-2017
+Desc    : Delete records from T_BIZ002_COURSE_EVENT
+Returns: 0 if successful, else SQL error code
+
+Change Revision
+-----------------------------------------------------
+Date           Author            Remark
+
+*/
+
+-- do your settings here...
+SET NOCOUNT ON
+--It will stop stored procedure when there is error, but if the stored procedure will be called by others, the caller stored procedure should check the return value.
+--For example, 
+/*
+	--Application ID Validation and Retrieval
+	EXEC @v_error = P_IC_APP_GET_ID @p_app_name, @v_app_id OUTPUT
+	IF @v_error <> 0 RETURN  @v_error
+
+*/
+SET XACT_ABORT ON
+
+-- declare and initialize local variables here...
+
+-- do your business transaction
+BEGIN
+    --Update transaction id to current transaction id, then, trigger can log data correctly for audit trail.
+    UPDATE T_BIZ002_COURSE_EVENT
+	  SET LAST_UPDATED_BY = @p_last_updated_by,
+        LAST_UPDATED_TIME = @p_last_updated_time,
+        TRANSACTION_ID = @p_transaction_id
+        
+    WHERE COURSEEVENTID  = @o_courseeventid
+    AND VERSION_NO  = @o_version_no
+    ;
+
+    DELETE FROM T_BIZ002_COURSE_EVENT
+    WHERE COURSEEVENTID  = @o_courseeventid
+    AND VERSION_NO  = @o_version_no
+    ;
+
+    IF @@ROWCOUNT = 0
+    BEGIN
+        RAISERROR('ConcurrentUpdated', 16, 1)
+      
+        --Recommend when the stored procedure will be called by other stored procedure
+        RETURN @@ERROR
+    END
+    
+END
+SET NOCOUNT OFF
+SET XACT_ABORT OFF
+
+GO
+  
+
+IF OBJECT_ID( 'dbo.P_BIZ002_COURSE_EVENT_S', 'P' ) IS NOT NULL
+  DROP  PROCEDURE  dbo.P_BIZ002_COURSE_EVENT_S
+GO
+
+CREATE PROCEDURE P_BIZ002_COURSE_EVENT_S
+(
+  @p_courseeventid nvarchar(36),
+  @p_courseid nvarchar(36),
+  @p_schedule nvarchar(500),
+  @p_location nvarchar(500),
+  @p_price nvarchar(50),
+  @p_created_by nvarchar(256),
+  @p_created_time datetime,
+  @p_last_updated_by nvarchar(256),
+  @p_last_updated_time datetime,
+  @p_version_no int,
+  @p_transaction_id varchar(50)
+)
+AS
+/*
+Module  : 
+Author  : SQL Generator
+Date    : 05-02-2017
+Desc    : Retrieves records from T_BIZ002_COURSE_EVENT
+Returns: 0 if successful, else SQL error code
+
+Change Revision
+-----------------------------------------------------
+Date           Author            Remark
+
+*/
+
+--It will stop stored procedure when there is error, but if the stored procedure will be called by others, the caller stored procedure should check the return value.
+--For example, 
+/*
+	--Application ID Validation and Retrieval
+	EXEC @v_error = P_IC_APP_GET_ID @p_app_name, @v_app_id OUTPUT
+	IF @v_error <> 0 RETURN  @v_error
+
+*/
+SET XACT_ABORT ON
+
+BEGIN
+    SELECT 
+      t.COURSEEVENTID,
+      t.COURSEID,
+      t.SCHEDULE,
+      t.LOCATION,
+      t.PRICE,
+      t.CREATED_BY,
+      t.CREATED_TIME,
+      t.LAST_UPDATED_BY,
+      t.LAST_UPDATED_TIME,
+      t.VERSION_NO,
+      t.TRANSACTION_ID
+    FROM T_BIZ002_COURSE_EVENT t
+    WHERE COURSEEVENTID  = @p_courseeventid
+    AND COURSEID  = @p_courseid
+    AND SCHEDULE  = @p_schedule
+    AND LOCATION  = @p_location
+    AND PRICE  = @p_price
+    AND CREATED_BY  = @p_created_by
+    AND CREATED_TIME  = @p_created_time
+    AND LAST_UPDATED_BY  = @p_last_updated_by
+    AND LAST_UPDATED_TIME  = @p_last_updated_time
+    AND VERSION_NO  = @p_version_no
+    AND TRANSACTION_ID  = @p_transaction_id
+    
+
+    --Recommend when the stored procedure will be called by other stored procedure
+    RETURN @@ERROR
+
+END
+SET XACT_ABORT OFF
+GO
+  
+
+IF OBJECT_ID( 'dbo.P_BIZ001_COURSE_I', 'P' ) IS NOT NULL
+    DROP  PROCEDURE  dbo.P_BIZ001_COURSE_I
+GO
+
+CREATE PROCEDURE P_BIZ001_COURSE_I
+(
+  @p_courseid nvarchar(36),
+  @p_userid nvarchar(36),
+  @p_course_name nvarchar(66),
+  @p_course_detail nvarchar(2000),
+  @p_course_imagepath nvarchar(36),
+  @p_course_filename nvarchar(100),
+  @p_created_by nvarchar(256),
+  @p_created_time datetime,
+  @p_transaction_id varchar(50)
+)
+
+AS
+	
+/*
+Module  : 
+Author  : SQL Generator
+Date    : 05-02-2017
 Desc    : Insert record into T_BIZ001_COURSE
 Returns: 0 if successful, else SQL error code
 
@@ -407,6 +722,8 @@ BEGIN
       USERID,
       COURSE_NAME,
       COURSE_DETAIL,
+      COURSE_IMAGEPATH,
+      COURSE_FILENAME,
       CREATED_BY,
       CREATED_TIME,
       LAST_UPDATED_BY,
@@ -420,6 +737,8 @@ BEGIN
 	  @p_userid,
 	  @p_course_name,
 	  @p_course_detail,
+	  @p_course_imagepath,
+	  @p_course_filename,
 	  @p_created_by,
 	  @p_created_time,
 	  @p_created_by,
@@ -448,6 +767,8 @@ CREATE PROCEDURE P_BIZ001_COURSE_U
 	@p_userid nvarchar(36),
 	@p_course_name nvarchar(66),
 	@p_course_detail nvarchar(2000),
+	@p_course_imagepath nvarchar(36),
+	@p_course_filename nvarchar(100),
 	@p_last_updated_by nvarchar(256),
 	@p_last_updated_time datetime,
 	@o_version_no int,
@@ -459,7 +780,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 30-01-2017
+Date    : 05-02-2017
 Desc    : Update records to T_BIZ001_COURSE
 Returns: 0 if successful, else SQL error code
 
@@ -489,6 +810,8 @@ BEGIN
     SET USERID = @p_userid,
         COURSE_NAME = @p_course_name,
         COURSE_DETAIL = @p_course_detail,
+        COURSE_IMAGEPATH = @p_course_imagepath,
+        COURSE_FILENAME = @p_course_filename,
         LAST_UPDATED_BY = @p_last_updated_by,
         LAST_UPDATED_TIME = @p_last_updated_time,
         VERSION_NO = VERSION_NO+1,
@@ -530,7 +853,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 30-01-2017
+Date    : 05-02-2017
 Desc    : Delete records from T_BIZ001_COURSE
 Returns: 0 if successful, else SQL error code
 
@@ -596,6 +919,8 @@ CREATE PROCEDURE P_BIZ001_COURSE_S
   @p_userid nvarchar(36),
   @p_course_name nvarchar(66),
   @p_course_detail nvarchar(2000),
+  @p_course_imagepath nvarchar(36),
+  @p_course_filename nvarchar(100),
   @p_created_by nvarchar(256),
   @p_created_time datetime,
   @p_last_updated_by nvarchar(256),
@@ -607,7 +932,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 30-01-2017
+Date    : 05-02-2017
 Desc    : Retrieves records from T_BIZ001_COURSE
 Returns: 0 if successful, else SQL error code
 
@@ -633,6 +958,8 @@ BEGIN
       t.USERID,
       t.COURSE_NAME,
       t.COURSE_DETAIL,
+      t.COURSE_IMAGEPATH,
+      t.COURSE_FILENAME,
       t.CREATED_BY,
       t.CREATED_TIME,
       t.LAST_UPDATED_BY,
@@ -644,6 +971,8 @@ BEGIN
     AND USERID  = @p_userid
     AND COURSE_NAME  = @p_course_name
     AND COURSE_DETAIL  = @p_course_detail
+    AND COURSE_IMAGEPATH  = @p_course_imagepath
+    AND COURSE_FILENAME  = @p_course_filename
     AND CREATED_BY  = @p_created_by
     AND CREATED_TIME  = @p_created_time
     AND LAST_UPDATED_BY  = @p_last_updated_by
@@ -659,52 +988,3 @@ END
 SET XACT_ABORT OFF
 GO
   
-IF OBJECT_ID( 'dbo.P_QUERY_COURSES_FOR_VIEW', 'P' ) IS NOT NULL
-  DROP  PROCEDURE  dbo.P_QUERY_COURSES_FOR_VIEW
-GO
-
-CREATE PROCEDURE P_QUERY_COURSES_FOR_VIEW
-AS
-/*
-Module  : 
-Author  : SQL Generator
-Date    : 30-01-2017
-Desc    : Retrieves records from T_BIZ001_COURSE
-Returns: 0 if successful, else SQL error code
-
-Change Revision
------------------------------------------------------
-Date           Author            Remark
-
-*/
-
---It will stop stored procedure when there is error, but if the stored procedure will be called by others, the caller stored procedure should check the return value.
---For example, 
-/*
-	--Application ID Validation and Retrieval
-	EXEC @v_error = P_IC_APP_GET_ID @p_app_name, @v_app_id OUTPUT
-	IF @v_error <> 0 RETURN  @v_error
-
-*/
-SET XACT_ABORT ON
-
-BEGIN
-    SELECT 
-      t.COURSEID,
-      t.USERID,
-      t.COURSE_NAME,
-      t.COURSE_DETAIL,
-      t.CREATED_BY,
-      t.CREATED_TIME,
-      t.LAST_UPDATED_BY,
-      t.LAST_UPDATED_TIME,
-      t.VERSION_NO,
-      t.TRANSACTION_ID
-    FROM T_BIZ001_COURSE t
-   
-    --Recommend when the stored procedure will be called by other stored procedure
-    RETURN @@ERROR
-
-END
-SET XACT_ABORT OFF
-GO

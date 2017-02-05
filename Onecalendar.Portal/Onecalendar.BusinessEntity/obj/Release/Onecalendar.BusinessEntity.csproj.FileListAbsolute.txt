@@ -1,0 +1,6 @@
+C:\cloudasp\testWebApp\Onecalendar.Portal\Onecalendar.BusinessEntity\bin\Release\Onecalendar.BusinessEntity.dll.config
+C:\cloudasp\testWebApp\Onecalendar.Portal\Onecalendar.BusinessEntity\bin\Release\Onecalendar.BusinessEntity.dll
+C:\cloudasp\testWebApp\Onecalendar.Portal\Onecalendar.BusinessEntity\bin\Release\Onecalendar.BusinessEntity.pdb
+C:\cloudasp\testWebApp\Onecalendar.Portal\Onecalendar.BusinessEntity\obj\Release\Onecalendar.BusinessEntity.csprojResolveAssemblyReference.cache
+C:\cloudasp\testWebApp\Onecalendar.Portal\Onecalendar.BusinessEntity\obj\Release\Onecalendar.BusinessEntity.dll
+C:\cloudasp\testWebApp\Onecalendar.Portal\Onecalendar.BusinessEntity\obj\Release\Onecalendar.BusinessEntity.pdb

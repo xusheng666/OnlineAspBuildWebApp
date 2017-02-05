@@ -33,5 +33,14 @@ namespace Onecalendar.WebPortal
             this.lvCourses.DataSource = dt;
             this.lvCourses.DataBind();
         }
+
+        protected void lvCourses_ItemCommand(object sender, ListViewCommandEventArgs e)
+        {
+           String courseId=  e.CommandArgument.ToString();
+           if (!String.IsNullOrEmpty(courseId))
+           {
+               Response.Redirect("~/Public/CourseDetailView.aspx?"+QueryStringNames.QUERY_STR_COURSE_ID+"="+courseId);
+           }
+        }
     }
 }

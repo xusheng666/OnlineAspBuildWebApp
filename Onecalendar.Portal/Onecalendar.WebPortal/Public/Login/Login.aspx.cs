@@ -10,7 +10,7 @@ using Onecalendar.BusinessEntity;
 
 namespace Onecalendar.WebPortal.Secure.Login
 {
-    public partial class LoginSignup : System.Web.UI.Page
+    public partial class LoginSignup : InternetPageBase
     {
         UserManageBC _bc = new UserManageBC();
                

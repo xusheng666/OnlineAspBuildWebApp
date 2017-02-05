@@ -9,13 +9,12 @@ using System.Web.UI.WebControls;
 
 namespace Onecalendar.WebPortal.Public
 {
-    public partial class UserRegistration : System.Web.UI.Page
+    public partial class UserRegistration : InternetPageBase
     {
         UserManageBC _bc = new UserManageBC();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)

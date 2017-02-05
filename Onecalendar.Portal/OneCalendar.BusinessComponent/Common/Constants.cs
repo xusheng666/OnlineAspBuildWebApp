@@ -29,5 +29,12 @@ namespace OneCalendar.BusinessComponent
     public class SPNameConstants
     {
         public const string P_QUERY_COURSES_FOR_VIEW = "P_QUERY_COURSES_FOR_VIEW";
+        public const string P_QUERY_COURSE_BY_ID_FOR_VIEW = "P_QUERY_COURSE_BY_ID_FOR_VIEW";
+        public const string P_DELETE_COURSE_BY_ID = "P_DELETE_COURSE_BY_ID";
+    }
+
+    public class QueryStringNames
+    {
+        public const string QUERY_STR_COURSE_ID = "CourseID";
     }
 }

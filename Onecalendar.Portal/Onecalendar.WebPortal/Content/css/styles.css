@@ -31,6 +31,7 @@ GENERAL CLASSES
 .button a:hover{ background:#66a7c5;}
 .button{padding:4px 7px;background:#66a7c5; color:#ffffff; text-transform:uppercase; font-family:'Oswald', sans-serif;border:0px solid;margin-top:10px;}
 .page{ width:1000px; margin:0 auto;overflow:hidden;}
+.imgdisplay{border:none;height: 200px;width:200px;}
 /*-------------------------------------------------
 HEADER CLASSES
 -------------------------------------------------*/
@@ -45,6 +46,8 @@ HEADER CLASSES
 .menu ul li a:hover{ background:#66a7c5; padding:10px;}
 .menu ul li a.active{ background:#66a7c5; padding:10px;}
 
+.searchtext{margin:0px auto; height:32px; float:left;}
+.loginName {vertical-align: baseline;position:relative;top:-5px;padding:10px; color:white;}
 /*-------------------------------------------------
 BANNER CLASSES
 -------------------------------------------------*/
@@ -137,6 +140,18 @@ CONTACT FORM CLASSS
 .address .panel { border:none; color:#243036; margin-bottom:30px;}
 .address .panel .title h1 {  color:#ee3233; padding-bottom:10px;}
 .address .panel .content p span { color:#243036;}
+
+/*-------------------------------------------------
+Course FORM CLASSS
+-------------------------------------------------*/
+
+.course-form { background:#f1f1f1; padding:30px; width:640px; float:left; margin-bottom:50px; float:left;}
+.course-form label {display: block; padding:10px 0 10px 0;}
+.course-form label span {display: block; color:#939191;font-size:14px; float:left; width:120px; text-align:left; padding:5px 20px 0 0;}
+.img {margin:10px 0px;}
+.course-form .input_text {padding:10px 10px;width:360px;background:#ffffff;border:0px solid; color:#939191;}
+.course-form .message{padding:10px 10px;width:360px; background:#ffffff; border:0px solid;overflow:hidden;height:150px; color:#939191; font-size:14px;}
+.course-form .button{padding:4px 7px;background:#66a7c5; color:#ffffff; text-transform:uppercase; font-family:'Oswald', sans-serif;border:0px solid;margin-left:140px;margin-top:20px;}
 
 
 /*-------------------------------------------------

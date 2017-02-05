@@ -14,3 +14,68 @@ a#next { background:url(../images/arrow-right.png) no-repeat; float:left; }
 a#next:hover { }
 .clear { clear:both }
 
+/*below are the message csss*/
+.messageInfo div
+{
+    font-size: 11px;
+    font-weight: bold;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #39600B;
+    border-spacing: 0px;
+    padding: 4px;
+    padding-left: 24px;
+    width: 97%;
+    color: #39600B;
+    vertical-align: middle;
+    background: #D1EFB6 url(Images/checkmark.gif) no-repeat 3px 2px;
+}
+.messageWarning div
+{
+    font-size: 11px;
+    font-weight: bold;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #192F38;
+    border-spacing: 0px;
+    padding: 4px;
+    padding-left: 24px;
+    width: 97%;
+    color: #996600;
+    vertical-align: middle;
+    background: #ffff99 url(Images/info.gif) no-repeat 3px 2px;
+}
+
+.messageError div
+{
+    font-size: 11px;
+    font-weight: bold;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #990000;
+    border-spacing: 0px;
+    padding: 4px;
+    padding-left: 24px;
+    width: 97%;
+    color: #990000;
+    vertical-align: middle;
+    background: #ffcccc url(Images/exclaim.gif) no-repeat 3px 2px;
+}
+
+
+.messagePrompt
+{
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #08456b;
+    text-align: left;
+}
+
+.messageDetail
+{
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #08456b;
+    text-align: left;
+    font-size: 90%;
+}

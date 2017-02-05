@@ -1,0 +1,96 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Onecalendar.WebPortal.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="<%= ResolveUrl("~/Content/css/styles.css")%>" rel="stylesheet" type="text/css" />
+<link href="<%= ResolveUrl("~/Content/css/onecalendar.css")%>" rel="stylesheet" type="text/css" />
+<%--<link href="<%= ResolveUrl("~/Content/css/bootstrap.min.css")%>" rel="stylesheet" type="text/css" />--%>
+<script type="text/javascript" src="<%= ResolveUrl("~/Content/js/jquery-1.9.1.js")%>"></script>
+<script type="text/javascript" src="<%= ResolveUrl("~/Content/js/jquery-ui.js")%>"></script>
+<script type="text/javascript" src="<%= ResolveUrl("~/Content/js/carouselScript.js")%>"></script>
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%: Page.Title %> - Tuition Online</title>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="jquery.ui.combined" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+        <header>
+            <div class="header-wrap">
+                <div class="header">
+                    <div class="logo">
+                        <a href="#">
+                            <img src="<%= ResolveUrl("~/Content/images/C1_Logo.jpg")%>" alt="Home" /></a>
+                    </div>
+
+                </div>
+                <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" SiteMapProvider="AspXmlSiteMapProvider"
+                    ShowStartingNode="false" />
+                <div class="menu-wrap">
+                    <div class="menu">
+
+                        <div style="z-index: 1000;float:left;">
+                            <asp:Menu ID="NavigationMenu" runat="server" CssClass="NAVMENU" EnableViewState="false"
+                                IncludeStyleBlock="false" Orientation="Horizontal" DataSourceID="SiteMapDataSource1"
+                                StaticDisplayLevels="1" MaximumDynamicDisplayLevels="1" Style="top: -1px;" OnMenuItemDataBound="NavigationMenu_MenuItemDataBound" />
+                             </div>
+                        
+                            <%--<li><a href="<%= ResolveUrl("~/Default.aspx")%>">Home</a></li>
+                            <li><a href="<%= ResolveUrl("~/About.aspx")%>">About </a></li>
+                            <li><a href="<%= ResolveUrl("~/Secure/Course/Courses.aspx")%>">Courses </a></li>
+                            <li><a href="<%= ResolveUrl("~/Contact.aspx")%>">Contact</a></li>
+                            <li><a href="<%= ResolveUrl("~/Public/UserRegistration.aspx")%>">Register</a></li>--%>
+                       
+                        
+                    </div>
+                    <div style="float:right;margin-top:10px;margin-right:20%;position:relative;">
+                            <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+
+                            <LoggedInTemplate>
+                                <asp:LoginName ID="HeadLoginName" runat="server" />
+                                <!--<asp:HyperLink ID="ProfileLink" runat="server" NavigateUrl="~/Secure/MaintainPersonalUserProfile.aspx">profile</asp:HyperLink>-->
+                                [
+                            <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out"
+                                LogoutPageUrl="~/Public/Login/Logout.aspx" />
+                                ]</span>
+                            </LoggedInTemplate>
+                        </asp:LoginView></div>
+                </div>
+            </div>
+        </header>
+        <div id="body">
+            <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+            <section class="content-wrapper main-content clear-fix">
+                <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+            </section>
+        </div>
+        <footer>
+            <div class="footer-wrap">
+                <div class="footer">
+                    <div>
+                        <p>Copyright (c) <%= DateTime.Now.Year %> CalendarOne Pte. Ltd. All rights reserved. </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </form>
+</body>
+</html>
+

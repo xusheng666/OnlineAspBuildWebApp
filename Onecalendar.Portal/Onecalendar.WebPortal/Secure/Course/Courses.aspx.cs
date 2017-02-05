@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace Onecalendar.WebPortal
 {
-    public partial class Courses : System.Web.UI.Page
+    public partial class Courses : InternetPageBase
     {
         CourseBCService _bc = new CourseBCService();
 
@@ -28,6 +28,15 @@ namespace Onecalendar.WebPortal
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Secure/Course/AddCourse.aspx");
+        }
+
+        protected void lnkDelete(Object sender, CommandEventArgs e)
+        {
+            String courseId = e.CommandArgument.ToString();
+            if (!String.IsNullOrEmpty(courseId))
+            {
+                _bc.DeleteCourseByID(courseId);
+            }
         }
     }
 }
