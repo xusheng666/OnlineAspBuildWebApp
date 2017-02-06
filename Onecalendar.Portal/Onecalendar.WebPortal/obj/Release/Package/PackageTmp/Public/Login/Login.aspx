@@ -10,7 +10,6 @@
             border: 1px solid #ccc;
             box-sizing: border-box;
         }
-
         .loginbutton {
             background-color: #4CAF50;
             color: white;
@@ -29,7 +28,6 @@
             float: right;
             padding-top: 16px;
         }
-
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">

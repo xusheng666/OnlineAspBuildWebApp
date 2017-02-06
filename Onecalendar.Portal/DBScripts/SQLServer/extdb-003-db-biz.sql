@@ -169,7 +169,9 @@ SET XACT_ABORT ON
 
 -- do your business transaction
 BEGIN
-    
+    DELETE FROM T_BIZ002_COURSE_EVENT
+    WHERE COURSEID  = @o_courseid;
+	
     DELETE FROM T_BIZ001_COURSE
     WHERE COURSEID  = @o_courseid;
 

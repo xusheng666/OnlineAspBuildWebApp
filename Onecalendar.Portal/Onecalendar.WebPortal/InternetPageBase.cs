@@ -89,8 +89,9 @@ namespace Onecalendar.WebPortal
 
         public String SaveFileToDisk(byte[] filebytes, String fileName, String UserId)
         {
-            //String mImagePath = ConfigurationManager.AppSettings["ImagePath"];
-            String relativeDir = "/Content/Course/" + UserId + "/";
+            String mImagePathPre = ConfigurationManager.AppSettings["ImagePath"];
+            String mContext = ConfigurationManager.AppSettings["Context"];
+            String relativeDir = mImagePathPre + UserId + "/";
             String directoryPath = Server.MapPath("~") + relativeDir;
             if (!Directory.Exists(directoryPath))
             {
@@ -98,9 +99,9 @@ namespace Onecalendar.WebPortal
             }
             string filePath = directoryPath + fileName;
             File.WriteAllBytes(filePath, filebytes);
-
+            // return the path in application
             String relativePath = relativeDir + fileName;
-            return relativePath;
+            return mContext + relativePath;
         }
     }
 }

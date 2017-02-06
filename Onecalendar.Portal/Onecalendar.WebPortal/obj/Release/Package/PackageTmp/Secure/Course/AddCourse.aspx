@@ -19,14 +19,13 @@
                 </label>
                 <label>
                     <span>Course Image</span>
-                    <%--<input type="text" class="input_text" name="subject" id="subject" />--%>
                     <asp:FileUpload ID="fileUpload" runat="server" class="input_text"/>
                 </label>
                 <label>
                     <span>Description</span>
                     <asp:TextBox TextMode="MultiLine" ID="description" class="message" runat="server"/>
                 </label>
-            <asp:Button runat="server" ID="btnAddCourse" class="button" Text="Add New Course" OnClick="btnAddCourse_Click"   />
+                <asp:Button runat="server" ID="btnAddCourse" class="button" Text="Add New Course" OnClick="btnAddCourse_Click"   />
             </div>
             
         </div>

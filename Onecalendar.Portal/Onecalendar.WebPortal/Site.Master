@@ -57,7 +57,7 @@
                                 StaticDisplayLevels="1" MaximumDynamicDisplayLevels="1" Style="top: -1px;" OnMenuItemDataBound="NavigationMenu_MenuItemDataBound" />
                         </div>
                     </div>
-                    <div style="float: right; margin-right: 20%; position: relative;padding: 10px!important;vertical-align:central;">
+                    <div style="float: right; margin-right: 25%; position: relative;padding: 10px!important;vertical-align:central;">
                         <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
                             <LoggedInTemplate>
                                 <asp:LoginName ID="HeadLoginName" runat="server" CssClass="loginName"/>
