@@ -40,7 +40,8 @@
                                     <ItemTemplate>
                                         <asp:HyperLink ID="Edit" runat="server"
                                             NavigateUrl='<%# "~/Secure/Course/EditCourse.aspx?CourseId=" + Eval("COURSEID")  %>'>Edit</asp:HyperLink>
-                                        <asp:LinkButton ID="btnDelete" runat="server" CommandArgument='<%#Eval("COURSEID")%>' OnCommand="lnkDelete" Text="Delete">
+                                        <asp:LinkButton ID="btnDelete" runat="server" CommandArgument='<%#Eval("COURSEID")%>' OnCommand="lnkDelete" Text="Delete"
+                                            OnClientClick="return confirm ('Are you sure you want to delete this course?')">
                                         </asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>

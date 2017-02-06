@@ -15,12 +15,17 @@ namespace Onecalendar.WebPortal
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            CourseDataBind();
+        }
+
+        private void CourseDataBind()
+        {
             DataTable dt = _bc.getAllCourses() as DataTable;
-            dt.Columns.Add(new DataColumn("PictureURL", typeof(string)));
-            foreach (DataRow row in dt.Rows)
-            {
-                row["PictureURL"] = ResolveUrl("~/Content/images/img7.jpg");
-            }
+            //dt.Columns.Add(new DataColumn("PictureURL", typeof(string)));
+            //foreach (DataRow row in dt.Rows)
+            //{
+            //    row["PictureURL"] = ResolveUrl("~/Content/images/img7.jpg");
+            //}
             this.gvwDash.DataSource = dt;
             this.gvwDash.DataBind();
         }
@@ -37,6 +42,7 @@ namespace Onecalendar.WebPortal
             {
                 _bc.DeleteCourseByID(courseId);
             }
+            CourseDataBind();
         }
     }
 }
