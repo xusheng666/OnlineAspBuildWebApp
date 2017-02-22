@@ -13,6 +13,7 @@ namespace Onecalendar.WebPortal
     public class InternetPageBase: System.Web.UI.Page
     {
         public CourseBCService _bc = new CourseBCService();
+        public UserManageBC _userBC = new UserManageBC();
 
         public String GetQueryParameterValue(String aQueryName)
         {

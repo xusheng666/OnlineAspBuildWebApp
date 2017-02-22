@@ -112,7 +112,7 @@ namespace Onecalendar.WebPortal.Secure.Course
             }
         }
 
-        #region
+        #region gridview controls
         /// <summary>
         /// 
         /// below are for the gridview controls

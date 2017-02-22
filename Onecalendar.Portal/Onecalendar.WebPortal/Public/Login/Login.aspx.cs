@@ -21,12 +21,17 @@ namespace Onecalendar.WebPortal.Secure.Login
 
         protected void submit_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(this.userId.Text) )
+            if (!String.IsNullOrEmpty(this.userId.Text))
             {
-                //ProcessAuthentication(userId
-                //TODO: get from db
-
-                ProcessAuthentication(this.userId.Text, "comp", "C", "AO", this.userId.Text, "", "");
+                CMNUserDataSet userDS = _bc.getUserByLoginID(this.userId.Text);
+                if (userDS.T_CMN001_USER!=null && userDS.T_CMN001_USER.Count > 0)
+                {
+                    string password = CryptionUtil.DecryptAESSecruedMsg(userDS.T_CMN001_USER[0].PASSWORD_HASH, this.userId.Text, userDS.T_CMN001_USER[0].PASSWORD_HASH_SALT);
+                    if (password.Equals(this.password.Text))
+                    {
+                        ProcessAuthentication(this.userId.Text, "comp", "C", "AO", this.userId.Text, "", "");
+                    }
+                }
             }
         }
 

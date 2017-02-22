@@ -7,6 +7,8 @@ DROP TABLE T_BIZ002_COURSE_EVENT;
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id('T_CMN001_USER') AND  OBJECTPROPERTY(id, 'IsUserTable') = 1)
 DROP TABLE T_CMN001_USER;
 
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id('T_CMN002_CODE') AND  OBJECTPROPERTY(id, 'IsUserTable') = 1)
+DROP TABLE T_CMN002_CODE;
 
 CREATE TABLE T_BIZ001_COURSE ( 
 	COURSEID 							NVARCHAR(36) NOT NULL,
@@ -42,11 +44,13 @@ CREATE TABLE T_CMN001_USER (
 	LOGINID 							NVARCHAR(50) NOT NULL,
 	USER_NAME 							NVARCHAR(66) NOT NULL,
 	EMAIL_ADDRESS 					 	NVARCHAR(255) NOT NULL,
-	PASSWORD_HASH 						VARBINARY,
-	PASSWORD_HIST_HASH 					VARBINARY,
+	PASSWORD_HASH 						VARBINARY(100),
+	PASSWORD_HASH_SALT					VARBINARY(100),
+	PASSWORD_HIST_HASH 					VARBINARY(500),
 	LAST_ACTIVITY_DATE 					DATETIME,
 	IS_DELETED 							CHAR(1),
 	COMPANY_ID 							NVARCHAR(50),
+	USER_ROLE_ARR						NVARCHAR(100) NOT NULL,
 	STATUS 								CHAR(1),
 	CREATED_BY                          NVARCHAR(256) NOT NULL,
 	CREATED_TIME                        DATETIME NOT NULL,
@@ -54,6 +58,28 @@ CREATE TABLE T_CMN001_USER (
 	LAST_UPDATED_TIME                   DATETIME NOT NULL,
 	VERSION_NO                          INT NOT NULL,
 	TRANSACTION_ID                      VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE T_CMN002_CODE
+(
+    CODE_ID                             NVARCHAR(50)      NOT NULL,
+    APP_ID                              NVARCHAR(50)      NOT NULL,
+    CODE_CATEGORY                       NVARCHAR(128)     NOT NULL,
+    CODE                                NVARCHAR(50)      NOT NULL,
+    LOWERED_CODE_CATEGORY               NVARCHAR(128)     NOT NULL,
+    LOWERED_CODE                        NVARCHAR(50)      NOT NULL,
+    CODE_DESC                           NVARCHAR(256)     NULL,
+    CODE_REMARKS                        NVARCHAR(256)     NULL,
+    EFFECTIVE_START_DATE                DATETIME          NOT NULL,
+    EFFECTIVE_END_DATE                  DATETIME          NOT NULL,
+    CODE_SEQ                            INT               NULL,
+    IS_DELETED                          NVARCHAR(50)      NOT NULL,
+    VERSION_NO                          INT               NOT NULL,
+    TRANSACTION_ID                      NVARCHAR(50)      NOT NULL,
+    CREATED_BY                          NVARCHAR(256)     NOT NULL,
+    CREATED_TIME                        DATETIME          NOT NULL,
+    LAST_UPDATED_BY                     NVARCHAR(256)     NOT NULL,
+    LAST_UPDATED_TIME                   DATETIME          NOT NULL
 );
 
 
@@ -68,3 +94,6 @@ ALTER TABLE T_CMN001_USER ADD CONSTRAINT PK_CMN001_USER
 
 ALTER TABLE T_CMN001_USER
 	ADD CONSTRAINT UQ_CMN001_USER_LOGINID UNIQUE (LOGINID);
+
+ALTER TABLE T_CMN002_CODE ADD CONSTRAINT PK_CMN002_CODE 
+	PRIMARY KEY CLUSTERED (CODE_ID);

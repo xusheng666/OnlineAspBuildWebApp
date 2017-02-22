@@ -34,7 +34,11 @@ namespace OneCalendar.BusinessComponent
         public const string P_QUERY_COURSE_EVENTS_BY_ID_FOR_VIEW = "P_QUERY_COURSE_EVENTS_BY_ID_FOR_VIEW";
         public const string P_QUERY_EVENT_BY_EVENT_ID = "P_QUERY_EVENT_BY_EVENT_ID";
         public const string P_DELETE_COURSE_EVENT_BY_ID = "P_DELETE_COURSE_EVENT_BY_ID";
-        
+        public const string P_QUERY_USER_BY_LOGINID = "P_QUERY_USER_BY_LOGINID";
+        public const string P_QUERY_USER_BY_USERID = "P_QUERY_USER_BY_USERID";
+        public const string P_GET_ALL_USERS = "P_GET_ALL_USERS";
+        public const string P_DELETE_USER_BY_ID = "P_DELETE_USER_BY_ID";
+
     }
 
     public class QueryStringNames

@@ -19,7 +19,7 @@ namespace Onecalendar.WebPortal.Public
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(this.userName.Text))
+            if (!String.IsNullOrEmpty(this.userName.Text) && pass1.Text.Equals(pass2.Text))
             {
                 //ProcessAuthentication(userId
                 CMNUserDataSet userDS = new CMNUserDataSet();
@@ -29,9 +29,17 @@ namespace Onecalendar.WebPortal.Public
                 userRow.USER_NAME = this.displayName.Text;
                 userRow.EMAIL_ADDRESS = this.email.Text;
                 userRow.STATUS = "A";
+                userRow.USER_ROLE_ARR = "AO";
 
                 Utility.UpdateCommonFields(userRow);
                 userDS.T_CMN001_USER.AddT_CMN001_USERRow(userRow);
+
+                byte[] saltBytes = CryptionUtil.GeneratorSalt(this.userName.Text);
+                byte[] encryptedMsg = CryptionUtil.EncryptAESSecruedMsg(pass1.Text, userName.Text, saltBytes);
+
+                userRow.PASSWORD_HASH = encryptedMsg;
+                userRow.PASSWORD_HASH_SALT = saltBytes;
+                
                 _bc.SaveUser(userDS);
                 //this.msgTxt.Text = "Successful!";
 

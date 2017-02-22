@@ -43,5 +43,16 @@ namespace Onecalendar.BusinessEntity.Properties {
                 return ((string)(this["TuitionConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.1.11;Initial Catalog=Tuition;Persist Security Info=True;User " +
+            "ID=sa;Password=!qaz2wsx")]
+        public string TuitionConnectionString2 {
+            get {
+                return ((string)(this["TuitionConnectionString2"]));
+            }
+        }
     }
 }

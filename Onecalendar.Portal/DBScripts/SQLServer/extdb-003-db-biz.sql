@@ -150,6 +150,8 @@ BEGIN
 END
 SET XACT_ABORT OFF
 
+GO
+
 IF OBJECT_ID( 'dbo.P_DELETE_COURSE_BY_ID', 'P' ) IS NOT NULL
     DROP  PROCEDURE  dbo.P_DELETE_COURSE_BY_ID
 GO
@@ -211,6 +213,164 @@ BEGIN
     
     DELETE FROM T_BIZ002_COURSE_EVENT
     WHERE COURSEEVENTID  = @o_eventid;
+
+    IF @@ROWCOUNT = 0
+    BEGIN
+        RAISERROR('ConcurrentUpdated', 16, 1)
+      
+        --Recommend when the stored procedure will be called by other stored procedure
+        RETURN @@ERROR
+    END
+    
+END
+SET NOCOUNT OFF
+SET XACT_ABORT OFF
+
+GO
+
+IF OBJECT_ID( 'dbo.P_QUERY_USER_BY_LOGINID', 'P' ) IS NOT NULL
+  DROP  PROCEDURE  dbo.P_QUERY_USER_BY_LOGINID
+GO
+
+CREATE PROCEDURE P_QUERY_USER_BY_LOGINID
+(
+  @p_loginid nvarchar(50)
+)
+AS
+
+SET XACT_ABORT ON
+
+BEGIN
+    SELECT 
+      t.USERID,
+      t.LOGINID,
+      t.USER_NAME,
+      t.EMAIL_ADDRESS,
+      t.PASSWORD_HASH,
+      t.PASSWORD_HASH_SALT,
+      t.PASSWORD_HIST_HASH,
+      t.LAST_ACTIVITY_DATE,
+      t.IS_DELETED,
+      t.COMPANY_ID,
+      t.USER_ROLE_ARR,
+      t.STATUS,
+      t.CREATED_BY,
+      t.CREATED_TIME,
+      t.LAST_UPDATED_BY,
+      t.LAST_UPDATED_TIME,
+      t.VERSION_NO,
+      t.TRANSACTION_ID
+    FROM T_CMN001_USER t
+    WHERE LOGINID  = @p_loginid
+	
+	RETURN @@ERROR
+    
+END
+SET XACT_ABORT OFF
+GO
+
+
+IF OBJECT_ID( 'dbo.P_QUERY_USER_BY_USERID', 'P' ) IS NOT NULL
+  DROP  PROCEDURE  dbo.P_QUERY_USER_BY_USERID
+GO
+
+CREATE PROCEDURE P_QUERY_USER_BY_USERID
+(
+  @p_userid nvarchar(50)
+)
+AS
+
+SET XACT_ABORT ON
+
+BEGIN
+    SELECT 
+      t.USERID,
+      t.LOGINID,
+      t.USER_NAME,
+      t.EMAIL_ADDRESS,
+      t.PASSWORD_HASH,
+      t.PASSWORD_HASH_SALT,
+      t.PASSWORD_HIST_HASH,
+      t.LAST_ACTIVITY_DATE,
+      t.IS_DELETED,
+      t.COMPANY_ID,
+      t.USER_ROLE_ARR,
+      t.STATUS,
+      t.CREATED_BY,
+      t.CREATED_TIME,
+      t.LAST_UPDATED_BY,
+      t.LAST_UPDATED_TIME,
+      t.VERSION_NO,
+      t.TRANSACTION_ID
+    FROM T_CMN001_USER t
+    WHERE USERID  = @p_userid
+	
+	RETURN @@ERROR
+    
+END
+SET XACT_ABORT OFF
+GO
+
+IF OBJECT_ID( 'dbo.P_GET_ALL_USERS', 'P' ) IS NOT NULL
+  DROP  PROCEDURE  dbo.P_GET_ALL_USERS
+GO
+
+CREATE PROCEDURE P_GET_ALL_USERS
+AS
+
+SET XACT_ABORT ON
+
+BEGIN
+    SELECT 
+      t.USERID,
+      t.LOGINID,
+      t.USER_NAME,
+      t.EMAIL_ADDRESS,
+      t.PASSWORD_HASH,
+      t.PASSWORD_HASH_SALT,
+      t.PASSWORD_HIST_HASH,
+      t.LAST_ACTIVITY_DATE,
+      t.IS_DELETED,
+      t.COMPANY_ID,
+      t.USER_ROLE_ARR,
+      t.STATUS,
+      t.CREATED_BY,
+      t.CREATED_TIME,
+      t.LAST_UPDATED_BY,
+      t.LAST_UPDATED_TIME,
+      t.VERSION_NO,
+      t.TRANSACTION_ID
+    FROM T_CMN001_USER t
+	
+	RETURN @@ERROR
+    
+END
+SET XACT_ABORT OFF
+GO
+
+
+IF OBJECT_ID( 'dbo.P_DELETE_USER_BY_ID', 'P' ) IS NOT NULL
+    DROP  PROCEDURE  dbo.P_DELETE_USER_BY_ID
+GO
+
+CREATE PROCEDURE P_DELETE_USER_BY_ID
+(
+	@o_userid nvarchar(36)
+)
+AS
+
+-- do your settings here...
+SET NOCOUNT ON
+
+SET XACT_ABORT ON
+
+-- declare and initialize local variables here...
+
+-- do your business transaction
+BEGIN
+    
+    DELETE FROM T_CMN001_USER
+    WHERE USERID  = @o_userid;
 
     IF @@ROWCOUNT = 0
     BEGIN

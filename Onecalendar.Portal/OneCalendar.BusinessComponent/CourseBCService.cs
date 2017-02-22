@@ -44,5 +44,7 @@ namespace OneCalendar.BusinessComponent
         {
             _da.DeleteCourseEventByID(eventId);
         }
+
+        
     }
 }

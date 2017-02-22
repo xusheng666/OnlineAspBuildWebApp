@@ -3,6 +3,8 @@
   <siteMapNode url="~/#doNothing" title="doNothing" description="Home">
     <siteMapNode url="~/Default.aspx" title="Home" description="Home"/>
     <siteMapNode url="~/Secure/Course/Courses.aspx" title="Courses" description="Courses"/>
+    <siteMapNode url="~/Secure/User/UserManage.aspx" title="System Admin" description="Admin"/>
+    <siteMapNode url="~/Secure/EventsCalendar.aspx" title="Events" description="Events Calendar"/>
     <siteMapNode url="~/Contact.aspx" title="Contact" description="Contact"/>
     <!--<siteMapNode url="http://www.calendarone.com/en-us/home.aspx" title="Register"  description="Registration" roles="*">
     </siteMapNode>-->

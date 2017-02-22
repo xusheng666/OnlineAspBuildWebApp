@@ -54,8 +54,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Constants.cs" />
+    <Compile Include="Common\CryptionUtil.cs" />
     <Compile Include="Common\FileUtil.cs" />
     <Compile Include="CourseBCService.cs" />
+    <Compile Include="DataAccess\UserDA.cs" />
     <Compile Include="DataAccess\CourseDA.cs" />
     <Compile Include="DataAccess\DataAccessBase.cs" />
     <Compile Include="DataAccess\InternetDbHelper.cs" />

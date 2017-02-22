@@ -157,6 +157,7 @@
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <None Include="Content\Course\1234567" />
     <Content Include="Contact.aspx" />
+    <Content Include="Content\css\fullcalendar.css" />
     <Content Include="Content\css\onecalendar.css" />
     <Content Include="Content\css\styles.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
@@ -255,6 +256,8 @@
     <Content Include="packages.config" />
     <Content Include="Public\CourseDetailView.aspx" />
     <Content Include="Public\Login\Logout.aspx" />
+    <Content Include="Content\js\fullcalendar.js" />
+    <Content Include="Content\js\moment.min.js" />
     <Content Include="Secure\Course\Courses.aspx" />
     <Content Include="Config\AppSettings.config" />
     <Content Include="Config\ConnectionStrings.config">
@@ -304,6 +307,7 @@
     <Content Include="Public\Login\Login.aspx" />
     <Content Include="Secure\Course\AddCourse.aspx" />
     <Content Include="Secure\Course\EditCourse.aspx" />
+    <Content Include="Secure\EventsCalendar.aspx" />
     <Content Include="Secure\User\UserManage.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -427,6 +431,13 @@
     </Compile>
     <Compile Include="Secure\Course\EditCourse.aspx.designer.cs">
       <DependentUpon>EditCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Secure\EventsCalendar.aspx.cs">
+      <DependentUpon>EventsCalendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Secure\EventsCalendar.aspx.designer.cs">
+      <DependentUpon>EventsCalendar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Secure\User\UserManage.aspx.cs">
       <DependentUpon>UserManage.aspx</DependentUpon>
