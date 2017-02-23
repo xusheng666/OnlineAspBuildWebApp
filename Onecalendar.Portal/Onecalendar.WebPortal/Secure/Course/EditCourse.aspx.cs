@@ -1,5 +1,6 @@
 ﻿using Onecalendar.BusinessEntity;
 using OneCalendar.BusinessComponent;
+using OneCalendar.BusinessComponent.Common;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -73,6 +74,8 @@ namespace Onecalendar.WebPortal.Secure.Course
             dt.Columns.Add("SCHEDULE", typeof(string));
             dt.Columns.Add("LOCATION", typeof(string));
             dt.Columns.Add("PRICE", typeof(string));
+            dt.Columns.Add("START_DTTM", typeof(string));
+            dt.Columns.Add("END_DTTM", typeof(string));
 
             // fetch the events under this course
             DataTable courseEvents = _bc.getCourseEventByCourseId(courseId);
@@ -82,7 +85,7 @@ namespace Onecalendar.WebPortal.Secure.Course
                 gvwCourseEvents.DataSource = dt;
                 gvwCourseEvents.DataBind();
 
-                gvwCourseEvents.Columns[4].Visible = false;
+                gvwCourseEvents.Columns[6].Visible = false;
                 foreach (GridViewRow row in gvwCourseEvents.Rows)
                 {
                     if (row.RowType == DataControlRowType.DataRow)
@@ -96,7 +99,7 @@ namespace Onecalendar.WebPortal.Secure.Course
             {// for have existing records
                 foreach (DataRow item in courseEvents.Rows)
                 {
-                    dt.Rows.Add(item["COURSEEVENTID"], item["SCHEDULE"],item["LOCATION"], item["Price"]);
+                    dt.Rows.Add(item["COURSEEVENTID"], item["SCHEDULE"], item["LOCATION"], item["Price"], item["START_DTTM"], item["END_DTTM"]);
                 }
 
                 this.gvwCourseEvents.DataSource = courseEvents;
@@ -108,7 +111,7 @@ namespace Onecalendar.WebPortal.Secure.Course
                     gvwCourseEvents.HeaderRow.TableSection = TableRowSection.TableHeader;
                 }
 
-                gvwCourseEvents.Columns[4].Visible = true;
+                gvwCourseEvents.Columns[6].Visible = true;
             }
         }
 
@@ -139,6 +142,8 @@ namespace Onecalendar.WebPortal.Secure.Course
             string eventSchedule = ((TextBox)gvwCourseEvents.FooterRow.FindControl("txtNewSchedule")).Text;
             string eventLocation = ((TextBox)gvwCourseEvents.FooterRow.FindControl("txtNewLocation")).Text;
             string eventPrice = ((TextBox)gvwCourseEvents.FooterRow.FindControl("txtNewPrice")).Text;
+            string eventStartDttm = ((TextBox)gvwCourseEvents.FooterRow.FindControl("txtNewStartDttm")).Text;
+            string eventEndDttm = ((TextBox)gvwCourseEvents.FooterRow.FindControl("txtNewEndDttm")).Text;
 
             // below to add new event
             string courseId = ViewState["CourseId"].ToString();
@@ -149,6 +154,8 @@ namespace Onecalendar.WebPortal.Secure.Course
             courseRow.SCHEDULE = eventSchedule;
             courseRow.LOCATION = eventLocation;
             courseRow.PRICE = eventPrice;
+            courseRow.START_DTTM = DateTimeUtil.parseToDateTime(eventStartDttm);
+            courseRow.END_DTTM = DateTimeUtil.parseToDateTime(eventEndDttm);
 
             Utility.UpdateCommonFields(courseRow);
             courseDS.T_BIZ002_COURSE_EVENT.AddT_BIZ002_COURSE_EVENTRow(courseRow);
@@ -167,6 +174,8 @@ namespace Onecalendar.WebPortal.Secure.Course
             string eventSchedule = ((TextBox)gvwCourseEvents.Rows[e.RowIndex].FindControl("txtSchedule")).Text;
             string eventLocation = ((TextBox)gvwCourseEvents.Rows[e.RowIndex].FindControl("txtLocation")).Text;
             string eventPrice = ((TextBox)gvwCourseEvents.Rows[e.RowIndex].FindControl("txtPrice")).Text;
+            string eventStartDttm = ((TextBox)gvwCourseEvents.Rows[e.RowIndex].FindControl("txtStartDttm")).Text;
+            string eventEndDttm = ((TextBox)gvwCourseEvents.Rows[e.RowIndex].FindControl("txtEndDttm")).Text;
 
             // update event start
             BIZCourseDataSet eventDS = _bc.getEventDataSetById(eventId);
@@ -175,6 +184,8 @@ namespace Onecalendar.WebPortal.Secure.Course
             eventRow.SCHEDULE = eventSchedule;
             eventRow.LOCATION = eventLocation;
             eventRow.PRICE = eventPrice;
+            eventRow.START_DTTM = DateTimeUtil.parseToDateTime(eventStartDttm);
+            eventRow.END_DTTM = DateTimeUtil.parseToDateTime(eventEndDttm);
 
             _bc.UpdateTable(eventDS.T_BIZ002_COURSE_EVENT);
             // end of add new event

@@ -27,7 +27,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 22-02-2017
+Date    : 23-02-2017
 Desc    : Insert record into T_CMN002_CODE
 Returns: 0 if successful, else SQL error code
 
@@ -136,7 +136,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 22-02-2017
+Date    : 23-02-2017
 Desc    : Update records to T_CMN002_CODE
 Returns: 0 if successful, else SQL error code
 
@@ -215,7 +215,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 22-02-2017
+Date    : 23-02-2017
 Desc    : Delete records from T_CMN002_CODE
 Returns: 0 if successful, else SQL error code
 
@@ -300,7 +300,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 22-02-2017
+Date    : 23-02-2017
 Desc    : Retrieves records from T_CMN002_CODE
 Returns: 0 if successful, else SQL error code
 
@@ -397,7 +397,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 22-02-2017
+Date    : 23-02-2017
 Desc    : Insert record into T_CMN001_USER
 Returns: 0 if successful, else SQL error code
 
@@ -506,7 +506,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 22-02-2017
+Date    : 23-02-2017
 Desc    : Update records to T_CMN001_USER
 Returns: 0 if successful, else SQL error code
 
@@ -585,7 +585,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 22-02-2017
+Date    : 23-02-2017
 Desc    : Delete records from T_CMN001_USER
 Returns: 0 if successful, else SQL error code
 
@@ -670,7 +670,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 22-02-2017
+Date    : 23-02-2017
 Desc    : Retrieves records from T_CMN001_USER
 Returns: 0 if successful, else SQL error code
 
@@ -750,6 +750,8 @@ CREATE PROCEDURE P_BIZ002_COURSE_EVENT_I
   @p_schedule nvarchar(500),
   @p_location nvarchar(500),
   @p_price nvarchar(50),
+  @p_start_dttm datetime,
+  @p_end_dttm datetime,
   @p_created_by nvarchar(256),
   @p_created_time datetime,
   @p_transaction_id varchar(50)
@@ -760,7 +762,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 22-02-2017
+Date    : 23-02-2017
 Desc    : Insert record into T_BIZ002_COURSE_EVENT
 Returns: 0 if successful, else SQL error code
 
@@ -794,6 +796,8 @@ BEGIN
       SCHEDULE,
       LOCATION,
       PRICE,
+      START_DTTM,
+      END_DTTM,
       CREATED_BY,
       CREATED_TIME,
       LAST_UPDATED_BY,
@@ -808,6 +812,8 @@ BEGIN
 	  @p_schedule,
 	  @p_location,
 	  @p_price,
+	  @p_start_dttm,
+	  @p_end_dttm,
 	  @p_created_by,
 	  @p_created_time,
 	  @p_created_by,
@@ -837,6 +843,8 @@ CREATE PROCEDURE P_BIZ002_COURSE_EVENT_U
 	@p_schedule nvarchar(500),
 	@p_location nvarchar(500),
 	@p_price nvarchar(50),
+	@p_start_dttm datetime,
+	@p_end_dttm datetime,
 	@p_last_updated_by nvarchar(256),
 	@p_last_updated_time datetime,
 	@o_version_no int,
@@ -848,7 +856,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 22-02-2017
+Date    : 23-02-2017
 Desc    : Update records to T_BIZ002_COURSE_EVENT
 Returns: 0 if successful, else SQL error code
 
@@ -879,6 +887,8 @@ BEGIN
         SCHEDULE = @p_schedule,
         LOCATION = @p_location,
         PRICE = @p_price,
+        START_DTTM = @p_start_dttm,
+        END_DTTM = @p_end_dttm,
         LAST_UPDATED_BY = @p_last_updated_by,
         LAST_UPDATED_TIME = @p_last_updated_time,
         VERSION_NO = VERSION_NO+1,
@@ -920,7 +930,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 22-02-2017
+Date    : 23-02-2017
 Desc    : Delete records from T_BIZ002_COURSE_EVENT
 Returns: 0 if successful, else SQL error code
 
@@ -987,6 +997,8 @@ CREATE PROCEDURE P_BIZ002_COURSE_EVENT_S
   @p_schedule nvarchar(500),
   @p_location nvarchar(500),
   @p_price nvarchar(50),
+  @p_start_dttm datetime,
+  @p_end_dttm datetime,
   @p_created_by nvarchar(256),
   @p_created_time datetime,
   @p_last_updated_by nvarchar(256),
@@ -998,7 +1010,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 22-02-2017
+Date    : 23-02-2017
 Desc    : Retrieves records from T_BIZ002_COURSE_EVENT
 Returns: 0 if successful, else SQL error code
 
@@ -1025,6 +1037,8 @@ BEGIN
       t.SCHEDULE,
       t.LOCATION,
       t.PRICE,
+      t.START_DTTM,
+      t.END_DTTM,
       t.CREATED_BY,
       t.CREATED_TIME,
       t.LAST_UPDATED_BY,
@@ -1037,6 +1051,8 @@ BEGIN
     AND SCHEDULE  = @p_schedule
     AND LOCATION  = @p_location
     AND PRICE  = @p_price
+    AND START_DTTM  = @p_start_dttm
+    AND END_DTTM  = @p_end_dttm
     AND CREATED_BY  = @p_created_by
     AND CREATED_TIME  = @p_created_time
     AND LAST_UPDATED_BY  = @p_last_updated_by
@@ -1075,7 +1091,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 22-02-2017
+Date    : 23-02-2017
 Desc    : Insert record into T_BIZ001_COURSE
 Returns: 0 if successful, else SQL error code
 
@@ -1166,7 +1182,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 22-02-2017
+Date    : 23-02-2017
 Desc    : Update records to T_BIZ001_COURSE
 Returns: 0 if successful, else SQL error code
 
@@ -1239,7 +1255,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 22-02-2017
+Date    : 23-02-2017
 Desc    : Delete records from T_BIZ001_COURSE
 Returns: 0 if successful, else SQL error code
 
@@ -1318,7 +1334,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 22-02-2017
+Date    : 23-02-2017
 Desc    : Retrieves records from T_BIZ001_COURSE
 Returns: 0 if successful, else SQL error code
 

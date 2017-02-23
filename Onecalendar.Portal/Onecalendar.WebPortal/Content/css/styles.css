@@ -32,11 +32,12 @@ GENERAL CLASSES
 .button{padding:4px 7px;background:#66a7c5; color:#ffffff; text-transform:uppercase; font-family:'Oswald', sans-serif;border:0px solid;margin-top:10px;}
 .page{ width:1000px; margin:0 auto;overflow:hidden;}
 .imgdisplay{border:none;height: 200px;width:200px;}
+
 /*-------------------------------------------------
 HEADER CLASSES
 -------------------------------------------------*/
-.header-wrap{ overflow:hidden; padding-top:10px; padding-bottom:10px;}
-.header{ width:1000px;margin:0 auto;}
+.header-wrap{height:60px; padding-top:10px; padding-bottom:10px;}
+.header{ width:76%;margin:0 auto;}
 .logo h1{float:left; color:#ffffff; font-size:35px;}
 
 .menu-wrap { background:#ee3233;float:right;width:100%; }

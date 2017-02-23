@@ -753,6 +753,10 @@ namespace Onecalendar.BusinessEntity {
             
             private global::System.Data.DataColumn columnPRICE;
             
+            private global::System.Data.DataColumn columnSTART_DTTM;
+            
+            private global::System.Data.DataColumn columnEND_DTTM;
+            
             private global::System.Data.DataColumn columnCREATED_BY;
             
             private global::System.Data.DataColumn columnCREATED_TIME;
@@ -835,6 +839,22 @@ namespace Onecalendar.BusinessEntity {
             public global::System.Data.DataColumn PRICEColumn {
                 get {
                     return this.columnPRICE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn START_DTTMColumn {
+                get {
+                    return this.columnSTART_DTTM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn END_DTTMColumn {
+                get {
+                    return this.columnEND_DTTM;
                 }
             }
             
@@ -923,7 +943,7 @@ namespace Onecalendar.BusinessEntity {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public T_BIZ002_COURSE_EVENTRow AddT_BIZ002_COURSE_EVENTRow(string COURSEEVENTID, string COURSEID, string SCHEDULE, string LOCATION, string PRICE, string CREATED_BY, System.DateTime CREATED_TIME, string LAST_UPDATED_BY, System.DateTime LAST_UPDATED_TIME, int VERSION_NO, string TRANSACTION_ID) {
+            public T_BIZ002_COURSE_EVENTRow AddT_BIZ002_COURSE_EVENTRow(string COURSEEVENTID, string COURSEID, string SCHEDULE, string LOCATION, string PRICE, System.DateTime START_DTTM, System.DateTime END_DTTM, string CREATED_BY, System.DateTime CREATED_TIME, string LAST_UPDATED_BY, System.DateTime LAST_UPDATED_TIME, int VERSION_NO, string TRANSACTION_ID) {
                 T_BIZ002_COURSE_EVENTRow rowT_BIZ002_COURSE_EVENTRow = ((T_BIZ002_COURSE_EVENTRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         COURSEEVENTID,
@@ -931,6 +951,8 @@ namespace Onecalendar.BusinessEntity {
                         SCHEDULE,
                         LOCATION,
                         PRICE,
+                        START_DTTM,
+                        END_DTTM,
                         CREATED_BY,
                         CREATED_TIME,
                         LAST_UPDATED_BY,
@@ -971,6 +993,8 @@ namespace Onecalendar.BusinessEntity {
                 this.columnSCHEDULE = base.Columns["SCHEDULE"];
                 this.columnLOCATION = base.Columns["LOCATION"];
                 this.columnPRICE = base.Columns["PRICE"];
+                this.columnSTART_DTTM = base.Columns["START_DTTM"];
+                this.columnEND_DTTM = base.Columns["END_DTTM"];
                 this.columnCREATED_BY = base.Columns["CREATED_BY"];
                 this.columnCREATED_TIME = base.Columns["CREATED_TIME"];
                 this.columnLAST_UPDATED_BY = base.Columns["LAST_UPDATED_BY"];
@@ -992,6 +1016,10 @@ namespace Onecalendar.BusinessEntity {
                 base.Columns.Add(this.columnLOCATION);
                 this.columnPRICE = new global::System.Data.DataColumn("PRICE", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPRICE);
+                this.columnSTART_DTTM = new global::System.Data.DataColumn("START_DTTM", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSTART_DTTM);
+                this.columnEND_DTTM = new global::System.Data.DataColumn("END_DTTM", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEND_DTTM);
                 this.columnCREATED_BY = new global::System.Data.DataColumn("CREATED_BY", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCREATED_BY);
                 this.columnCREATED_TIME = new global::System.Data.DataColumn("CREATED_TIME", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
@@ -1017,6 +1045,8 @@ namespace Onecalendar.BusinessEntity {
                 this.columnLOCATION.MaxLength = 500;
                 this.columnPRICE.AllowDBNull = false;
                 this.columnPRICE.MaxLength = 50;
+                this.columnSTART_DTTM.AllowDBNull = false;
+                this.columnEND_DTTM.AllowDBNull = false;
                 this.columnCREATED_BY.AllowDBNull = false;
                 this.columnCREATED_BY.MaxLength = 256;
                 this.columnCREATED_TIME.AllowDBNull = false;
@@ -1416,6 +1446,28 @@ namespace Onecalendar.BusinessEntity {
                 }
                 set {
                     this[this.tableT_BIZ002_COURSE_EVENT.PRICEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime START_DTTM {
+                get {
+                    return ((global::System.DateTime)(this[this.tableT_BIZ002_COURSE_EVENT.START_DTTMColumn]));
+                }
+                set {
+                    this[this.tableT_BIZ002_COURSE_EVENT.START_DTTMColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime END_DTTM {
+                get {
+                    return ((global::System.DateTime)(this[this.tableT_BIZ002_COURSE_EVENT.END_DTTMColumn]));
+                }
+                set {
+                    this[this.tableT_BIZ002_COURSE_EVENT.END_DTTMColumn] = value;
                 }
             }
             
@@ -2319,6 +2371,8 @@ SELECT COURSEID, USERID, COURSE_NAME, COURSE_DETAIL, COURSE_IMAGEPATH, COURSE_FI
             tableMapping.ColumnMappings.Add("SCHEDULE", "SCHEDULE");
             tableMapping.ColumnMappings.Add("LOCATION", "LOCATION");
             tableMapping.ColumnMappings.Add("PRICE", "PRICE");
+            tableMapping.ColumnMappings.Add("START_DTTM", "START_DTTM");
+            tableMapping.ColumnMappings.Add("END_DTTM", "END_DTTM");
             tableMapping.ColumnMappings.Add("CREATED_BY", "CREATED_BY");
             tableMapping.ColumnMappings.Add("CREATED_TIME", "CREATED_TIME");
             tableMapping.ColumnMappings.Add("LAST_UPDATED_BY", "LAST_UPDATED_BY");
@@ -2328,13 +2382,15 @@ SELECT COURSEID, USERID, COURSE_NAME, COURSE_DETAIL, COURSE_IMAGEPATH, COURSE_FI
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[T_BIZ002_COURSE_EVENT] WHERE (([COURSEEVENTID] = @Original_COURSEEVENTID) AND ([COURSEID] = @Original_COURSEID) AND ([SCHEDULE] = @Original_SCHEDULE) AND ([LOCATION] = @Original_LOCATION) AND ([PRICE] = @Original_PRICE) AND ([CREATED_BY] = @Original_CREATED_BY) AND ([CREATED_TIME] = @Original_CREATED_TIME) AND ([LAST_UPDATED_BY] = @Original_LAST_UPDATED_BY) AND ([LAST_UPDATED_TIME] = @Original_LAST_UPDATED_TIME) AND ([VERSION_NO] = @Original_VERSION_NO) AND ([TRANSACTION_ID] = @Original_TRANSACTION_ID))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[T_BIZ002_COURSE_EVENT] WHERE (([COURSEEVENTID] = @Original_COURSEEVENTID) AND ([COURSEID] = @Original_COURSEID) AND ([SCHEDULE] = @Original_SCHEDULE) AND ([LOCATION] = @Original_LOCATION) AND ([PRICE] = @Original_PRICE) AND ([START_DTTM] = @Original_START_DTTM) AND ([END_DTTM] = @Original_END_DTTM) AND ([CREATED_BY] = @Original_CREATED_BY) AND ([CREATED_TIME] = @Original_CREATED_TIME) AND ([LAST_UPDATED_BY] = @Original_LAST_UPDATED_BY) AND ([LAST_UPDATED_TIME] = @Original_LAST_UPDATED_TIME) AND ([VERSION_NO] = @Original_VERSION_NO) AND ([TRANSACTION_ID] = @Original_TRANSACTION_ID))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_COURSEEVENTID", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "COURSEEVENTID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_COURSEID", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "COURSEID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SCHEDULE", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SCHEDULE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LOCATION", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LOCATION", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PRICE", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PRICE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_START_DTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "START_DTTM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_END_DTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "END_DTTM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CREATED_BY", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CREATED_BY", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CREATED_TIME", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CREATED_TIME", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LAST_UPDATED_BY", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LAST_UPDATED_BY", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -2343,14 +2399,16 @@ SELECT COURSEID, USERID, COURSE_NAME, COURSE_DETAIL, COURSE_IMAGEPATH, COURSE_FI
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TRANSACTION_ID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TRANSACTION_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[T_BIZ002_COURSE_EVENT] ([COURSEEVENTID], [COURSEID], [SCHEDULE], [LOCATION], [PRICE], [CREATED_BY], [CREATED_TIME], [LAST_UPDATED_BY], [LAST_UPDATED_TIME], [VERSION_NO], [TRANSACTION_ID]) VALUES (@COURSEEVENTID, @COURSEID, @SCHEDULE, @LOCATION, @PRICE, @CREATED_BY, @CREATED_TIME, @LAST_UPDATED_BY, @LAST_UPDATED_TIME, @VERSION_NO, @TRANSACTION_ID);
-SELECT COURSEEVENTID, COURSEID, SCHEDULE, LOCATION, PRICE, CREATED_BY, CREATED_TIME, LAST_UPDATED_BY, LAST_UPDATED_TIME, VERSION_NO, TRANSACTION_ID FROM T_BIZ002_COURSE_EVENT WHERE (COURSEEVENTID = @COURSEEVENTID)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[T_BIZ002_COURSE_EVENT] ([COURSEEVENTID], [COURSEID], [SCHEDULE], [LOCATION], [PRICE], [START_DTTM], [END_DTTM], [CREATED_BY], [CREATED_TIME], [LAST_UPDATED_BY], [LAST_UPDATED_TIME], [VERSION_NO], [TRANSACTION_ID]) VALUES (@COURSEEVENTID, @COURSEID, @SCHEDULE, @LOCATION, @PRICE, @START_DTTM, @END_DTTM, @CREATED_BY, @CREATED_TIME, @LAST_UPDATED_BY, @LAST_UPDATED_TIME, @VERSION_NO, @TRANSACTION_ID);
+SELECT COURSEEVENTID, COURSEID, SCHEDULE, LOCATION, PRICE, START_DTTM, END_DTTM, CREATED_BY, CREATED_TIME, LAST_UPDATED_BY, LAST_UPDATED_TIME, VERSION_NO, TRANSACTION_ID FROM T_BIZ002_COURSE_EVENT WHERE (COURSEEVENTID = @COURSEEVENTID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@COURSEEVENTID", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "COURSEEVENTID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@COURSEID", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "COURSEID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SCHEDULE", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SCHEDULE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LOCATION", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LOCATION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PRICE", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PRICE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@START_DTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "START_DTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@END_DTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "END_DTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CREATED_BY", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CREATED_BY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CREATED_TIME", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CREATED_TIME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LAST_UPDATED_BY", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LAST_UPDATED_BY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2359,14 +2417,16 @@ SELECT COURSEEVENTID, COURSEID, SCHEDULE, LOCATION, PRICE, CREATED_BY, CREATED_T
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TRANSACTION_ID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TRANSACTION_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[T_BIZ002_COURSE_EVENT] SET [COURSEEVENTID] = @COURSEEVENTID, [COURSEID] = @COURSEID, [SCHEDULE] = @SCHEDULE, [LOCATION] = @LOCATION, [PRICE] = @PRICE, [CREATED_BY] = @CREATED_BY, [CREATED_TIME] = @CREATED_TIME, [LAST_UPDATED_BY] = @LAST_UPDATED_BY, [LAST_UPDATED_TIME] = @LAST_UPDATED_TIME, [VERSION_NO] = @VERSION_NO, [TRANSACTION_ID] = @TRANSACTION_ID WHERE (([COURSEEVENTID] = @Original_COURSEEVENTID) AND ([COURSEID] = @Original_COURSEID) AND ([SCHEDULE] = @Original_SCHEDULE) AND ([LOCATION] = @Original_LOCATION) AND ([PRICE] = @Original_PRICE) AND ([CREATED_BY] = @Original_CREATED_BY) AND ([CREATED_TIME] = @Original_CREATED_TIME) AND ([LAST_UPDATED_BY] = @Original_LAST_UPDATED_BY) AND ([LAST_UPDATED_TIME] = @Original_LAST_UPDATED_TIME) AND ([VERSION_NO] = @Original_VERSION_NO) AND ([TRANSACTION_ID] = @Original_TRANSACTION_ID));
-SELECT COURSEEVENTID, COURSEID, SCHEDULE, LOCATION, PRICE, CREATED_BY, CREATED_TIME, LAST_UPDATED_BY, LAST_UPDATED_TIME, VERSION_NO, TRANSACTION_ID FROM T_BIZ002_COURSE_EVENT WHERE (COURSEEVENTID = @COURSEEVENTID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[T_BIZ002_COURSE_EVENT] SET [COURSEEVENTID] = @COURSEEVENTID, [COURSEID] = @COURSEID, [SCHEDULE] = @SCHEDULE, [LOCATION] = @LOCATION, [PRICE] = @PRICE, [START_DTTM] = @START_DTTM, [END_DTTM] = @END_DTTM, [CREATED_BY] = @CREATED_BY, [CREATED_TIME] = @CREATED_TIME, [LAST_UPDATED_BY] = @LAST_UPDATED_BY, [LAST_UPDATED_TIME] = @LAST_UPDATED_TIME, [VERSION_NO] = @VERSION_NO, [TRANSACTION_ID] = @TRANSACTION_ID WHERE (([COURSEEVENTID] = @Original_COURSEEVENTID) AND ([COURSEID] = @Original_COURSEID) AND ([SCHEDULE] = @Original_SCHEDULE) AND ([LOCATION] = @Original_LOCATION) AND ([PRICE] = @Original_PRICE) AND ([START_DTTM] = @Original_START_DTTM) AND ([END_DTTM] = @Original_END_DTTM) AND ([CREATED_BY] = @Original_CREATED_BY) AND ([CREATED_TIME] = @Original_CREATED_TIME) AND ([LAST_UPDATED_BY] = @Original_LAST_UPDATED_BY) AND ([LAST_UPDATED_TIME] = @Original_LAST_UPDATED_TIME) AND ([VERSION_NO] = @Original_VERSION_NO) AND ([TRANSACTION_ID] = @Original_TRANSACTION_ID));
+SELECT COURSEEVENTID, COURSEID, SCHEDULE, LOCATION, PRICE, START_DTTM, END_DTTM, CREATED_BY, CREATED_TIME, LAST_UPDATED_BY, LAST_UPDATED_TIME, VERSION_NO, TRANSACTION_ID FROM T_BIZ002_COURSE_EVENT WHERE (COURSEEVENTID = @COURSEEVENTID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@COURSEEVENTID", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "COURSEEVENTID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@COURSEID", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "COURSEID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SCHEDULE", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SCHEDULE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LOCATION", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LOCATION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PRICE", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PRICE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@START_DTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "START_DTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@END_DTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "END_DTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CREATED_BY", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CREATED_BY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CREATED_TIME", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CREATED_TIME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LAST_UPDATED_BY", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LAST_UPDATED_BY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2378,6 +2438,8 @@ SELECT COURSEEVENTID, COURSEID, SCHEDULE, LOCATION, PRICE, CREATED_BY, CREATED_T
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SCHEDULE", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SCHEDULE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LOCATION", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LOCATION", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PRICE", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PRICE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_START_DTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "START_DTTM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_END_DTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "END_DTTM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CREATED_BY", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CREATED_BY", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CREATED_TIME", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CREATED_TIME", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LAST_UPDATED_BY", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LAST_UPDATED_BY", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -2390,7 +2452,7 @@ SELECT COURSEEVENTID, COURSEID, SCHEDULE, LOCATION, PRICE, CREATED_BY, CREATED_T
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Onecalendar.BusinessEntity.Properties.Settings.Default.TuitionConnectionString1;
+            this._connection.ConnectionString = global::Onecalendar.BusinessEntity.Properties.Settings.Default.TuitionConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2399,9 +2461,9 @@ SELECT COURSEEVENTID, COURSEID, SCHEDULE, LOCATION, PRICE, CREATED_BY, CREATED_T
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT COURSEEVENTID, COURSEID, SCHEDULE, LOCATION, PRICE, CREATED_BY, CREATED_TI" +
-                "ME, LAST_UPDATED_BY, LAST_UPDATED_TIME, VERSION_NO, TRANSACTION_ID FROM dbo.T_BI" +
-                "Z002_COURSE_EVENT";
+            this._commandCollection[0].CommandText = "SELECT COURSEEVENTID, COURSEID, SCHEDULE, LOCATION, PRICE, START_DTTM, END_DTTM, " +
+                "CREATED_BY, CREATED_TIME, LAST_UPDATED_BY, LAST_UPDATED_TIME, VERSION_NO, TRANSA" +
+                "CTION_ID FROM dbo.T_BIZ002_COURSE_EVENT";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2462,7 +2524,7 @@ SELECT COURSEEVENTID, COURSEID, SCHEDULE, LOCATION, PRICE, CREATED_BY, CREATED_T
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_COURSEEVENTID, string Original_COURSEID, string Original_SCHEDULE, string Original_LOCATION, string Original_PRICE, string Original_CREATED_BY, System.DateTime Original_CREATED_TIME, string Original_LAST_UPDATED_BY, System.DateTime Original_LAST_UPDATED_TIME, int Original_VERSION_NO, string Original_TRANSACTION_ID) {
+        public virtual int Delete(string Original_COURSEEVENTID, string Original_COURSEID, string Original_SCHEDULE, string Original_LOCATION, string Original_PRICE, System.DateTime Original_START_DTTM, System.DateTime Original_END_DTTM, string Original_CREATED_BY, System.DateTime Original_CREATED_TIME, string Original_LAST_UPDATED_BY, System.DateTime Original_LAST_UPDATED_TIME, int Original_VERSION_NO, string Original_TRANSACTION_ID) {
             if ((Original_COURSEEVENTID == null)) {
                 throw new global::System.ArgumentNullException("Original_COURSEEVENTID");
             }
@@ -2493,26 +2555,28 @@ SELECT COURSEEVENTID, COURSEID, SCHEDULE, LOCATION, PRICE, CREATED_BY, CREATED_T
             else {
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_PRICE));
             }
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((System.DateTime)(Original_START_DTTM));
+            this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_END_DTTM));
             if ((Original_CREATED_BY == null)) {
                 throw new global::System.ArgumentNullException("Original_CREATED_BY");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_CREATED_BY));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_CREATED_BY));
             }
-            this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_CREATED_TIME));
+            this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_CREATED_TIME));
             if ((Original_LAST_UPDATED_BY == null)) {
                 throw new global::System.ArgumentNullException("Original_LAST_UPDATED_BY");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_LAST_UPDATED_BY));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_LAST_UPDATED_BY));
             }
-            this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_LAST_UPDATED_TIME));
-            this.Adapter.DeleteCommand.Parameters[9].Value = ((int)(Original_VERSION_NO));
+            this.Adapter.DeleteCommand.Parameters[10].Value = ((System.DateTime)(Original_LAST_UPDATED_TIME));
+            this.Adapter.DeleteCommand.Parameters[11].Value = ((int)(Original_VERSION_NO));
             if ((Original_TRANSACTION_ID == null)) {
                 throw new global::System.ArgumentNullException("Original_TRANSACTION_ID");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_TRANSACTION_ID));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_TRANSACTION_ID));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2534,7 +2598,7 @@ SELECT COURSEEVENTID, COURSEID, SCHEDULE, LOCATION, PRICE, CREATED_BY, CREATED_T
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string COURSEEVENTID, string COURSEID, string SCHEDULE, string LOCATION, string PRICE, string CREATED_BY, System.DateTime CREATED_TIME, string LAST_UPDATED_BY, System.DateTime LAST_UPDATED_TIME, int VERSION_NO, string TRANSACTION_ID) {
+        public virtual int Insert(string COURSEEVENTID, string COURSEID, string SCHEDULE, string LOCATION, string PRICE, System.DateTime START_DTTM, System.DateTime END_DTTM, string CREATED_BY, System.DateTime CREATED_TIME, string LAST_UPDATED_BY, System.DateTime LAST_UPDATED_TIME, int VERSION_NO, string TRANSACTION_ID) {
             if ((COURSEEVENTID == null)) {
                 throw new global::System.ArgumentNullException("COURSEEVENTID");
             }
@@ -2565,26 +2629,28 @@ SELECT COURSEEVENTID, COURSEID, SCHEDULE, LOCATION, PRICE, CREATED_BY, CREATED_T
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = ((string)(PRICE));
             }
+            this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(START_DTTM));
+            this.Adapter.InsertCommand.Parameters[6].Value = ((System.DateTime)(END_DTTM));
             if ((CREATED_BY == null)) {
                 throw new global::System.ArgumentNullException("CREATED_BY");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(CREATED_BY));
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(CREATED_BY));
             }
-            this.Adapter.InsertCommand.Parameters[6].Value = ((System.DateTime)(CREATED_TIME));
+            this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(CREATED_TIME));
             if ((LAST_UPDATED_BY == null)) {
                 throw new global::System.ArgumentNullException("LAST_UPDATED_BY");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(LAST_UPDATED_BY));
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(LAST_UPDATED_BY));
             }
-            this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(LAST_UPDATED_TIME));
-            this.Adapter.InsertCommand.Parameters[9].Value = ((int)(VERSION_NO));
+            this.Adapter.InsertCommand.Parameters[10].Value = ((System.DateTime)(LAST_UPDATED_TIME));
+            this.Adapter.InsertCommand.Parameters[11].Value = ((int)(VERSION_NO));
             if ((TRANSACTION_ID == null)) {
                 throw new global::System.ArgumentNullException("TRANSACTION_ID");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(TRANSACTION_ID));
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(TRANSACTION_ID));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2612,6 +2678,8 @@ SELECT COURSEEVENTID, COURSEID, SCHEDULE, LOCATION, PRICE, CREATED_BY, CREATED_T
                     string SCHEDULE, 
                     string LOCATION, 
                     string PRICE, 
+                    System.DateTime START_DTTM, 
+                    System.DateTime END_DTTM, 
                     string CREATED_BY, 
                     System.DateTime CREATED_TIME, 
                     string LAST_UPDATED_BY, 
@@ -2623,6 +2691,8 @@ SELECT COURSEEVENTID, COURSEID, SCHEDULE, LOCATION, PRICE, CREATED_BY, CREATED_T
                     string Original_SCHEDULE, 
                     string Original_LOCATION, 
                     string Original_PRICE, 
+                    System.DateTime Original_START_DTTM, 
+                    System.DateTime Original_END_DTTM, 
                     string Original_CREATED_BY, 
                     System.DateTime Original_CREATED_TIME, 
                     string Original_LAST_UPDATED_BY, 
@@ -2659,77 +2729,81 @@ SELECT COURSEEVENTID, COURSEID, SCHEDULE, LOCATION, PRICE, CREATED_BY, CREATED_T
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(PRICE));
             }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(START_DTTM));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(END_DTTM));
             if ((CREATED_BY == null)) {
                 throw new global::System.ArgumentNullException("CREATED_BY");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(CREATED_BY));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(CREATED_BY));
             }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(CREATED_TIME));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(CREATED_TIME));
             if ((LAST_UPDATED_BY == null)) {
                 throw new global::System.ArgumentNullException("LAST_UPDATED_BY");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(LAST_UPDATED_BY));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(LAST_UPDATED_BY));
             }
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(LAST_UPDATED_TIME));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(VERSION_NO));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(LAST_UPDATED_TIME));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(VERSION_NO));
             if ((TRANSACTION_ID == null)) {
                 throw new global::System.ArgumentNullException("TRANSACTION_ID");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(TRANSACTION_ID));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(TRANSACTION_ID));
             }
             if ((Original_COURSEEVENTID == null)) {
                 throw new global::System.ArgumentNullException("Original_COURSEEVENTID");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_COURSEEVENTID));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_COURSEEVENTID));
             }
             if ((Original_COURSEID == null)) {
                 throw new global::System.ArgumentNullException("Original_COURSEID");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_COURSEID));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_COURSEID));
             }
             if ((Original_SCHEDULE == null)) {
                 throw new global::System.ArgumentNullException("Original_SCHEDULE");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_SCHEDULE));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_SCHEDULE));
             }
             if ((Original_LOCATION == null)) {
                 throw new global::System.ArgumentNullException("Original_LOCATION");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_LOCATION));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_LOCATION));
             }
             if ((Original_PRICE == null)) {
                 throw new global::System.ArgumentNullException("Original_PRICE");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_PRICE));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_PRICE));
             }
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(Original_START_DTTM));
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((System.DateTime)(Original_END_DTTM));
             if ((Original_CREATED_BY == null)) {
                 throw new global::System.ArgumentNullException("Original_CREATED_BY");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_CREATED_BY));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_CREATED_BY));
             }
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((System.DateTime)(Original_CREATED_TIME));
+            this.Adapter.UpdateCommand.Parameters[21].Value = ((System.DateTime)(Original_CREATED_TIME));
             if ((Original_LAST_UPDATED_BY == null)) {
                 throw new global::System.ArgumentNullException("Original_LAST_UPDATED_BY");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_LAST_UPDATED_BY));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_LAST_UPDATED_BY));
             }
-            this.Adapter.UpdateCommand.Parameters[19].Value = ((System.DateTime)(Original_LAST_UPDATED_TIME));
-            this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(Original_VERSION_NO));
+            this.Adapter.UpdateCommand.Parameters[23].Value = ((System.DateTime)(Original_LAST_UPDATED_TIME));
+            this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(Original_VERSION_NO));
             if ((Original_TRANSACTION_ID == null)) {
                 throw new global::System.ArgumentNullException("Original_TRANSACTION_ID");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_TRANSACTION_ID));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_TRANSACTION_ID));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2756,6 +2830,8 @@ SELECT COURSEEVENTID, COURSEID, SCHEDULE, LOCATION, PRICE, CREATED_BY, CREATED_T
                     string SCHEDULE, 
                     string LOCATION, 
                     string PRICE, 
+                    System.DateTime START_DTTM, 
+                    System.DateTime END_DTTM, 
                     string CREATED_BY, 
                     System.DateTime CREATED_TIME, 
                     string LAST_UPDATED_BY, 
@@ -2767,13 +2843,15 @@ SELECT COURSEEVENTID, COURSEID, SCHEDULE, LOCATION, PRICE, CREATED_BY, CREATED_T
                     string Original_SCHEDULE, 
                     string Original_LOCATION, 
                     string Original_PRICE, 
+                    System.DateTime Original_START_DTTM, 
+                    System.DateTime Original_END_DTTM, 
                     string Original_CREATED_BY, 
                     System.DateTime Original_CREATED_TIME, 
                     string Original_LAST_UPDATED_BY, 
                     System.DateTime Original_LAST_UPDATED_TIME, 
                     int Original_VERSION_NO, 
                     string Original_TRANSACTION_ID) {
-            return this.Update(Original_COURSEEVENTID, COURSEID, SCHEDULE, LOCATION, PRICE, CREATED_BY, CREATED_TIME, LAST_UPDATED_BY, LAST_UPDATED_TIME, VERSION_NO, TRANSACTION_ID, Original_COURSEEVENTID, Original_COURSEID, Original_SCHEDULE, Original_LOCATION, Original_PRICE, Original_CREATED_BY, Original_CREATED_TIME, Original_LAST_UPDATED_BY, Original_LAST_UPDATED_TIME, Original_VERSION_NO, Original_TRANSACTION_ID);
+            return this.Update(Original_COURSEEVENTID, COURSEID, SCHEDULE, LOCATION, PRICE, START_DTTM, END_DTTM, CREATED_BY, CREATED_TIME, LAST_UPDATED_BY, LAST_UPDATED_TIME, VERSION_NO, TRANSACTION_ID, Original_COURSEEVENTID, Original_COURSEID, Original_SCHEDULE, Original_LOCATION, Original_PRICE, Original_START_DTTM, Original_END_DTTM, Original_CREATED_BY, Original_CREATED_TIME, Original_LAST_UPDATED_BY, Original_LAST_UPDATED_TIME, Original_VERSION_NO, Original_TRANSACTION_ID);
         }
     }
     

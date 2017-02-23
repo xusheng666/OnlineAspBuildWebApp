@@ -72,6 +72,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -196,6 +197,8 @@
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\carouselScript.js" />
     <Content Include="Content\js\jquery-1.9.1.js" />
+    <Content Include="Content\js\jquery-ui.min.js" />
+    <Content Include="Content\js\jquery.min.js" />
     <Content Include="Content\js\npm.js" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
@@ -270,6 +273,7 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Handler\ImageHandler.ashx" />
+    <Content Include="Handler\JsonCalendarHandler.ashx" />
     <None Include="Properties\PublishProfiles\New.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Public\UserRegistration.aspx" />
@@ -377,6 +381,9 @@
     </Compile>
     <Compile Include="Handler\ImageHandler.ashx.cs">
       <DependentUpon>ImageHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\JsonCalendarHandler.ashx.cs">
+      <DependentUpon>JsonCalendarHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="InternetPageBase.cs">
       <SubType>ASPXCodeBehind</SubType>

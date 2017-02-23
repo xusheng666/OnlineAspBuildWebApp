@@ -44,52 +44,75 @@
                                     <asp:TemplateField ItemStyle-Width="30px" HeaderText="EventId"
                                         Visible="False">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblEventId" runat="server"
+                                            <asp:Label ID="lblEventId" runat="server" Width="50px"
                                                 Text='<%# Bind("COURSEEVENTID")%>'></asp:Label>
                                         </ItemTemplate>
                                         <EditItemTemplate>
-                                            <asp:Label ID="txtEventId" runat="server"
+                                            <asp:Label ID="txtEventId" runat="server" Width="50px"
                                                 Text='<%# Bind("COURSEEVENTID")%>'></asp:Label>
                                         </EditItemTemplate>
                                         <FooterTemplate>
-                                            <asp:TextBox ID="txtEventId" Width="40px" runat="server"></asp:TextBox>
+                                            <asp:TextBox ID="txtEventId" Width="30px" runat="server"></asp:TextBox>
                                         </FooterTemplate>
                                     </asp:TemplateField>
                                     <%--below are contents--%>
-                                    <asp:TemplateField HeaderText="Schedule" HeaderStyle-HorizontalAlign="Left" HeaderStyle-Width="35%">
+                                    <asp:TemplateField HeaderText="Schedule" HeaderStyle-HorizontalAlign="Left" HeaderStyle-Width="10px">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblSchedule" runat="server" Text='<%# Bind("SCHEDULE") %>'></asp:Label>
+                                            <asp:Label Width="50px" ID="lblSchedule" runat="server" Text='<%# Bind("SCHEDULE") %>'></asp:Label>
                                         </ItemTemplate>
                                         <EditItemTemplate>
-                                            <asp:TextBox ID="txtSchedule" runat="server" Text='<%# Bind("SCHEDULE") %>'></asp:TextBox>
+                                            <asp:TextBox Width="50px" ID="txtSchedule" runat="server" Text='<%# Bind("SCHEDULE") %>'></asp:TextBox>
                                         </EditItemTemplate>
                                         <FooterTemplate>
-                                            <asp:TextBox ID="txtNewSchedule" runat="server"></asp:TextBox>
+                                            <asp:TextBox Width="50px" ID="txtNewSchedule" runat="server"></asp:TextBox>
                                         </FooterTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Location" HeaderStyle-HorizontalAlign="Left" HeaderStyle-Width="35%">
+                                    <asp:TemplateField HeaderText="Location" HeaderStyle-HorizontalAlign="Left" HeaderStyle-Width="10px">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblLocation" runat="server" Text='<%# Bind("LOCATION") %>'></asp:Label>
+                                            <asp:Label Width="50px" ID="lblLocation" runat="server" Text='<%# Bind("LOCATION") %>'></asp:Label>
                                         </ItemTemplate>
                                         <EditItemTemplate>
-                                            <asp:TextBox ID="txtLocation" runat="server" Text='<%# Bind("LOCATION") %>'></asp:TextBox>
+                                            <asp:TextBox Width="50px" ID="txtLocation" runat="server" Text='<%# Bind("LOCATION") %>'></asp:TextBox>
                                         </EditItemTemplate>
                                         <FooterTemplate>
-                                            <asp:TextBox ID="txtNewLocation" runat="server"></asp:TextBox>
+                                            <asp:TextBox Width="50px" ID="txtNewLocation" runat="server"></asp:TextBox>
                                         </FooterTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Price" HeaderStyle-HorizontalAlign="Left" HeaderStyle-Width="15%">
+                                    <asp:TemplateField HeaderText="Price" HeaderStyle-HorizontalAlign="Left" HeaderStyle-Width="10px">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblPrice" runat="server" Text='<%# Bind("PRICE") %>'></asp:Label>
+                                            <asp:Label Width="50px" ID="lblPrice" runat="server" Text='<%# Bind("PRICE") %>'></asp:Label>
                                         </ItemTemplate>
                                         <EditItemTemplate>
-                                            <asp:TextBox ID="txtPrice" runat="server" Text='<%# Bind("PRICE") %>'></asp:TextBox>
+                                            <asp:TextBox Width="50px" ID="txtPrice" runat="server" Text='<%# Bind("PRICE") %>'></asp:TextBox>
                                         </EditItemTemplate>
                                         <FooterTemplate>
-                                            <asp:TextBox ID="txtNewPrice" runat="server"></asp:TextBox>
+                                            <asp:TextBox Width="50px" ID="txtNewPrice" runat="server"></asp:TextBox>
                                         </FooterTemplate>
                                     </asp:TemplateField>
-                                    <asp:CommandField ButtonType="Link" ShowEditButton="true" ItemStyle-Width="150" />
+                                    <asp:TemplateField HeaderText="Start Date" HeaderStyle-HorizontalAlign="Left" HeaderStyle-Width="10px">
+                                        <ItemTemplate>
+                                            <asp:Label Width="50px" ID="lblStartDttm" runat="server" Text='<%# Bind("START_DTTM") %>'></asp:Label>
+                                        </ItemTemplate>
+                                        <EditItemTemplate>
+                                            <asp:TextBox Width="100px" ID="txtStartDttm" runat="server" Text='<%# Bind("START_DTTM") %>'></asp:TextBox>
+                                        </EditItemTemplate>
+                                        <FooterTemplate>
+                                            <asp:TextBox Width="100px" ID="txtNewStartDttm" runat="server"></asp:TextBox>
+                                        </FooterTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="End Date" HeaderStyle-HorizontalAlign="Left" HeaderStyle-Width="10px">
+                                        <ItemTemplate>
+                                            <asp:Label Width="50px" ID="lblEndDttm" runat="server" Text='<%# Bind("END_DTTM") %>'></asp:Label>
+                                        </ItemTemplate>
+                                        <EditItemTemplate>
+                                            <asp:TextBox Width="100px" ID="txtEndDttm" runat="server" Text='<%# Bind("END_DTTM") %>'></asp:TextBox>
+                                        </EditItemTemplate>
+                                        <FooterTemplate>
+                                            <asp:TextBox Width="100px" ID="txtNewEndDttm" runat="server"></asp:TextBox>
+                                        </FooterTemplate>
+                                    </asp:TemplateField>
+                                    <%--below are control actions--%>
+                                    <asp:CommandField ButtonType="Link" ShowEditButton="true" ItemStyle-Width="50px" />
                                     <asp:TemplateField ItemStyle-Width="50px">
                                         <ItemTemplate>
                                             <asp:LinkButton ID="lnkRemove" runat="server"

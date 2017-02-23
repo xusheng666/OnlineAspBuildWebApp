@@ -50,6 +50,8 @@ BEGIN
       t.SCHEDULE,
       t.LOCATION,
       t.PRICE,
+	  t.START_DTTM,
+	  t.END_DTTM,
       t.CREATED_BY,
       t.CREATED_TIME,
       t.LAST_UPDATED_BY,
