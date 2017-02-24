@@ -15,6 +15,12 @@ namespace OneCalendar.BusinessComponent.DataAccess
         {
             return QueryDataTableWithParameters(SPNameConstants.P_QUERY_COURSES_FOR_VIEW);
         }
+
+        public DataSet getAllCoursesCourseEvents()
+        {
+            return QueryEventDataSetWithParameters(SPNameConstants.P_QUERY_ALL_COURSES_EVENTS);
+        }
+
         public DataTable getCourseViewById(String courseID)
         {
             return QueryDataTableWithParameters(SPNameConstants.P_QUERY_COURSE_BY_ID_FOR_VIEW, courseID);
@@ -44,7 +50,7 @@ namespace OneCalendar.BusinessComponent.DataAccess
             return ds;
         }
 
-        internal void DeleteCourseEventByID(string eventId)
+        public void DeleteCourseEventByID(string eventId)
         {
             UpdateSPWithParameters(SPNameConstants.P_DELETE_COURSE_EVENT_BY_ID, eventId);
         }

@@ -158,5 +158,14 @@ namespace OneCalendar.BusinessComponent
             this.Helper.Fill(ds.T_BIZ001_COURSE, cmd);
             return ds;
         }
+
+        public DataSet QueryEventDataSetWithParameters(string SPName)
+        {
+            BIZCourseDataSet ds = new BIZCourseDataSet();
+            DbCommand cmd = this.Helper.BuildDbCommand(SPName);
+            this.Helper.AssignParameterValues(cmd);
+            this.Helper.Fill(ds.T_BIZ002_COURSE_EVENT, cmd);
+            return ds;
+        }
     }
 }

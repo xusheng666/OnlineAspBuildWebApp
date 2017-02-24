@@ -9,7 +9,7 @@
 <link href="<%= ResolveUrl("~/Content/css/fullcalendar.css")%>" rel="stylesheet" type="text/css" />
 <link href="<%= ResolveUrl("~/Content/themes/base/jquery-ui.css")%>" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="<%= ResolveUrl("~/Content/js/moment.min.js")%>"></script>
-<script type="text/javascript" src="<%= ResolveUrl("~/Content/js/jquery-1.9.1.js")%>"></script>
+<script type="text/javascript" src="<%= ResolveUrl("~/Content/js/jquery.min.js")%>"></script>
 <script type="text/javascript" src="<%= ResolveUrl("~/Content/js/jquery-ui.min.js")%>"></script>
 <script type="text/javascript" src="<%= ResolveUrl("~/Content/js/fullcalendar.js")%>"></script>
 

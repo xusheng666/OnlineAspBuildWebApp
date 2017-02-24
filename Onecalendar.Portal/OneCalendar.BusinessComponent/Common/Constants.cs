@@ -38,7 +38,9 @@ namespace OneCalendar.BusinessComponent
         public const string P_QUERY_USER_BY_USERID = "P_QUERY_USER_BY_USERID";
         public const string P_GET_ALL_USERS = "P_GET_ALL_USERS";
         public const string P_DELETE_USER_BY_ID = "P_DELETE_USER_BY_ID";
-
+        public const string P_QUERY_CODE_BY_CATEGORY = "P_QUERY_CODE_BY_CATEGORY";
+        public const string P_QUERY_ALL_COURSES_EVENTS = "P_QUERY_ALL_COURSES_EVENTS";
+        
     }
 
     public class QueryStringNames

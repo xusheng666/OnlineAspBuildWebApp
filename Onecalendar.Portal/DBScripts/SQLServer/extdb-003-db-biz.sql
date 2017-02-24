@@ -387,3 +387,56 @@ SET NOCOUNT OFF
 SET XACT_ABORT OFF
 
 GO
+
+IF OBJECT_ID( 'dbo.P_QUERY_ALL_COURSES_EVENTS', 'P' ) IS NOT NULL
+  DROP  PROCEDURE  dbo.P_QUERY_ALL_COURSES_EVENTS
+GO
+
+CREATE PROCEDURE P_QUERY_ALL_COURSES_EVENTS
+AS
+	
+/*
+Module  : 
+Author  : SQL Generator
+Date    : 23-02-2017
+Desc    : Update records to T_BIZ002_COURSE_EVENT
+Returns: 0 if successful, else SQL error code
+
+Change Revision
+-----------------------------------------------------
+Date           Author            Remark
+
+*/
+
+-- do your settings here...
+SET NOCOUNT ON
+
+SET XACT_ABORT ON
+
+-- declare and initialize local variables here...
+
+-- do your business transaction
+BEGIN
+    SELECT 
+      t.COURSEEVENTID,
+      t.COURSEID,
+      t.SCHEDULE,
+      t.LOCATION,
+      t.PRICE,
+      t.START_DTTM,
+      t.END_DTTM,
+      t.CREATED_BY,
+      t.CREATED_TIME,
+      t.LAST_UPDATED_BY,
+      t.LAST_UPDATED_TIME,
+      t.VERSION_NO,
+      t.TRANSACTION_ID
+    FROM T_BIZ002_COURSE_EVENT t
+	
+	RETURN @@ERROR
+
+END
+
+SET NOCOUNT OFF
+SET XACT_ABORT OFF
+GO

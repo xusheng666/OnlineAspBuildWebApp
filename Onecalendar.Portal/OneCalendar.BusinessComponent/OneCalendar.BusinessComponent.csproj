@@ -57,7 +57,9 @@
     <Compile Include="Common\CryptionUtil.cs" />
     <Compile Include="Common\DateTimeUtil.cs" />
     <Compile Include="Common\FileUtil.cs" />
+    <Compile Include="CommonService.cs" />
     <Compile Include="CourseBCService.cs" />
+    <Compile Include="DataAccess\CommonDA.cs" />
     <Compile Include="DataAccess\UserDA.cs" />
     <Compile Include="DataAccess\CourseDA.cs" />
     <Compile Include="DataAccess\DataAccessBase.cs" />

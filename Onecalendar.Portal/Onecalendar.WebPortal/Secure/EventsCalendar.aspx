@@ -27,7 +27,7 @@
                 }
             });
             $.ajax({
-                //url: "/Handler/JsonCalendarHandler.ashx",
+                //url: "/Tuition/Handler/JsonCalendarHandler.ashx",
                 success: function (data) {
                     //alert(data);
                     var source = {

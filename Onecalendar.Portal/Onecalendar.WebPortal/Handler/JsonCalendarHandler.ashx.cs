@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Onecalendar.BusinessEntity;
+using OneCalendar.BusinessComponent;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -16,15 +19,21 @@ namespace Onecalendar.WebPortal.Handler
             context.Response.ContentType = "text/plain";
             context.Response.Expires = -1;
             IList<CalendarDTO> tasksList = new List<CalendarDTO>();
+            CourseBCService _bc = new CourseBCService();
+            BIZCourseDataSet eventDS = (BIZCourseDataSet)_bc.getAllCourseEvents();
 
-            tasksList.Add(new CalendarDTO
+            foreach (BIZCourseDataSet.T_BIZ002_COURSE_EVENTRow eventRow in eventDS.T_BIZ002_COURSE_EVENT.Rows)
             {
-                id = 1,
-                title = "Google search",
-                start = ConvertToDateString(DateTime.Now),
-                end = ConvertToDateString(DateTime.Now.AddHours(4)),
-                url = "http://google.com/"
-            });
+                tasksList.Add(new CalendarDTO
+                {
+                    id = 1,
+                    title = eventRow.SCHEDULE,
+                    start = ConvertToDateString(eventRow.START_DTTM),
+                    end = ConvertToDateString(eventRow.END_DTTM),
+                    url = ""
+                });
+            }
+
 
             System.Web.Script.Serialization.JavaScriptSerializer oSerializer =
              new System.Web.Script.Serialization.JavaScriptSerializer();
