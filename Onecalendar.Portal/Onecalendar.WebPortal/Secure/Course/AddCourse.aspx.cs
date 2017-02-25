@@ -30,6 +30,7 @@ namespace Onecalendar.WebPortal.Secure.Course
                 courseRow.USERID = HttpContext.Current.User.Identity.Name;
                 courseRow.COURSE_NAME = this.courseName.Text;
                 courseRow.COURSE_DETAIL = this.description.Text;
+                courseRow.COURSE_TAG = this.courseTag.Text;
                 
                 if (fileUpload.HasFile)
                 {

@@ -16,5 +16,20 @@ namespace OneCalendar.BusinessComponent
         {
             return _da.getCodeByCodeCategory(category);
         }
+
+        public DataTable getAllCompany()
+        {
+            return _da.getAllCompany();
+        }
+
+        public void DeleteCompanyByID(string companyId)
+        {
+            _da.UpdateSPWithParameters(SPNameConstants.P_DELETE_COMPANY_BY_ID, companyId);
+        }
+
+        public CMNUserDataSet getCompanyDataSetById(string companyId)
+        {
+            return _da.getCompanyDataSetById(companyId);
+        }
     }
 }

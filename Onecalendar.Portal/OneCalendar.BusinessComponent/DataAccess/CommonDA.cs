@@ -15,5 +15,19 @@ namespace OneCalendar.BusinessComponent.DataAccess
         {
             return QueryDataTableWithParameters(SPNameConstants.P_QUERY_CODE_BY_CATEGORY);
         }
+
+        public DataTable getAllCompany()
+        {
+            return QueryDataTableWithParameters(SPNameConstants.P_QUERY_ALL_COMPANY);
+        }
+
+        public CMNUserDataSet getCompanyDataSetById(string companyId)
+        {
+            CMNUserDataSet ds = new CMNUserDataSet();
+            DbCommand cmd = this.Helper.BuildDbCommand(SPNameConstants.P_QUERY_COMPANY_BY_ID);
+            this.Helper.AssignParameterValues(cmd, companyId);
+            this.Helper.Fill(ds.T_CMN003_COMPANY, cmd);
+            return ds;
+        }
     }
 }

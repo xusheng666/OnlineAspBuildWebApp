@@ -25,7 +25,9 @@ namespace Onecalendar.WebPortal.Public
                         courseName.Text = course.Rows[0]["COURSE_NAME"].ToString();
                         description.Text = course.Rows[0]["COURSE_DETAIL"].ToString();
                         this.image.ImageUrl = course.Rows[0]["COURSE_IMAGEPATH"].ToString();
-
+                        this.companyDetail.Text = course.Rows[0]["COMPANY_DETAIL"].ToString();
+                        this.contactInfo.Text = course.Rows[0]["COMPANY_CONTACT"].ToString();
+                        
                         // fetch the events under this course
                         DataTable courseEvents = _bc.getCourseEventByCourseId(courseId);
                         if (courseEvents.Rows.Count==0)

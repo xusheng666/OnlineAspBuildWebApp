@@ -54,5 +54,14 @@ namespace OneCalendar.BusinessComponent.DataAccess
         {
             UpdateSPWithParameters(SPNameConstants.P_DELETE_COURSE_EVENT_BY_ID, eventId);
         }
+
+        public BIZCourseDataSet getCourseDSEventByCourseId(string courseId)
+        {
+            BIZCourseDataSet ds = new BIZCourseDataSet();
+            DbCommand cmd = this.Helper.BuildDbCommand(SPNameConstants.P_QUERY_COURSE_EVENTS_BY_ID_FOR_VIEW);
+            this.Helper.AssignParameterValues(cmd, courseId);
+            this.Helper.Fill(ds.T_BIZ002_COURSE_EVENT, cmd);
+            return ds;
+        }
     }
 }

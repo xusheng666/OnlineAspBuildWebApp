@@ -74,7 +74,7 @@ namespace Onecalendar.WebPortal
         protected void NavigationMenu_MenuItemDataBound(object sender, MenuEventArgs e)
         {
             var mapNode = (SiteMapNode)e.Item.DataItem;
-            if (mapNode["type"] == "doNothing")
+            if (mapNode["type"]!=null && mapNode["type"].StartsWith("doNothing"))
             {
                 e.Item.Selectable = false;
             }

@@ -40,6 +40,11 @@ namespace OneCalendar.BusinessComponent
             return _da.getCourseEventByCourseId(courseId);
         }
 
+        public BIZCourseDataSet getCourseDSEventByCourseId(string courseId)
+        {
+            return _da.getCourseDSEventByCourseId(courseId);
+        }
+
         public BIZCourseDataSet getEventDataSetById(string eventId)
         {
             return _da.getEventDataSetById(eventId);
@@ -49,7 +54,5 @@ namespace OneCalendar.BusinessComponent
         {
             _da.DeleteCourseEventByID(eventId);
         }
-
-        
     }
 }

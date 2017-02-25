@@ -1,4 +1,318 @@
 
+IF OBJECT_ID( 'dbo.P_CMN003_COMPANY_I', 'P' ) IS NOT NULL
+    DROP  PROCEDURE  dbo.P_CMN003_COMPANY_I
+GO
+
+CREATE PROCEDURE P_CMN003_COMPANY_I
+(
+  @p_company_id nvarchar(36),
+  @p_company_name nvarchar(250),
+  @p_company_detail nvarchar(500),
+  @p_company_contact nvarchar(50),
+  @p_company_location nvarchar(150),
+  @p_created_by nvarchar(256),
+  @p_created_time datetime,
+  @p_transaction_id varchar(50)
+)
+
+AS
+	
+/*
+Module  : 
+Author  : SQL Generator
+Date    : 25-02-2017
+Desc    : Insert record into T_CMN003_COMPANY
+Returns: 0 if successful, else SQL error code
+
+Change Revision
+-----------------------------------------------------
+Date           Author            Remark
+
+*/
+
+-- do your settings here...
+SET NOCOUNT ON
+--It will stop stored procedure when there is error, but if the stored procedure will be called by others, the caller stored procedure should check the return value.
+--For example, 
+/*
+	--Application ID Validation and Retrieval
+	EXEC @v_error = P_IC_APP_GET_ID @p_app_name, @v_app_id OUTPUT
+	IF @v_error <> 0 RETURN  @v_error
+
+*/
+SET XACT_ABORT ON
+
+-- declare and initialize local variables here... 
+
+-- do your business transaction   
+BEGIN
+
+    INSERT INTO T_CMN003_COMPANY
+    (
+      COMPANY_ID,
+      COMPANY_NAME,
+      COMPANY_DETAIL,
+      COMPANY_CONTACT,
+      COMPANY_LOCATION,
+      CREATED_BY,
+      CREATED_TIME,
+      LAST_UPDATED_BY,
+      LAST_UPDATED_TIME,
+      VERSION_NO,
+      TRANSACTION_ID
+    )
+    VALUES 
+    (
+	  @p_company_id,
+	  @p_company_name,
+	  @p_company_detail,
+	  @p_company_contact,
+	  @p_company_location,
+	  @p_created_by,
+	  @p_created_time,
+	  @p_created_by,
+	  @p_created_time,
+	  1,
+	  @p_transaction_id
+    )
+   
+    
+    
+    --Recommend when the stored procedure will be called by other stored procedure
+    RETURN @@ERROR
+END 
+SET NOCOUNT OFF
+SET XACT_ABORT OFF
+GO
+  
+
+IF OBJECT_ID( 'dbo.P_CMN003_COMPANY_U', 'P' ) IS NOT NULL
+  DROP  PROCEDURE  dbo.P_CMN003_COMPANY_U
+GO
+
+CREATE PROCEDURE P_CMN003_COMPANY_U
+(
+	@o_company_id nvarchar(36),
+	@p_company_name nvarchar(250),
+	@p_company_detail nvarchar(500),
+	@p_company_contact nvarchar(50),
+	@p_company_location nvarchar(150),
+	@p_last_updated_by nvarchar(256),
+	@p_last_updated_time datetime,
+	@o_version_no int,
+	@p_transaction_id varchar(50)
+)
+
+AS
+	
+/*
+Module  : 
+Author  : SQL Generator
+Date    : 25-02-2017
+Desc    : Update records to T_CMN003_COMPANY
+Returns: 0 if successful, else SQL error code
+
+Change Revision
+-----------------------------------------------------
+Date           Author            Remark
+
+*/
+
+-- do your settings here...
+SET NOCOUNT ON
+--It will stop stored procedure when there is error, but if the stored procedure will be called by others, the caller stored procedure should check the return value.
+--For example, 
+/*
+	--Application ID Validation and Retrieval
+	EXEC @v_error = P_IC_APP_GET_ID @p_app_name, @v_app_id OUTPUT
+	IF @v_error <> 0 RETURN  @v_error
+
+*/
+SET XACT_ABORT ON
+
+-- declare and initialize local variables here...
+
+-- do your business transaction
+BEGIN
+    UPDATE T_CMN003_COMPANY
+    SET COMPANY_NAME = @p_company_name,
+        COMPANY_DETAIL = @p_company_detail,
+        COMPANY_CONTACT = @p_company_contact,
+        COMPANY_LOCATION = @p_company_location,
+        LAST_UPDATED_BY = @p_last_updated_by,
+        LAST_UPDATED_TIME = @p_last_updated_time,
+        VERSION_NO = VERSION_NO+1,
+        TRANSACTION_ID = @p_transaction_id
+        
+    WHERE COMPANY_ID  = @o_company_id
+    AND VERSION_NO  = @o_version_no
+    ;
+
+    IF @@ROWCOUNT = 0
+    BEGIN
+        RAISERROR('ConcurrentUpdated', 16, 1)
+
+        --Recommend when the stored procedure will be called by other stored procedure
+        RETURN @@ERROR
+    END
+
+END
+
+SET NOCOUNT OFF
+SET XACT_ABORT OFF
+GO
+  
+
+IF OBJECT_ID( 'dbo.P_CMN003_COMPANY_D', 'P' ) IS NOT NULL
+    DROP  PROCEDURE  dbo.P_CMN003_COMPANY_D
+GO
+
+CREATE PROCEDURE P_CMN003_COMPANY_D
+(
+	@o_company_id nvarchar(36),
+	@p_last_updated_by nvarchar(256),
+	@p_last_updated_time datetime,
+	@o_version_no int,
+	@p_transaction_id varchar(50)
+)
+AS
+
+/*
+Module  : 
+Author  : SQL Generator
+Date    : 25-02-2017
+Desc    : Delete records from T_CMN003_COMPANY
+Returns: 0 if successful, else SQL error code
+
+Change Revision
+-----------------------------------------------------
+Date           Author            Remark
+
+*/
+
+-- do your settings here...
+SET NOCOUNT ON
+--It will stop stored procedure when there is error, but if the stored procedure will be called by others, the caller stored procedure should check the return value.
+--For example, 
+/*
+	--Application ID Validation and Retrieval
+	EXEC @v_error = P_IC_APP_GET_ID @p_app_name, @v_app_id OUTPUT
+	IF @v_error <> 0 RETURN  @v_error
+
+*/
+SET XACT_ABORT ON
+
+-- declare and initialize local variables here...
+
+-- do your business transaction
+BEGIN
+    --Update transaction id to current transaction id, then, trigger can log data correctly for audit trail.
+    UPDATE T_CMN003_COMPANY
+	  SET LAST_UPDATED_BY = @p_last_updated_by,
+        LAST_UPDATED_TIME = @p_last_updated_time,
+        TRANSACTION_ID = @p_transaction_id
+        
+    WHERE COMPANY_ID  = @o_company_id
+    AND VERSION_NO  = @o_version_no
+    ;
+
+    DELETE FROM T_CMN003_COMPANY
+    WHERE COMPANY_ID  = @o_company_id
+    AND VERSION_NO  = @o_version_no
+    ;
+
+    IF @@ROWCOUNT = 0
+    BEGIN
+        RAISERROR('ConcurrentUpdated', 16, 1)
+      
+        --Recommend when the stored procedure will be called by other stored procedure
+        RETURN @@ERROR
+    END
+    
+END
+SET NOCOUNT OFF
+SET XACT_ABORT OFF
+
+GO
+  
+
+IF OBJECT_ID( 'dbo.P_CMN003_COMPANY_S', 'P' ) IS NOT NULL
+  DROP  PROCEDURE  dbo.P_CMN003_COMPANY_S
+GO
+
+CREATE PROCEDURE P_CMN003_COMPANY_S
+(
+  @p_company_id nvarchar(36),
+  @p_company_name nvarchar(250),
+  @p_company_detail nvarchar(500),
+  @p_company_contact nvarchar(50),
+  @p_company_location nvarchar(150),
+  @p_created_by nvarchar(256),
+  @p_created_time datetime,
+  @p_last_updated_by nvarchar(256),
+  @p_last_updated_time datetime,
+  @p_version_no int,
+  @p_transaction_id varchar(50)
+)
+AS
+/*
+Module  : 
+Author  : SQL Generator
+Date    : 25-02-2017
+Desc    : Retrieves records from T_CMN003_COMPANY
+Returns: 0 if successful, else SQL error code
+
+Change Revision
+-----------------------------------------------------
+Date           Author            Remark
+
+*/
+
+--It will stop stored procedure when there is error, but if the stored procedure will be called by others, the caller stored procedure should check the return value.
+--For example, 
+/*
+	--Application ID Validation and Retrieval
+	EXEC @v_error = P_IC_APP_GET_ID @p_app_name, @v_app_id OUTPUT
+	IF @v_error <> 0 RETURN  @v_error
+
+*/
+SET XACT_ABORT ON
+
+BEGIN
+    SELECT 
+      t.COMPANY_ID,
+      t.COMPANY_NAME,
+      t.COMPANY_DETAIL,
+      t.COMPANY_CONTACT,
+      t.COMPANY_LOCATION,
+      t.CREATED_BY,
+      t.CREATED_TIME,
+      t.LAST_UPDATED_BY,
+      t.LAST_UPDATED_TIME,
+      t.VERSION_NO,
+      t.TRANSACTION_ID
+    FROM T_CMN003_COMPANY t
+    WHERE COMPANY_ID  = @p_company_id
+    AND COMPANY_NAME  = @p_company_name
+    AND COMPANY_DETAIL  = @p_company_detail
+    AND COMPANY_CONTACT  = @p_company_contact
+    AND COMPANY_LOCATION  = @p_company_location
+    AND CREATED_BY  = @p_created_by
+    AND CREATED_TIME  = @p_created_time
+    AND LAST_UPDATED_BY  = @p_last_updated_by
+    AND LAST_UPDATED_TIME  = @p_last_updated_time
+    AND VERSION_NO  = @p_version_no
+    AND TRANSACTION_ID  = @p_transaction_id
+    
+
+    --Recommend when the stored procedure will be called by other stored procedure
+    RETURN @@ERROR
+
+END
+SET XACT_ABORT OFF
+GO
+  
+
 IF OBJECT_ID( 'dbo.P_CMN002_CODE_I', 'P' ) IS NOT NULL
     DROP  PROCEDURE  dbo.P_CMN002_CODE_I
 GO
@@ -27,7 +341,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 23-02-2017
+Date    : 25-02-2017
 Desc    : Insert record into T_CMN002_CODE
 Returns: 0 if successful, else SQL error code
 
@@ -136,7 +450,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 23-02-2017
+Date    : 25-02-2017
 Desc    : Update records to T_CMN002_CODE
 Returns: 0 if successful, else SQL error code
 
@@ -215,7 +529,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 23-02-2017
+Date    : 25-02-2017
 Desc    : Delete records from T_CMN002_CODE
 Returns: 0 if successful, else SQL error code
 
@@ -300,7 +614,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 23-02-2017
+Date    : 25-02-2017
 Desc    : Retrieves records from T_CMN002_CODE
 Returns: 0 if successful, else SQL error code
 
@@ -397,7 +711,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 23-02-2017
+Date    : 25-02-2017
 Desc    : Insert record into T_CMN001_USER
 Returns: 0 if successful, else SQL error code
 
@@ -506,7 +820,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 23-02-2017
+Date    : 25-02-2017
 Desc    : Update records to T_CMN001_USER
 Returns: 0 if successful, else SQL error code
 
@@ -585,7 +899,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 23-02-2017
+Date    : 25-02-2017
 Desc    : Delete records from T_CMN001_USER
 Returns: 0 if successful, else SQL error code
 
@@ -670,7 +984,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 23-02-2017
+Date    : 25-02-2017
 Desc    : Retrieves records from T_CMN001_USER
 Returns: 0 if successful, else SQL error code
 
@@ -762,7 +1076,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 23-02-2017
+Date    : 25-02-2017
 Desc    : Insert record into T_BIZ002_COURSE_EVENT
 Returns: 0 if successful, else SQL error code
 
@@ -856,7 +1170,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 23-02-2017
+Date    : 25-02-2017
 Desc    : Update records to T_BIZ002_COURSE_EVENT
 Returns: 0 if successful, else SQL error code
 
@@ -930,7 +1244,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 23-02-2017
+Date    : 25-02-2017
 Desc    : Delete records from T_BIZ002_COURSE_EVENT
 Returns: 0 if successful, else SQL error code
 
@@ -1010,7 +1324,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 23-02-2017
+Date    : 25-02-2017
 Desc    : Retrieves records from T_BIZ002_COURSE_EVENT
 Returns: 0 if successful, else SQL error code
 
@@ -1081,6 +1395,8 @@ CREATE PROCEDURE P_BIZ001_COURSE_I
   @p_course_detail nvarchar(2000),
   @p_course_imagepath nvarchar(100),
   @p_course_filename nvarchar(100),
+  @p_course_tag nvarchar(100),
+  @p_company_id nvarchar(36),
   @p_created_by nvarchar(256),
   @p_created_time datetime,
   @p_transaction_id varchar(50)
@@ -1091,7 +1407,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 23-02-2017
+Date    : 25-02-2017
 Desc    : Insert record into T_BIZ001_COURSE
 Returns: 0 if successful, else SQL error code
 
@@ -1126,6 +1442,8 @@ BEGIN
       COURSE_DETAIL,
       COURSE_IMAGEPATH,
       COURSE_FILENAME,
+      COURSE_TAG,
+      COMPANY_ID,
       CREATED_BY,
       CREATED_TIME,
       LAST_UPDATED_BY,
@@ -1141,6 +1459,8 @@ BEGIN
 	  @p_course_detail,
 	  @p_course_imagepath,
 	  @p_course_filename,
+	  @p_course_tag,
+	  @p_company_id,
 	  @p_created_by,
 	  @p_created_time,
 	  @p_created_by,
@@ -1171,6 +1491,8 @@ CREATE PROCEDURE P_BIZ001_COURSE_U
 	@p_course_detail nvarchar(2000),
 	@p_course_imagepath nvarchar(100),
 	@p_course_filename nvarchar(100),
+	@p_course_tag nvarchar(100),
+	@p_company_id nvarchar(36),
 	@p_last_updated_by nvarchar(256),
 	@p_last_updated_time datetime,
 	@o_version_no int,
@@ -1182,7 +1504,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 23-02-2017
+Date    : 25-02-2017
 Desc    : Update records to T_BIZ001_COURSE
 Returns: 0 if successful, else SQL error code
 
@@ -1214,6 +1536,8 @@ BEGIN
         COURSE_DETAIL = @p_course_detail,
         COURSE_IMAGEPATH = @p_course_imagepath,
         COURSE_FILENAME = @p_course_filename,
+        COURSE_TAG = @p_course_tag,
+        COMPANY_ID = @p_company_id,
         LAST_UPDATED_BY = @p_last_updated_by,
         LAST_UPDATED_TIME = @p_last_updated_time,
         VERSION_NO = VERSION_NO+1,
@@ -1255,7 +1579,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 23-02-2017
+Date    : 25-02-2017
 Desc    : Delete records from T_BIZ001_COURSE
 Returns: 0 if successful, else SQL error code
 
@@ -1323,6 +1647,8 @@ CREATE PROCEDURE P_BIZ001_COURSE_S
   @p_course_detail nvarchar(2000),
   @p_course_imagepath nvarchar(100),
   @p_course_filename nvarchar(100),
+  @p_course_tag nvarchar(100),
+  @p_company_id nvarchar(36),
   @p_created_by nvarchar(256),
   @p_created_time datetime,
   @p_last_updated_by nvarchar(256),
@@ -1334,7 +1660,7 @@ AS
 /*
 Module  : 
 Author  : SQL Generator
-Date    : 23-02-2017
+Date    : 25-02-2017
 Desc    : Retrieves records from T_BIZ001_COURSE
 Returns: 0 if successful, else SQL error code
 
@@ -1362,6 +1688,8 @@ BEGIN
       t.COURSE_DETAIL,
       t.COURSE_IMAGEPATH,
       t.COURSE_FILENAME,
+      t.COURSE_TAG,
+      t.COMPANY_ID,
       t.CREATED_BY,
       t.CREATED_TIME,
       t.LAST_UPDATED_BY,
@@ -1375,6 +1703,8 @@ BEGIN
     AND COURSE_DETAIL  = @p_course_detail
     AND COURSE_IMAGEPATH  = @p_course_imagepath
     AND COURSE_FILENAME  = @p_course_filename
+    AND COURSE_TAG  = @p_course_tag
+    AND COMPANY_ID  = @p_company_id
     AND CREATED_BY  = @p_created_by
     AND CREATED_TIME  = @p_created_time
     AND LAST_UPDATED_BY  = @p_last_updated_by

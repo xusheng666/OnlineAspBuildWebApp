@@ -25,6 +25,10 @@
                     <span>Description</span>
                     <asp:TextBox TextMode="MultiLine" ID="description" class="message" runat="server"/>
                 </label>
+                <label>
+                    <span>Tag</span>
+                    <asp:TextBox ID="courseTag" class="input_text" runat="server" />
+                </label>
                 <asp:Button runat="server" ID="btnAddCourse" class="button" Text="Add New Course" OnClick="btnAddCourse_Click"   />
             </div>
             

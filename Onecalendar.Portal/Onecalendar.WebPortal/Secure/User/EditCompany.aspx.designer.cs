@@ -7,55 +7,46 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Onecalendar.WebPortal.Secure.Course {
+namespace Onecalendar.WebPortal.Secure.User {
     
     
-    public partial class EditCourse {
+    public partial class EditCompany {
         
         /// <summary>
-        /// courseName control.
+        /// companyName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox courseName;
+        protected global::System.Web.UI.WebControls.TextBox companyName;
         
         /// <summary>
-        /// image control.
+        /// companyDetail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image image;
+        protected global::System.Web.UI.WebControls.TextBox companyDetail;
         
         /// <summary>
-        /// fileUpload control.
+        /// contactInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fileUpload;
+        protected global::System.Web.UI.WebControls.TextBox contactInfo;
         
         /// <summary>
-        /// description control.
+        /// location control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox description;
-        
-        /// <summary>
-        /// courseTag control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox courseTag;
+        protected global::System.Web.UI.WebControls.TextBox location;
         
         /// <summary>
         /// UpdatePanelCR control.
@@ -67,30 +58,30 @@ namespace Onecalendar.WebPortal.Secure.Course {
         protected global::System.Web.UI.UpdatePanel UpdatePanelCR;
         
         /// <summary>
-        /// gvwCourseEvents control.
+        /// gvwUsers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvwCourseEvents;
+        protected global::System.Web.UI.WebControls.GridView gvwUsers;
         
         /// <summary>
-        /// btnUpdateCourse control.
+        /// btnUpdateCompany control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdateCourse;
+        protected global::System.Web.UI.WebControls.Button btnUpdateCompany;
         
         /// <summary>
-        /// btnBackCourses control.
+        /// btnBackCompany control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBackCourses;
+        protected global::System.Web.UI.WebControls.Button btnBackCompany;
     }
 }

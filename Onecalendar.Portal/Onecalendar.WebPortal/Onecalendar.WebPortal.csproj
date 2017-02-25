@@ -172,6 +172,7 @@
     <Content Include="Content\images\banner2.jpg" />
     <Content Include="Content\images\banner3.jpg" />
     <Content Include="Content\images\C1_Logo.jpg" />
+    <Content Include="Content\images\calendar.png" />
     <Content Include="Content\images\facebook.png" />
     <Content Include="Content\images\icon1.png" />
     <Content Include="Content\images\icon2.png" />
@@ -274,6 +275,7 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Handler\ImageHandler.ashx" />
     <Content Include="Handler\JsonCalendarHandler.ashx" />
+    <Content Include="Handler\JSonFormatCourses.ashx" />
     <None Include="Properties\PublishProfiles\New.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Public\UserRegistration.aspx" />
@@ -312,7 +314,10 @@
     <Content Include="Secure\Course\AddCourse.aspx" />
     <Content Include="Secure\Course\EditCourse.aspx" />
     <Content Include="Secure\EventsCalendar.aspx" />
-    <Content Include="Secure\User\UserManage.aspx" />
+    <Content Include="Secure\User\EditCompany.aspx" />
+    <Content Include="Secure\User\CreateCompany.aspx" />
+    <Content Include="Secure\User\ListCompany.aspx" />
+    <Content Include="Secure\User\ManageUser.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Web.sitemap" />
@@ -385,6 +390,9 @@
     <Compile Include="Handler\JsonCalendarHandler.ashx.cs">
       <DependentUpon>JsonCalendarHandler.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Handler\JSonFormatCourses.ashx.cs">
+      <DependentUpon>JSonFormatCourses.ashx</DependentUpon>
+    </Compile>
     <Compile Include="InternetPageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -446,12 +454,33 @@
     <Compile Include="Secure\EventsCalendar.aspx.designer.cs">
       <DependentUpon>EventsCalendar.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Secure\User\UserManage.aspx.cs">
-      <DependentUpon>UserManage.aspx</DependentUpon>
+    <Compile Include="Secure\User\EditCompany.aspx.cs">
+      <DependentUpon>EditCompany.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Secure\User\UserManage.aspx.designer.cs">
-      <DependentUpon>UserManage.aspx</DependentUpon>
+    <Compile Include="Secure\User\EditCompany.aspx.designer.cs">
+      <DependentUpon>EditCompany.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Secure\User\CreateCompany.aspx.cs">
+      <DependentUpon>CreateCompany.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Secure\User\CreateCompany.aspx.designer.cs">
+      <DependentUpon>CreateCompany.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Secure\User\ListCompany.aspx.cs">
+      <DependentUpon>ListCompany.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Secure\User\ListCompany.aspx.designer.cs">
+      <DependentUpon>ListCompany.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Secure\User\ManageUser.aspx.cs">
+      <DependentUpon>ManageUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Secure\User\ManageUser.aspx.designer.cs">
+      <DependentUpon>ManageUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

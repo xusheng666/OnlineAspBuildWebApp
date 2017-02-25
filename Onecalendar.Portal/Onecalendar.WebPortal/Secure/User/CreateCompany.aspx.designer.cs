@@ -7,54 +7,54 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Onecalendar.WebPortal.Secure.Course {
+namespace Onecalendar.WebPortal.Secure.User {
     
     
-    public partial class AddCourse {
+    public partial class CreateCompany {
         
         /// <summary>
-        /// courseName control.
+        /// companyName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox courseName;
+        protected global::System.Web.UI.WebControls.TextBox companyName;
         
         /// <summary>
-        /// fileUpload control.
+        /// companyDetail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fileUpload;
+        protected global::System.Web.UI.WebControls.TextBox companyDetail;
         
         /// <summary>
-        /// description control.
+        /// contactInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox description;
+        protected global::System.Web.UI.WebControls.TextBox contactInfo;
         
         /// <summary>
-        /// courseTag control.
+        /// location control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox courseTag;
+        protected global::System.Web.UI.WebControls.TextBox location;
         
         /// <summary>
-        /// btnAddCourse control.
+        /// btnAddCompany control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddCourse;
+        protected global::System.Web.UI.WebControls.Button btnAddCompany;
     }
 }

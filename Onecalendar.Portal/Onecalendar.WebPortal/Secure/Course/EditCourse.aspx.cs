@@ -27,6 +27,7 @@ namespace Onecalendar.WebPortal.Secure.Course
                         courseName.Text = course.Rows[0]["COURSE_NAME"].ToString();
                         description.Text = course.Rows[0]["COURSE_DETAIL"].ToString();
                         this.image.ImageUrl = course.Rows[0]["COURSE_IMAGEPATH"].ToString();
+                        courseTag.Text = course.Rows[0]["COURSE_TAG"].ToString();
 
                         this.EventDataBind();
                     }
@@ -55,6 +56,7 @@ namespace Onecalendar.WebPortal.Secure.Course
                 }
                 courseRow.COURSE_DETAIL = this.description.Text;
                 courseRow.COURSE_NAME = this.courseName.Text;
+                courseRow.COURSE_TAG = this.courseTag.Text;
 
                 _bc.UpdateTable(courseDS.T_BIZ001_COURSE);
 

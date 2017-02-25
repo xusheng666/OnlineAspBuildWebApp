@@ -34,6 +34,10 @@
                     <asp:TextBox TextMode="MultiLine" ID="description" class="message" runat="server"/>
                 </label>
                 <label>
+                    <span>Tag</span>
+                    <asp:TextBox ID="courseTag" class="input_text" runat="server" />
+                </label>
+                <label>
                     <span style="width:50%;margin:10px 0px;">Events under this course:</span>
                 </label>
                 <label>

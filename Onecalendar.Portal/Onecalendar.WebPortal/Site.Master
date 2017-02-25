@@ -25,7 +25,7 @@
     <meta name="viewport" content="width=device-width" />
     <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
 </head>
-<body>
+<body >
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -46,6 +46,7 @@
                         <div style="float: right; margin-right: 15%; margin-top: 30px;">
                             <%--<a href="http://www.calendarone.com/en-us/home.aspx" target="_blank">Register /</a>--%>
                             <a href="<%= ResolveUrl("~/Public/UserRegistration.aspx")%>" target="_self">Register /</a> <a href="<%= ResolveUrl("~/Public/Login/Login.aspx")%>" target="_self">Login</a>
+                            <a href="<%= ResolveUrl("~/Handler/JSonFormatCourses.ashx")%>" target="_self">/ JSON Course</a> 
                         </div>
                     </div>
                 </div>
@@ -77,7 +78,7 @@
             </div>
         </header>
         <%--Here Start the Main Content part--%>
-        <div id="body">
+        <div id="body" style="min-height: 75.6vh!important;">
             <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
             <section class="content-wrapper main-content clear-fix">
                 <div style="clear: both; background-color: rgb(238, 238, 238); margin:0 12%;">

@@ -10,7 +10,7 @@
 namespace Onecalendar.WebPortal.Secure.User {
     
     
-    public partial class UserManage {
+    public partial class ManageUser {
         
         /// <summary>
         /// UpdatePanelCR control.

@@ -18,13 +18,36 @@
                     <asp:Label ID="courseName" class="input_text" runat="server" />
                 </label>
                 <label>
+                    <span style="padding-right:1000px!important;"></span>
+                </label>
+                <label>
                     <span>Course Image</span>
                     <asp:Image ID="image" runat="server" ImageUrl="dummay" alt="image" class="input_text float-left mar-right30 imgdisplay" 
                         style="margin:10px 0px!important;"/>
                 </label>
                 <label>
+                    <span style="padding-right:1000px!important;"></span>
+                </label>
+                <label>
                     <span>Description</span>
                     <asp:Label TextMode="MultiLine" ID="description" class="message" runat="server" />
+                </label>
+                <label>
+                    <span style="padding-right:1000px!important;"></span>
+                </label>
+                <label>
+                    <span>Company Detail</span>
+                    <asp:Label ID="companyDetail" class="input_text" runat="server" />
+                </label>
+                <label>
+                    <span style="padding-right:1000px!important;"></span>
+                </label>
+                <label>
+                    <span>Contact Info</span>
+                    <asp:Label ID="contactInfo" class="input_text" runat="server" />
+                </label>
+                <label>
+                    <span style="padding-right:1000px!important;"></span>
                 </label>
                 <label>
                     <span style="width:50%;margin:10px 0px;">Events under this course:</span>
@@ -36,6 +59,8 @@
                             <asp:BoundField DataField="SCHEDULE" HeaderText="Schedule" />
                             <asp:BoundField DataField="LOCATION" HeaderText="Location" />
                             <asp:BoundField DataField="PRICE" HeaderText="Price (S$)" />
+                            <asp:BoundField DataField="START_DTTM" HeaderText="Start Date Time" />
+                            <asp:BoundField DataField="END_DTTM" HeaderText="End Date Time" />
                         </Columns>
                         <EmptyDataTemplate>No Record Available</EmptyDataTemplate>
                     </asp:GridView>

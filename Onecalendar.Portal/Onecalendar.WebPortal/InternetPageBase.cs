@@ -14,6 +14,7 @@ namespace Onecalendar.WebPortal
     {
         public CourseBCService _bc = new CourseBCService();
         public UserManageBC _userBC = new UserManageBC();
+        public CommonService _cmnBC = new CommonService();
 
         public String GetQueryParameterValue(String aQueryName)
         {
