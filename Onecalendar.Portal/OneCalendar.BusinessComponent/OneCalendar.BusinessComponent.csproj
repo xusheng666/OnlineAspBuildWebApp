@@ -37,11 +37,16 @@
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data">
       <HintPath>..\Library\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
     </Reference>
-    <Reference Include="NCS.IConnect.Helpers.Data">
-      <HintPath>..\Library\NCS.IConnect.Helpers.Data.dll</HintPath>
+    <Reference Include="Net.Future.Core">
+      <HintPath>..\Library\Net.Future.Core.dll</HintPath>
     </Reference>
-    <Reference Include="NCS.IConnect.Transactions">
-      <HintPath>..\Library\NCS.IConnect.Transactions.dll</HintPath>
+    <Reference Include="Net.Future.Helpers.Data, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Library\Net.Future.Helpers.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Net.Future.Transactions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Library\Net.Future.Transactions.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />

@@ -79,3 +79,8 @@ a#next:hover { }
     text-align: left;
     font-size: 90%;
 }
+
+.gridviewText 
+{
+    width:100px!important;
+}

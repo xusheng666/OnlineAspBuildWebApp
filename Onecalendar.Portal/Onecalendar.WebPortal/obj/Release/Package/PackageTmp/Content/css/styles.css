@@ -32,18 +32,19 @@ GENERAL CLASSES
 .button{padding:4px 7px;background:#66a7c5; color:#ffffff; text-transform:uppercase; font-family:'Oswald', sans-serif;border:0px solid;margin-top:10px;}
 .page{ width:1000px; margin:0 auto;overflow:hidden;}
 .imgdisplay{border:none;height: 200px;width:200px;}
+
 /*-------------------------------------------------
 HEADER CLASSES
 -------------------------------------------------*/
-.header-wrap{ overflow:hidden; padding-top:10px; padding-bottom:10px;}
-.header{ width:1000px;margin:0 auto;}
+.header-wrap{height:60px; padding-top:10px; padding-bottom:10px;}
+.header{ width:76%;margin:0 auto;}
 .logo h1{float:left; color:#ffffff; font-size:35px;}
 
 .menu-wrap { background:#ee3233;float:right;width:100%; }
 .menu{width:1000px;margin:0 auto; }
-.menu ul li{ list-style:none; float:left; font-size:18px; padding:10px;}
+.menu ul li{ list-style:none; float:left; font-size:18px; padding:10px;background:#ee3233;z-index:2000;}
 .menu ul li a{color:#ffffff; text-decoration:none; padding:10px;}
-.menu ul li a:hover{ background:#66a7c5; padding:10px;}
+.menu ul li a:hover{ background:#66a7c5; padding:10px;background:#4682B3;}
 .menu ul li a.active{ background:#66a7c5; padding:10px;}
 
 .searchtext{margin:0px auto; height:32px; float:left;}
@@ -105,10 +106,11 @@ SUBMENU CLASSES
 -------------------------------------------------*/
 
 .submenu{ padding-top:20px;}
+.submenu ul { margin: 0; padding: 0; display: block;}
 .submenu ul li{ list-style:url(../images/arrow2.png) inside; border-bottom:#f2f2f2 solid 1px; line-height:40px;}
 .submenu ul li.-noborder-bottom{border-bottom:none;}
 .submenu ul li a{text-decoration:none; color:#939d9f;}
-.submenu ul li a:hover{color:#ee3233;}
+.submenu ul li a:hover{color:#ee3233;display: block;}
 .submenu ul li a.active{color:#ee3233;}
 
 /*-------------------------------------------------
@@ -145,12 +147,12 @@ CONTACT FORM CLASSS
 Course FORM CLASSS
 -------------------------------------------------*/
 
-.course-form { background:#f1f1f1; padding:30px; width:740px; float:left; margin-bottom:50px; float:left;}
+.course-form { background:#f1f1f1; padding:30px; width:80%; float:left; margin-bottom:50px; float:left;}
 .course-form label {display: block; padding:10px 0 10px 0;}
 .course-form label span {display: block; color:#939191;font-size:14px; float:left; width:120px; text-align:left; padding:5px 20px 0 0;}
 .img {margin:10px 0px;}
-.course-form .input_text {padding:10px 10px;width:460px;background:#ffffff;border:0px solid; color:#939191;}
-.course-form .message{padding:10px 10px;width:460px; background:#ffffff; border:0px solid;overflow:hidden;height:150px; color:#939191; font-size:14px;}
+.course-form .input_text {padding:10px 10px;width:400px;background:#ffffff;border:0px solid; color:#939191;}
+.course-form .message{padding:10px 10px;width:400px; background:#ffffff; border:0px solid;overflow:hidden;height:150px; color:#939191; font-size:14px;}
 .course-form .button{padding:4px 7px;background:#66a7c5; color:#ffffff; text-transform:uppercase; font-family:'Oswald', sans-serif;border:0px solid;margin-left:140px;margin-top:20px;}
 
 

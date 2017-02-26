@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using NCS.IConnect.Helpers.Data;
 using System.Data.Common;
 using System.Data;
-using NCS.IConnect.Transactions;
+using Net.Future.Transactions;
+using Net.Future.Helpers.Data;
 
 namespace OneCalendar.BusinessComponent
 {

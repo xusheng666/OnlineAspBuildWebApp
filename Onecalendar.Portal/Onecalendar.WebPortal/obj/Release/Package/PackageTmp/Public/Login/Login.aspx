@@ -39,10 +39,10 @@
         <div class="primary-col">
             <div class="container">
                 <label><b>Username</b></label>
-                <asp:TextBox ID="userId" runat="server"></asp:TextBox>
+                <asp:TextBox ID="userId" placeholder="Enter UserName" runat="server"></asp:TextBox>
 
                 <label><b>Password</b></label>
-                <asp:TextBox ID="password" runat="server" TextMode="Password"></asp:TextBox>
+                <asp:TextBox ID="password" placeholder="Enter Password" runat="server" TextMode="Password"></asp:TextBox>
                 <%--<input type="password" placeholder="Enter Password" name="psw" required>--%>
 
                 <asp:Button ID="submit" class="loginbutton" runat="server" OnClick="submit_Click" Text="Login" />
