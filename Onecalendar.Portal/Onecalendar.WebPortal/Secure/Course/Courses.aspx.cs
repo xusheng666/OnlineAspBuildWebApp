@@ -1,4 +1,5 @@
 ﻿using OneCalendar.BusinessComponent;
+using OneCalendar.BusinessComponent.Common;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -44,5 +45,32 @@ namespace Onecalendar.WebPortal
             }
             CourseDataBind();
         }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            string startDttmTxt = this.tbStartDttm.Text;
+            string endDttmTxt = this.tbEndDttm.Text;
+
+            DateTime startDttm = DateTimeUtil.parseToDateTime(startDttmTxt);
+            DateTime endDttm = DateTimeUtil.parseToDateTime(endDttmTxt);
+
+            DataTable dt = _bc.getCoursesByCriteria(startDttmTxt, endDttmTxt) as DataTable;
+
+            this.gvwDash.DataSource = dt;
+            this.gvwDash.DataBind();
+        }
+
+        /// <summary>
+        /// paging
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void OnPageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvwDash.PageIndex = e.NewPageIndex;
+            gvwDash.DataBind();
+        }
+
+        
     }
 }

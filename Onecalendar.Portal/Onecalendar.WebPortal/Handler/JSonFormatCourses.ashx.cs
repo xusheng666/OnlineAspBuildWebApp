@@ -23,11 +23,15 @@ namespace Onecalendar.WebPortal.Handler
             DataTable courseDT = _bc.getAllCourses();
             foreach (DataRow item in courseDT.Rows)
             {
+                if (item["COURSEID"] == null || String.IsNullOrEmpty(item["COURSEID"].ToString()))
+                {
+                    continue;
+                }
                 CourseDTO course = new CourseDTO
                 {
-                    courseID = item["COURSE_NAME"].ToString(),
-                    courseName = item["COURSE_NAME"].ToString(),
-                    courseDetail = item["COURSE_DETAIL"].ToString(),
+                    CourseID = item["COURSEID"].ToString(),
+                    CourseName = item["COURSE_NAME"].ToString(),
+                    CourseDetail = item["COURSE_DETAIL"].ToString(),
                 };
 
                 BIZCourseDataSet eventDS = (BIZCourseDataSet)_bc.getCourseDSEventByCourseId(item["COURSEID"].ToString());
@@ -35,21 +39,22 @@ namespace Onecalendar.WebPortal.Handler
                 List<EventDTO> eventList = new List<EventDTO>();
                 foreach (BIZCourseDataSet.T_BIZ002_COURSE_EVENTRow eventRow in eventDS.T_BIZ002_COURSE_EVENT.Rows)
                 {
-                    EventDTO eventTO = new EventDTO
+                    if (!String.IsNullOrEmpty(eventRow.COURSEEVENTID))
                     {
-                        id = eventRow.COURSEEVENTID,
-                        schedule = eventRow.SCHEDULE,
-                        location = eventRow.LOCATION,
-                        startdttm = ConvertToDateString(eventRow.START_DTTM),
-                        enddttm = ConvertToDateString(eventRow.END_DTTM),
-                    };
-                    eventList.Add(eventTO);
+                        EventDTO eventTO = new EventDTO
+                        {
+                            Id = eventRow.COURSEEVENTID,
+                            Schedule = eventRow.SCHEDULE,
+                            Location = eventRow.LOCATION,
+                            Startdttm = ConvertToDateString(eventRow.START_DTTM),
+                            Enddttm = ConvertToDateString(eventRow.END_DTTM),
+                        };
+                        eventList.Add(eventTO);
+                    }
                 }
-                course.eventList = eventList;
+                course.EventList = eventList;
                 tasksList.Add(course);
             }
-            
-
 
             System.Web.Script.Serialization.JavaScriptSerializer oSerializer =
              new System.Web.Script.Serialization.JavaScriptSerializer();
@@ -79,19 +84,19 @@ namespace Onecalendar.WebPortal.Handler
         }
         public class CourseDTO
         {
-            public string courseID { get; set; }
-            public string courseName { get; set; }
-            public string courseDetail { get; set; }
-            public List<EventDTO> eventList { get; set; }
+            public string CourseID { get; set; }
+            public string CourseName { get; set; }
+            public string CourseDetail { get; set; }
+            public List<EventDTO> EventList { get; set; }
         }
         public class EventDTO
         {
-            public string id { get; set; }
-            public string schedule { get; set; }
-            public string location { get; set; }
-            public string startdttm { get; set; }
-            public string enddttm { get; set; }
-            public string price { get; set; }
+            public string Id { get; set; }
+            public string Schedule { get; set; }
+            public string Location { get; set; }
+            public string Startdttm { get; set; }
+            public string Enddttm { get; set; }
+            public string Price { get; set; }
         }
     }
 }

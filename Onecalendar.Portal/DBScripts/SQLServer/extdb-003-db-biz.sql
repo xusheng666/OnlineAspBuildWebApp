@@ -102,15 +102,11 @@ END
 SET XACT_ABORT OFF
 GO
 
-USE [Tuition]
-GO
-/****** Object:  StoredProcedure [dbo].[P_QUERY_COURSES_FOR_VIEW]    Script Date: 5/2/2017 2:32:47 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
+IF OBJECT_ID( 'dbo.P_QUERY_COURSES_FOR_VIEW', 'P' ) IS NOT NULL
+  DROP  PROCEDURE  dbo.P_QUERY_COURSES_FOR_VIEW
 GO
 
-ALTER PROCEDURE [dbo].[P_QUERY_COURSES_FOR_VIEW]
+CREATE PROCEDURE [dbo].[P_QUERY_COURSES_FOR_VIEW]
 AS
 /*
 Module  : 
@@ -574,3 +570,55 @@ BEGIN
 END
 SET XACT_ABORT OFF
 GO
+
+IF OBJECT_ID( 'dbo.P_QUERY_COURSE_BY_DATETIME', 'P' ) IS NOT NULL
+  DROP  PROCEDURE  dbo.P_QUERY_COURSE_BY_DATETIME
+GO
+
+CREATE PROCEDURE [dbo].[P_QUERY_COURSE_BY_DATETIME]
+(
+  @p_start_dttm nvarchar(50),
+  @p_end_dttm nvarchar(50)
+)
+AS
+/*
+Module  : 
+Author  : SQL Generator
+Date    : 30-01-2017
+Desc    : Retrieves records from T_BIZ001_COURSE
+Returns: 0 if successful, else SQL error code
+
+Change Revision
+-----------------------------------------------------
+Date           Author            Remark
+
+*/
+SET XACT_ABORT ON
+
+BEGIN
+    SELECT 
+      t.COURSEID,
+      t.USERID,
+      t.COURSE_NAME,
+      t.COURSE_DETAIL,
+	  t.COURSE_IMAGEPATH,
+      t.COURSE_FILENAME,
+      t.CREATED_BY,
+      t.CREATED_TIME,
+      t.LAST_UPDATED_BY,
+      t.LAST_UPDATED_TIME,
+      t.VERSION_NO,
+      t.TRANSACTION_ID
+    FROM T_BIZ001_COURSE t
+	JOIN T_BIZ002_COURSE_EVENT e ON e.COURSEID = t.COURSEID
+	WHERE (@p_start_dttm IS NULL OR e.START_DTTM <= CAST(@p_start_dttm as DATETIME))
+	AND (@p_end_dttm IS NULL OR e.END_DTTM >= CAST(@p_end_dttm as DATETIME))
+   
+    --Recommend when the stored procedure will be called by other stored procedure
+    RETURN @@ERROR
+
+END
+SET XACT_ABORT OFF
+
+GO
+

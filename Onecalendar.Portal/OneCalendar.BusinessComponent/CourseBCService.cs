@@ -54,5 +54,10 @@ namespace OneCalendar.BusinessComponent
         {
             _da.DeleteCourseEventByID(eventId);
         }
+
+        public DataTable getCoursesByCriteria(String startDttm, String endDttm)
+        {
+            return _da.getCoursesByCriteria(startDttm, endDttm);
+        }
     }
 }

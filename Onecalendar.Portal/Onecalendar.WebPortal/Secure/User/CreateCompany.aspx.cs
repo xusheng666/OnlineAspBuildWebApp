@@ -33,8 +33,13 @@ namespace Onecalendar.WebPortal.Secure.User
 
                 _bc.UpdateTable(userDS.T_CMN003_COMPANY);
 
-                Response.Redirect("~/Secure/Course/Courses.aspx");
+                RedirectToCompanyList();
             }
+        }
+
+        protected void btnGoToList_Click(object sender, EventArgs e)
+        {
+            RedirectToCompanyList();
         }
     }
 }

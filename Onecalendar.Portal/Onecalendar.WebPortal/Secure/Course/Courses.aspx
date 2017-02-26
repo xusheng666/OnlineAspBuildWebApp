@@ -8,6 +8,16 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+    <%--here using the jquery rain with the calendar http://www.jqueryrain.com/?lo_EWr2U --%>
+    <script type="text/javascript">
+        $(function () {
+            flatpickr(".flatpickr", {
+                enableTime: true,
+                altInput: true,
+                altFormat: "F j, Y h:i K"
+            });
+        });
+    </script>
     <div class="page">
         <div class="primary-col">
             <div class="generic">
@@ -22,32 +32,40 @@
                         <a>
                             <img src="<%= ResolveUrl("~/Content/images/search-bt.jpg")%>" alt="search" /></a>
                     </div>
-                    
+
                 </div>
                 <hr />
+                <div class="panel" style="padding:10px 0;">
+                        <asp:Label ID="lbStartDttm" Text="Start Date" runat="server" />
+                        <asp:TextBox ID="tbStartDttm" class="flatpickr" runat="server" style="width:10em;" placeholder="Select Date.."/>
+                        <asp:Label ID="lbEndDttm" Text="End Date" runat="server" />
+                        <asp:TextBox ID="tbEndDttm" class="flatpickr" runat="server" style="width:10em;" placeholder="Select Date.."/>
+                        <asp:Button ID="btnSearch" class="button" Text="Filter Course" runat="server" OnClick="btnSearch_Click" />
+                    </div>
                 <div class="clearing"></div>
                 <div class="panel">
-                        <div class="padding-bottom">
-                            <asp:Button ID="btnAdd" class="button" Text="Add New Course" runat="server" OnClick="btnAdd_Click" />
-                        </div>
-                        <asp:GridView CssClass="gridview" ID="gvwDash" runat="server" Visible="true" ShowHeaderEmpty="true" AutoGenerateColumns="false"
-                            Width="90%">
-                            <Columns>
-                                <asp:BoundField HeaderText="Name" DataField="COURSE_NAME" HeaderStyle-Width="20%" />
-                                <asp:BoundField HeaderText="Description" DataField="COURSE_DETAIL" HeaderStyle-Width="35%" />
-                                <asp:ImageField DataImageUrlField="COURSE_IMAGEPATH" HeaderStyle-Width="35%" ControlStyle-CssClass="imgdisplay"></asp:ImageField>
-                                <asp:TemplateField HeaderText="Action" HeaderStyle-Width="10%" ItemStyle-HorizontalAlign="Center">
-                                    <ItemTemplate>
-                                        <asp:HyperLink ID="Edit" runat="server"
-                                            NavigateUrl='<%# "~/Secure/Course/EditCourse.aspx?CourseId=" + Eval("COURSEID")  %>'>Edit</asp:HyperLink>
-                                        <asp:LinkButton ID="btnDelete" runat="server" CommandArgument='<%#Eval("COURSEID")%>' OnCommand="lnkDelete" Text="Delete"
-                                            OnClientClick="return confirm ('Are you sure you want to delete this course?')">
-                                        </asp:LinkButton>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                            </Columns>
-                        </asp:GridView>
+                    <div class="padding-bottom">
+                        <asp:Button ID="btnAdd" class="button" Text="Add New Course" runat="server" OnClick="btnAdd_Click" />
                     </div>
+                    
+                    <asp:GridView CssClass="gridview" ID="gvwDash" runat="server" Visible="true" ShowHeaderEmpty="true" AutoGenerateColumns="false"
+                        Width="90%" AllowPaging="true" OnPageIndexChanging="OnPageIndexChanging" PageSize="5">
+                        <Columns>
+                            <asp:BoundField HeaderText="Name" DataField="COURSE_NAME" HeaderStyle-Width="20%" />
+                            <asp:BoundField HeaderText="Description" DataField="COURSE_DETAIL" HeaderStyle-Width="35%" />
+                            <asp:ImageField DataImageUrlField="COURSE_IMAGEPATH" HeaderStyle-Width="35%" ControlStyle-CssClass="imgdisplay"></asp:ImageField>
+                            <asp:TemplateField HeaderText="Action" HeaderStyle-Width="10%" ItemStyle-HorizontalAlign="Center">
+                                <ItemTemplate>
+                                    <asp:HyperLink ID="Edit" runat="server"
+                                        NavigateUrl='<%# "~/Secure/Course/EditCourse.aspx?CourseId=" + Eval("COURSEID")  %>'>Edit</asp:HyperLink>
+                                    <asp:LinkButton ID="btnDelete" runat="server" CommandArgument='<%#Eval("COURSEID")%>' OnCommand="lnkDelete" Text="Delete"
+                                        OnClientClick="return confirm ('Are you sure you want to delete this course?')">
+                                    </asp:LinkButton>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>
+                </div>
                 <div class="padding-bottom" />
             </div>
             <div class="clearing"></div>

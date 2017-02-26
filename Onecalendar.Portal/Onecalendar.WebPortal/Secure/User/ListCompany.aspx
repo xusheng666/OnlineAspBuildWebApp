@@ -11,13 +11,13 @@
                     <div class="title" style="float: left;">
                         <h1>Company List</h1>
                     </div>
-                    <div style="float: right;">
+                    <%--<div style="float: right;">
                         <div class="searchtext">
                             <asp:TextBox ID="searchKey" runat="server" type="text" name="s" value="" placeholder="Search" CssClass="searchtext" />
                         </div>
                         <a>
                             <img src="<%= ResolveUrl("~/Content/images/search-bt.jpg")%>" alt="search" /></a>
-                    </div>
+                    </div>--%>
                 </div>
                 <hr />
                 <div class="clearing"></div>

@@ -29,7 +29,8 @@
                     <span>Company Location</span>
                     <asp:TextBox ID="location" class="input_text" runat="server" />
                 </label>
-                <asp:Button runat="server" ID="btnAddCompany" class="button" Text="Add New Company" OnClick="btnAddCompany_Click"   />
+                <asp:Button runat="server" ID="btnGoToList" class="button" Text="Back to Company List" OnClick="btnGoToList_Click"   />
+                <asp:Button runat="server" ID="btnAddCompany" class="button" style="margin-left:20px;" Text="Add New Company" OnClick="btnAddCompany_Click"   />
         </div>
     </div>
 </asp:Content>

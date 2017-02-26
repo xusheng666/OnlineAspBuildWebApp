@@ -47,7 +47,7 @@ namespace OneCalendar.BusinessComponent
         public const string P_QUERY_ALL_COMPANY = "P_QUERY_ALL_COMPANY";
         public const string P_DELETE_COMPANY_BY_ID = "P_DELETE_COMPANY_BY_ID";
         public const string P_QUERY_COMPANY_BY_ID = "P_QUERY_COMPANY_BY_ID";
-        
+        public const string P_QUERY_COURSE_BY_DATETIME = "P_QUERY_COURSE_BY_DATETIME";
     }
 
     public class QueryStringNames

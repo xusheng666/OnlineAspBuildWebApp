@@ -12,7 +12,7 @@
             <h2></h2>
         </div>
         <div class="content">
-            <div class="contact-form">
+            <div class="course-form">
                 <label>
                     <span>Course Name</span>
                     <asp:TextBox ID="courseName" class="input_text" runat="server" />
@@ -30,6 +30,7 @@
                     <asp:TextBox ID="courseTag" class="input_text" runat="server" />
                 </label>
                 <asp:Button runat="server" ID="btnAddCourse" class="button" Text="Add New Course" OnClick="btnAddCourse_Click"   />
+                <asp:Button runat="server" ID="btnGoCourses" class="button" style="margin-left:20px;" Text="Back to Course List" OnClick="btnGoCourses_Click"   />
             </div>
             
         </div>

@@ -63,5 +63,14 @@ namespace OneCalendar.BusinessComponent.DataAccess
             this.Helper.Fill(ds.T_BIZ002_COURSE_EVENT, cmd);
             return ds;
         }
+
+        internal DataTable getCoursesByCriteria(String startDttm, String endDttm)
+        {
+            BIZCourseDataSet ds = new BIZCourseDataSet();
+            DbCommand cmd = this.Helper.BuildDbCommand(SPNameConstants.P_QUERY_COURSE_BY_DATETIME);
+            this.Helper.AssignParameterValues(cmd, startDttm, endDttm);
+            this.Helper.Fill(ds.T_BIZ001_COURSE, cmd);
+            return ds.T_BIZ001_COURSE;
+        }
     }
 }

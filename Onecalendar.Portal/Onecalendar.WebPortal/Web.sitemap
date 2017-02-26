@@ -3,11 +3,11 @@
   <siteMapNode url="~/#doNothing" type="doNothing" title="doNothing" description="Home">
     <siteMapNode url="~/Default.aspx" title="Home" description="Home"/>
     <siteMapNode url="~/Secure/Course/Courses.aspx" title="Courses" description="Courses"/>
+    <siteMapNode url="~/Secure/EventsCalendar.aspx" title="Events" description="Events Calendar"/>
     <siteMapNode url="~/Secure/User/CreateCompany.aspx" type="doNothing" title="System Admin" description="Admin">
       <siteMapNode url="~/Secure/User/ManageUser.aspx" title="Manage User" description="Manage User"/>
       <siteMapNode url="~/Secure/User/ListCompany.aspx" title="List Company" description="List Company"/>
     </siteMapNode>
-    <siteMapNode url="~/Secure/EventsCalendar.aspx" title="Events" description="Events Calendar"/>
     <siteMapNode url="~/Contact.aspx" title="Contact" description="Contact"/>
     <!--<siteMapNode url="http://www.calendarone.com/en-us/home.aspx" title="Register"  description="Registration" roles="*">
     </siteMapNode>-->

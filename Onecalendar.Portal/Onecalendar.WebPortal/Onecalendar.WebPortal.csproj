@@ -158,6 +158,7 @@
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <None Include="Content\Course\1234567" />
     <Content Include="Contact.aspx" />
+    <Content Include="Content\css\flatpickr.min.css" />
     <Content Include="Content\css\fullcalendar.css" />
     <Content Include="Content\css\onecalendar.css" />
     <Content Include="Content\css\styles.css" />
@@ -197,6 +198,7 @@
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\carouselScript.js" />
+    <Content Include="Content\js\flatpickr.2.4.2.js" />
     <Content Include="Content\js\jquery-1.9.1.js" />
     <Content Include="Content\js\jquery-ui.min.js" />
     <Content Include="Content\js\jquery.min.js" />

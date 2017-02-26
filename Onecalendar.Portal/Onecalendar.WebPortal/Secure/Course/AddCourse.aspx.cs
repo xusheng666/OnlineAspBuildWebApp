@@ -46,10 +46,13 @@ namespace Onecalendar.WebPortal.Secure.Course
                 
                 _bc.UpdateTable(courseDS.T_BIZ001_COURSE);
 
-                Response.Redirect("~/Secure/Course/Courses.aspx");
+                RedirectToCourseList();
             }
         }
 
-        
+        protected void btnGoCourses_Click(object sender, EventArgs e)
+        {
+            RedirectToCourseList();
+        }
     }
 }

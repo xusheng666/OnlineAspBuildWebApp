@@ -5,14 +5,19 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="page mar-top30">
-        <div class="title">
-            <h1>User Management</h1>
-            <br />
-            <h2></h2>
-        </div>
-        <div class="content">
-            <div class="course-form">
+    <div class="page">
+        <div class="primary-col">
+            <div class="generic">
+                <div class="panel">
+                    <div class="title" style="float: left;">
+                        <h1>Manage User</h1>
+                    </div>
+                </div>
+                <hr />
+                <div class="clearing"></div>
+            </div>
+            <div class="clearing"></div>
+            <div class="panel" style="padding-top: 10px!important;">
                 <asp:UpdatePanel ID="UpdatePanelCR" runat="server">
                     <ContentTemplate>
                         <asp:GridView CssClass="gridview" ID="gvwUsers" runat="server" Visible="true"
@@ -36,48 +41,48 @@
                                     </FooterTemplate>
                                 </asp:TemplateField>
                                 <%--below are contents--%>
-                                <asp:TemplateField HeaderText="LoginID" HeaderStyle-HorizontalAlign="Left" HeaderStyle-Width="35%">
+                                <asp:TemplateField HeaderText="LoginID" HeaderStyle-HorizontalAlign="Left">
                                     <ItemTemplate>
                                         <asp:Label ID="lbLoginID" runat="server" Text='<%# Bind("LOGINID") %>'></asp:Label>
                                     </ItemTemplate>
                                     <EditItemTemplate>
-                                        <asp:TextBox ID="txtLoginID" runat="server" Text='<%# Bind("LOGINID") %>'></asp:TextBox>
+                                        <asp:TextBox ID="txtLoginID" runat="server" CssClass="gridviewText" Text='<%# Bind("LOGINID") %>'></asp:TextBox>
                                     </EditItemTemplate>
                                     <FooterTemplate>
-                                        <asp:TextBox ID="txtNewLoginID" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txtNewLoginID" CssClass="gridviewText" runat="server"></asp:TextBox>
                                     </FooterTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="User Name" HeaderStyle-HorizontalAlign="Left" HeaderStyle-Width="35%">
+                                <asp:TemplateField HeaderText="User Name" HeaderStyle-HorizontalAlign="Left">
                                     <ItemTemplate>
                                         <asp:Label ID="lblUserName" runat="server" Text='<%# Bind("USER_NAME") %>'></asp:Label>
                                     </ItemTemplate>
                                     <EditItemTemplate>
-                                        <asp:TextBox ID="txtUserName" runat="server" Text='<%# Bind("USER_NAME") %>'></asp:TextBox>
+                                        <asp:TextBox ID="txtUserName" runat="server" CssClass="gridviewText" Text='<%# Bind("USER_NAME") %>'></asp:TextBox>
                                     </EditItemTemplate>
                                     <FooterTemplate>
-                                        <asp:TextBox ID="txtNewUserName" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txtNewUserName" CssClass="gridviewText" runat="server"></asp:TextBox>
                                     </FooterTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Email" HeaderStyle-HorizontalAlign="Left" HeaderStyle-Width="15%">
+                                <asp:TemplateField HeaderText="Email" HeaderStyle-HorizontalAlign="Left">
                                     <ItemTemplate>
                                         <asp:Label ID="lblEmail" runat="server" Text='<%# Bind("EMAIL_ADDRESS") %>'></asp:Label>
                                     </ItemTemplate>
                                     <EditItemTemplate>
-                                        <asp:TextBox ID="txtEmail" runat="server" Text='<%# Bind("EMAIL_ADDRESS") %>'></asp:TextBox>
+                                        <asp:TextBox ID="txtEmail" CssClass="gridviewText" runat="server" Text='<%# Bind("EMAIL_ADDRESS") %>'></asp:TextBox>
                                     </EditItemTemplate>
                                     <FooterTemplate>
-                                        <asp:TextBox ID="txtNewEmail" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txtNewEmail" CssClass="gridviewText" runat="server"></asp:TextBox>
                                     </FooterTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="User Role" HeaderStyle-HorizontalAlign="Left" HeaderStyle-Width="15%">
+                                <asp:TemplateField HeaderText="User Role" HeaderStyle-HorizontalAlign="Left">
                                     <ItemTemplate>
                                         <asp:Label ID="lblUserRole" runat="server" Text='<%# Bind("USER_ROLE_ARR") %>'></asp:Label>
                                     </ItemTemplate>
                                     <EditItemTemplate>
-                                        <asp:TextBox ID="txtUserRole" runat="server" Text='<%# Bind("USER_ROLE_ARR") %>'></asp:TextBox>
+                                        <asp:TextBox ID="txtUserRole" CssClass="gridviewText" runat="server" Text='<%# Bind("USER_ROLE_ARR") %>'></asp:TextBox>
                                     </EditItemTemplate>
                                     <FooterTemplate>
-                                        <asp:TextBox ID="txtNewUserRole" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txtNewUserRole" CssClass="gridviewText" runat="server"></asp:TextBox>
                                     </FooterTemplate>
                                 </asp:TemplateField>
                                 <asp:CommandField ButtonType="Link" ShowEditButton="true" ItemStyle-Width="150" />

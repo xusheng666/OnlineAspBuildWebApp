@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace Onecalendar.WebPortal.Secure.User
 {
-    public partial class ListCompany : System.Web.UI.Page
+    public partial class ListCompany : InternetPageBase
     {
         CommonService _bc = new CommonService();
 
@@ -27,7 +27,7 @@ namespace Onecalendar.WebPortal.Secure.User
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Secure/User/CreateCompany.aspx");
+            RedirectToAddCompany();
         }
 
         protected void lnkDelete(Object sender, CommandEventArgs e)

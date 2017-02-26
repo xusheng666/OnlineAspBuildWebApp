@@ -105,5 +105,23 @@ namespace Onecalendar.WebPortal
             String relativePath = relativeDir + fileName;
             return mContext + relativePath;
         }
+
+        /// <summary>
+        /// below to redirection of the pages
+        /// </summary>
+        public void RedirectToCourseList()
+        {
+            Response.Redirect("~/Secure/Course/Courses.aspx");
+        }
+
+        public void RedirectToCompanyList()
+        {
+            Response.Redirect("~/Secure/User/ListCompany.aspx");
+        }
+
+        public void RedirectToAddCompany()
+        {
+            Response.Redirect("~/Secure/User/CreateCompany.aspx");
+        }
     }
 }
