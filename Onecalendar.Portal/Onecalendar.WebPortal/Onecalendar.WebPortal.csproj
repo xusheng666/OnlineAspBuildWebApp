@@ -63,6 +63,7 @@
     <Reference Include="Microsoft.Practices.Unity.Interception.Configuration">
       <HintPath>..\Library\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Net.Future.Transactions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Library\Net.Future.Transactions.dll</HintPath>
@@ -157,6 +158,8 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <None Include="Content\Course\1234567" />
+    <Content Include="BIReport\BIConnectLive.aspx" />
+    <Content Include="BIReport\BIReportTest.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\css\flatpickr.min.css" />
     <Content Include="Content\css\fullcalendar.css" />
@@ -315,7 +318,7 @@
     <Content Include="Public\Login\Login.aspx" />
     <Content Include="Secure\Course\AddCourse.aspx" />
     <Content Include="Secure\Course\EditCourse.aspx" />
-    <Content Include="Secure\EventsCalendar.aspx" />
+    <Content Include="Secure\Event\EventsCalendar.aspx" />
     <Content Include="Secure\User\EditCompany.aspx" />
     <Content Include="Secure\User\CreateCompany.aspx" />
     <Content Include="Secure\User\ListCompany.aspx" />
@@ -368,6 +371,20 @@
     </Compile>
     <Compile Include="Account\RegisterExternalLogin.aspx.designer.cs">
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BIReport\BIConnectLive.aspx.cs">
+      <DependentUpon>BIConnectLive.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BIReport\BIConnectLive.aspx.designer.cs">
+      <DependentUpon>BIConnectLive.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BIReport\BIReportTest.aspx.cs">
+      <DependentUpon>BIReportTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BIReport\BIReportTest.aspx.designer.cs">
+      <DependentUpon>BIReportTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -449,11 +466,11 @@
     <Compile Include="Secure\Course\EditCourse.aspx.designer.cs">
       <DependentUpon>EditCourse.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Secure\EventsCalendar.aspx.cs">
+    <Compile Include="Secure\Event\EventsCalendar.aspx.cs">
       <DependentUpon>EventsCalendar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Secure\EventsCalendar.aspx.designer.cs">
+    <Compile Include="Secure\Event\EventsCalendar.aspx.designer.cs">
       <DependentUpon>EventsCalendar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Secure\User\EditCompany.aspx.cs">

@@ -19,6 +19,17 @@ namespace OneCalendar.BusinessComponent
         {
             public static byte[] IVS = { 0x12, 0x34, 0x56, 0x78, 0x90, 0xAB, 0xCD, 0xEF, 0x12, 0x34, 0x56, 0x78, 0x90, 0xAB, 0xCD, 0xEF };
         }
+
+        public class UserRoles
+        {
+            public const string VIEW_ONLY_ROLE = "VO";
+        }
+
+        public class UserStatus
+        {
+            public const string ACTIVE = "A";
+            public const string INACTIVE = "I";
+        }
     }
 
     public class ConnectionStrings
@@ -48,6 +59,7 @@ namespace OneCalendar.BusinessComponent
         public const string P_DELETE_COMPANY_BY_ID = "P_DELETE_COMPANY_BY_ID";
         public const string P_QUERY_COMPANY_BY_ID = "P_QUERY_COMPANY_BY_ID";
         public const string P_QUERY_COURSE_BY_DATETIME = "P_QUERY_COURSE_BY_DATETIME";
+        public const string P_QUERY_COURSE_BY_FREE_TEXT = "P_QUERY_COURSE_BY_FREE_TEXT";
     }
 
     public class QueryStringNames
@@ -55,4 +67,5 @@ namespace OneCalendar.BusinessComponent
         public const string QUERY_STR_COURSE_ID = "CourseID";
         public const string QUERY_STR_COMPANY_ID = "CompanyId";
     }
+
 }

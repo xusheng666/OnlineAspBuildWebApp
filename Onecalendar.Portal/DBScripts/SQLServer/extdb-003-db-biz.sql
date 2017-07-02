@@ -622,3 +622,51 @@ SET XACT_ABORT OFF
 
 GO
 
+IF OBJECT_ID( 'dbo.P_QUERY_COURSE_BY_FREE_TEXT', 'P' ) IS NOT NULL
+  DROP  PROCEDURE  dbo.P_QUERY_COURSE_BY_FREE_TEXT
+GO
+
+CREATE PROCEDURE [dbo].[P_QUERY_COURSE_BY_FREE_TEXT]
+(
+  @freetext nvarchar(50)
+)
+AS
+/*
+Module  : 
+Author  : SQL Generator
+Date    : 30-01-2017
+Desc    : Retrieves records from T_BIZ001_COURSE
+Returns: 0 if successful, else SQL error code
+
+Change Revision
+-----------------------------------------------------
+Date           Author            Remark
+
+*/
+SET XACT_ABORT ON
+
+BEGIN
+    SELECT 
+      t.COURSEID,
+      t.USERID,
+      t.COURSE_NAME,
+      t.COURSE_DETAIL,
+      t.COURSE_IMAGEPATH,
+      t.COURSE_FILENAME,
+      t.CREATED_BY,
+      t.CREATED_TIME,
+      t.LAST_UPDATED_BY,
+      t.LAST_UPDATED_TIME,
+      t.VERSION_NO,
+      t.TRANSACTION_ID
+    FROM T_BIZ001_COURSE t
+	WHERE COURSE_NAME like '%@freetext%'
+	OR COURSE_DETAIL like '%@freetext%' 
+   
+    --Recommend when the stored procedure will be called by other stored procedure
+    RETURN @@ERROR
+
+END
+SET XACT_ABORT OFF
+
+GO

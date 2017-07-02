@@ -28,8 +28,8 @@ namespace Onecalendar.WebPortal.Public
                 userRow.LOGINID = this.userName.Text;
                 userRow.USER_NAME = this.displayName.Text;
                 userRow.EMAIL_ADDRESS = this.email.Text;
-                userRow.STATUS = "A";
-                userRow.USER_ROLE_ARR = "AO";
+                userRow.STATUS = Constants.UserStatus.ACTIVE;
+                userRow.USER_ROLE_ARR = Constants.UserRoles.VIEW_ONLY_ROLE;
 
                 Utility.UpdateCommonFields(userRow);
                 userDS.T_CMN001_USER.AddT_CMN001_USERRow(userRow);

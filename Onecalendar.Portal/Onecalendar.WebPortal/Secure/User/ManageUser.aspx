@@ -37,7 +37,7 @@
                                             Text='<%# Bind("USERID")%>'></asp:Label>
                                     </EditItemTemplate>
                                     <FooterTemplate>
-                                        <asp:TextBox ID="txtUserId" Width="40px" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txtUserId" Width="40px" runat="server" Required="true"></asp:TextBox>
                                     </FooterTemplate>
                                 </asp:TemplateField>
                                 <%--below are contents--%>
@@ -49,7 +49,7 @@
                                         <asp:TextBox ID="txtLoginID" runat="server" CssClass="gridviewText" Text='<%# Bind("LOGINID") %>'></asp:TextBox>
                                     </EditItemTemplate>
                                     <FooterTemplate>
-                                        <asp:TextBox ID="txtNewLoginID" CssClass="gridviewText" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txtNewLoginID" CssClass="gridviewText" runat="server" Required="true"></asp:TextBox>
                                     </FooterTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="User Name" HeaderStyle-HorizontalAlign="Left">
@@ -60,7 +60,7 @@
                                         <asp:TextBox ID="txtUserName" runat="server" CssClass="gridviewText" Text='<%# Bind("USER_NAME") %>'></asp:TextBox>
                                     </EditItemTemplate>
                                     <FooterTemplate>
-                                        <asp:TextBox ID="txtNewUserName" CssClass="gridviewText" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txtNewUserName" CssClass="gridviewText" runat="server" Required="true"></asp:TextBox>
                                     </FooterTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Email" HeaderStyle-HorizontalAlign="Left">
@@ -71,7 +71,8 @@
                                         <asp:TextBox ID="txtEmail" CssClass="gridviewText" runat="server" Text='<%# Bind("EMAIL_ADDRESS") %>'></asp:TextBox>
                                     </EditItemTemplate>
                                     <FooterTemplate>
-                                        <asp:TextBox ID="txtNewEmail" CssClass="gridviewText" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txtNewEmail" CssClass="gridviewText" runat="server" Required="true"></asp:TextBox>
+                                        <asp:RegularExpressionValidator ControlToValidate="txtNewEmail" runat="server" />
                                     </FooterTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="User Role" HeaderStyle-HorizontalAlign="Left">
@@ -82,7 +83,7 @@
                                         <asp:TextBox ID="txtUserRole" CssClass="gridviewText" runat="server" Text='<%# Bind("USER_ROLE_ARR") %>'></asp:TextBox>
                                     </EditItemTemplate>
                                     <FooterTemplate>
-                                        <asp:TextBox ID="txtNewUserRole" CssClass="gridviewText" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txtNewUserRole" CssClass="gridviewText" runat="server" Required="true"></asp:TextBox>
                                     </FooterTemplate>
                                 </asp:TemplateField>
                                 <asp:CommandField ButtonType="Link" ShowEditButton="true" ItemStyle-Width="150" />

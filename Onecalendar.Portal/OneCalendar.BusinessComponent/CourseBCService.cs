@@ -59,5 +59,10 @@ namespace OneCalendar.BusinessComponent
         {
             return _da.getCoursesByCriteria(startDttm, endDttm);
         }
+
+        public DataTable getCoursesByFreetext(string searchKey)
+        {
+            return _da.getCoursesByFreetext(searchKey);
+        }
     }
 }

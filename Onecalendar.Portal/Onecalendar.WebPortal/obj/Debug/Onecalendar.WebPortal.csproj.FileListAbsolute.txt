@@ -41,3 +41,5 @@ C:\cloudasp\testWebApp\Onecalendar.Portal\Onecalendar.WebPortal\bin\DotNetOpenAu
 C:\cloudasp\testWebApp\Onecalendar.Portal\Onecalendar.WebPortal\obj\Debug\Onecalendar.WebPortal.csprojResolveAssemblyReference.cache
 C:\cloudasp\testWebApp\Onecalendar.Portal\Onecalendar.WebPortal\obj\Debug\Onecalendar.WebPortal.dll
 C:\cloudasp\testWebApp\Onecalendar.Portal\Onecalendar.WebPortal\obj\Debug\Onecalendar.WebPortal.pdb
+C:\cloudasp\testWebApp\Onecalendar.Portal\Onecalendar.WebPortal\bin\Net.Future.Common.dll
+C:\cloudasp\testWebApp\Onecalendar.Portal\Onecalendar.WebPortal\bin\Net.Future.Core.dll

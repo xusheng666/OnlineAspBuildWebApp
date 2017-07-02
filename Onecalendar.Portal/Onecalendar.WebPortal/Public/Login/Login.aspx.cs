@@ -29,7 +29,7 @@ namespace Onecalendar.WebPortal.Secure.Login
                     string password = CryptionUtil.DecryptAESSecruedMsg(userDS.T_CMN001_USER[0].PASSWORD_HASH, this.userId.Text, userDS.T_CMN001_USER[0].PASSWORD_HASH_SALT);
                     if (password.Equals(this.password.Text))
                     {
-                        ProcessAuthentication(this.userId.Text, "comp", "C", "AO", this.userId.Text, "", "");
+                        ProcessAuthentication(this.userId.Text, userDS.T_CMN001_USER[0].COMPANY_ID, "C", userDS.T_CMN001_USER[0].USER_ROLE_ARR, this.userId.Text, "", "");
                     }
                 }
             }

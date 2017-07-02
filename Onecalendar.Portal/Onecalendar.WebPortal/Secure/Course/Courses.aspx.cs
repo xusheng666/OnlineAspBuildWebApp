@@ -21,7 +21,8 @@ namespace Onecalendar.WebPortal
 
         private void CourseDataBind()
         {
-            DataTable dt = _bc.getAllCourses() as DataTable;
+            //String companyId = GetLoginCompanyID();
+            DataTable dt = _bc.getAllCourses(companyId) as DataTable;
             //dt.Columns.Add(new DataColumn("PictureURL", typeof(string)));
             //foreach (DataRow row in dt.Rows)
             //{
@@ -59,6 +60,22 @@ namespace Onecalendar.WebPortal
             this.gvwDash.DataSource = dt;
             this.gvwDash.DataBind();
         }
+
+        protected void btnFreetextSearch_Click(object sender, EventArgs e)
+        {
+            string searchKey = this.searchKey.Text;
+            if (!String.IsNullOrEmpty(searchKey) && !String.IsNullOrEmpty(searchKey.Trim()))
+            {
+                string decodeKey = HttpUtility.HtmlDecode(searchKey);
+
+                DataTable dt = _bc.getCoursesByFreetext(decodeKey) as DataTable;
+
+                this.gvwDash.DataSource = dt;
+                this.gvwDash.DataBind();
+            }
+            
+        }
+        
 
         /// <summary>
         /// paging

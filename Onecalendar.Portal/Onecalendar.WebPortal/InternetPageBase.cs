@@ -106,6 +106,17 @@ namespace Onecalendar.WebPortal
             return mContext + relativePath;
         }
 
+        public SessionUserInfoStore GetLoginSessionInfo()
+        {
+            SessionUserInfoStore userInfo = (SessionUserInfoStore)Session["SessionUserInfoStore"];
+            return userInfo;
+        }
+
+        public String GetLoginCompanyID()
+        {
+            SessionUserInfoStore userInfo = (SessionUserInfoStore)Session["SessionUserInfoStore"];
+            return userInfo.UserEntityId;
+        }
         /// <summary>
         /// below to redirection of the pages
         /// </summary>

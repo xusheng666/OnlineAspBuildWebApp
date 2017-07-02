@@ -42,5 +42,20 @@ namespace Onecalendar.WebPortal
                Response.Redirect("~/Public/CourseDetailView.aspx?"+QueryStringNames.QUERY_STR_COURSE_ID+"="+courseId);
            }
         }
+
+        protected void btnFreetextSearch_Click(object sender, EventArgs e)
+        {
+            string searchKey = this.searchKey.Text;
+            if (!String.IsNullOrEmpty(searchKey) && !String.IsNullOrEmpty(searchKey.Trim()))
+            {
+                string decodeKey = HttpUtility.HtmlDecode(searchKey);
+
+                DataTable dt = _bc.getCoursesByFreetext(decodeKey) as DataTable;
+
+                this.lvCourses.DataSource = dt;
+                this.lvCourses.DataBind();
+            }
+
+        }
     }
 }

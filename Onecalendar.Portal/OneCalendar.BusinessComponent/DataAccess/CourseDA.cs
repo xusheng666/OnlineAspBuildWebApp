@@ -72,5 +72,14 @@ namespace OneCalendar.BusinessComponent.DataAccess
             this.Helper.Fill(ds.T_BIZ001_COURSE, cmd);
             return ds.T_BIZ001_COURSE;
         }
+
+        internal DataTable getCoursesByFreetext(string searchKey)
+        {
+            BIZCourseDataSet ds = new BIZCourseDataSet();
+            DbCommand cmd = this.Helper.BuildDbCommand(SPNameConstants.P_QUERY_COURSE_BY_FREE_TEXT);
+            this.Helper.AssignParameterValues(cmd, searchKey);
+            this.Helper.Fill(ds.T_BIZ001_COURSE, cmd);
+            return ds.T_BIZ001_COURSE;
+        }
     }
 }

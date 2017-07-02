@@ -44,7 +44,7 @@
                         <div class="searchtext">
                             <asp:TextBox ID="searchKey" runat="server" type="text" name="s" value="" placeholder="Search" CssClass="searchtext" />
                         </div>
-                        <a><img src="<%= ResolveUrl("~/Content/images/search-bt.jpg")%>" alt="search" /></a>
+                        <asp:ImageButton ID="freetextsearch" ImageUrl="~/Content/images/search-bt.jpg" runat="server" OnClick="btnFreetextSearch_Click"/>
                     </div>
                 </div>
                 <hr />

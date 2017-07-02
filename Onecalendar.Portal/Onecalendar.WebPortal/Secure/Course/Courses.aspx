@@ -29,8 +29,11 @@
                         <div class="searchtext">
                             <asp:TextBox ID="searchKey" runat="server" type="text" name="s" value="" placeholder="Search" CssClass="searchtext" />
                         </div>
-                        <a>
-                            <img src="<%= ResolveUrl("~/Content/images/search-bt.jpg")%>" alt="search" /></a>
+                        <asp:ImageButton ID="freetextsearch" ImageUrl="~/Content/images/search-bt.jpg" runat="server" OnClick="btnFreetextSearch_Click"/>
+                        <%--<a OnClick="btnFreetextSearch_Click" runat="server">
+                            <img src="<%= ResolveUrl("~/Content/images/search-bt.jpg")%>" alt="search" />
+                                <asp:Button ID="freetextsearch" runat="server" OnClick="btnFreetextSearch_Click"/>
+                            </a>--%>
                     </div>
 
                 </div>
