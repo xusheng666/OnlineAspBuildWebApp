@@ -22,7 +22,7 @@ namespace Onecalendar.WebPortal
         private void CourseDataBind()
         {
             //String companyId = GetLoginCompanyID();
-            DataTable dt = _bc.getAllCourses(companyId) as DataTable;
+            DataTable dt = _bc.getAllCourses() as DataTable;
             //dt.Columns.Add(new DataColumn("PictureURL", typeof(string)));
             //foreach (DataRow row in dt.Rows)
             //{
