@@ -157,7 +157,40 @@
     <Content Include="Account\OpenAuthProviders.ascx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
+    <Content Include="assets\bootstrap-material-design-font\fonts\material-design-icons.eot" />
+    <Content Include="assets\bootstrap-material-design-font\fonts\material-design-icons.ttf" />
+    <Content Include="assets\bootstrap-material-design-font\fonts\material-design-icons.woff" />
+    <Content Include="assets\et-line-font-plugin\fonts\et-line.eot" />
+    <Content Include="assets\et-line-font-plugin\fonts\et-line.ttf" />
+    <Content Include="assets\et-line-font-plugin\fonts\et-line.woff" />
+    <Content Include="assets\images\C1_Logo.jpg" />
+    <Content Include="assets\images\C1_logo.png" />
+    <Content Include="assets\images\hashes.json" />
     <None Include="Content\Course\1234567" />
+    <Content Include="assets\animate.css\animate.min.css" />
+    <Content Include="assets\bootstrap-material-design-font\css\material.css" />
+    <Content Include="assets\bootstrap-material-design-font\fonts\license.txt" />
+    <Content Include="assets\bootstrap-material-design-font\fonts\material-design-icons.svg" />
+    <Content Include="assets\bootstrap\css\bootstrap.min.css" />
+    <Content Include="assets\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assets\dropdown\css\style.css" />
+    <Content Include="assets\dropdown\js\script.min.js" />
+    <Content Include="assets\et-line-font-plugin\fonts\et-line.svg" />
+    <Content Include="assets\et-line-font-plugin\style.css" />
+    <Content Include="assets\formoid\formoid.min.js" />
+    <Content Include="assets\images\logo.png" />
+    <Content Include="assets\images\mbr-2000x1114.jpg" />
+    <Content Include="assets\images\mylogo.png" />
+    <Content Include="assets\jarallax\jarallax.js" />
+    <Content Include="assets\mobirise\css\mbr-additional.css" />
+    <Content Include="assets\smooth-scroll\smooth-scroll.js" />
+    <Content Include="assets\tether\tether.min.css" />
+    <Content Include="assets\tether\tether.min.js" />
+    <Content Include="assets\theme\css\style.css" />
+    <Content Include="assets\theme\js\script.js" />
+    <Content Include="assets\touch-swipe\jquery.touch-swipe.min.js" />
+    <Content Include="assets\viewport-checker\jquery.viewportchecker.js" />
+    <Content Include="assets\web\assets\jquery\jquery.min.js" />
     <Content Include="BIReport\BIConnectLive.aspx" />
     <Content Include="BIReport\BIReportTest.aspx" />
     <Content Include="Contact.aspx" />
@@ -262,6 +295,9 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Default2.aspx" />
+    <Content Include="Index.aspx" />
+    <Content Include="index.html" />
     <Content Include="packages.config" />
     <Content Include="Public\CourseDetailView.aspx" />
     <Content Include="Public\Login\Logout.aspx" />
@@ -400,6 +436,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Default2.aspx.cs">
+      <DependentUpon>Default2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default2.aspx.designer.cs">
+      <DependentUpon>Default2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -411,6 +454,13 @@
     </Compile>
     <Compile Include="Handler\JSonFormatCourses.ashx.cs">
       <DependentUpon>JSonFormatCourses.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="InternetPageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -515,6 +565,13 @@
     <Compile Include="Secure\Course\Courses.aspx.designer.cs">
       <DependentUpon>Courses.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SiteModern.Master.cs">
+      <DependentUpon>SiteModern.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteModern.Master.designer.cs">
+      <DependentUpon>SiteModern.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -525,6 +582,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="SiteMap.sitemap" />
+    <Content Include="SiteModern.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
