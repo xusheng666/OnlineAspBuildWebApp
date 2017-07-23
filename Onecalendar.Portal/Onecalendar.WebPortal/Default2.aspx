@@ -14,7 +14,8 @@
                             <h1 class="mbr-section-title display-1">One Tuition Portal</h1>
                             <p class="mbr-section-lead lead">Life like an endless road, so we are keep learning and improving.&nbsp;<br>
                                 with a mentor you can go eaiser and further.</p>
-                            <div class="mbr-section-btn"><a class="btn btn-lg btn-primary" href="http://www.calendarone.com">I want to publish course event</a> <a class="btn btn-lg btn-white btn-white-outline" href="http://www.calendarone.com">I want to view avaiable mentor events</a></div>
+                            <div class="mbr-section-btn"><a class="btn btn-lg btn-primary" href="<%= ResolveUrl("~/Secure/Course/AddCourse.aspx")%>">I want to publish course event</a> 
+                                <a class="btn btn-lg btn-white btn-white-outline" href="<%= ResolveUrl("~/Secure/Course/Courses.aspx")%>">I want to view avaiable mentor events</a></div>
                         </div>
                     </div>
                 </div>

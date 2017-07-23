@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
   <siteMapNode url="~/#doNothing" type="doNothing" title="doNothing" description="Home">
-    <siteMapNode url="~/Default.aspx" title="Home" description="Home"/>
+    <siteMapNode url="~/Default2.aspx" title="Home" description="Home"/>
     <siteMapNode url="~/Secure/Course/Courses.aspx" title="Courses" description="Courses"/>
     <siteMapNode url="~/Secure/Event/EventsCalendar.aspx" title="Events" description="Events Calendar"/>
     <siteMapNode url="~/Secure/User/CreateCompany.aspx" type="doNothing" title="System Admin" description="Admin">

@@ -23,6 +23,9 @@
     <link rel="stylesheet" href="<%= ResolveUrl("~/assets/theme/css/style.css")%>" type="text/css">
     <link rel="stylesheet" href="<%= ResolveUrl("~/assets/mobirise/css/mbr-additional.css")%>" type="text/css">
     <link rel="stylesheet" href="<%= ResolveUrl("~/assets/mobirise/css/mbr-additional.css")%>" type="text/css" />
+    <link rel="stylesheet" href="<%= ResolveUrl("~/Content/css/onecalendar.css")%>" type="text/css" />
+    <link rel="stylesheet" href="<%= ResolveUrl("~/Content/css/fullcalendar.css")%>" type="text/css" />
+    <link rel="stylesheet" href="<%= ResolveUrl("~/Content/css/flatpickr.min.css")%>" type="text/css" />
 
     <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
 </head>
@@ -76,27 +79,32 @@
                             <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" SiteMapProvider="AspXmlSiteMapProvider"
                                 ShowStartingNode="false" />
 
-                            <div class="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm">
-                                        <asp:Menu ID="NavigationMenu" runat="server" EnableViewState="false" 
-                                            IncludeStyleBlock="false" Orientation="Horizontal" DataSourceID="SiteMapDataSource1"
-                                            StaticDisplayLevels="1" MaximumDynamicDisplayLevels="1" OnMenuItemDataBound="NavigationMenu_MenuItemDataBound">
-                                            
-                                            <LevelMenuItemStyles>
-                                                <asp:MenuItemStyle CssClass="nav-link link" />
-                                                <asp:MenuItemStyle CssClass="nav-link link dropdown-toggle" />
-                                            </LevelMenuItemStyles>
-                                        </asp:Menu>
-                                <div class="nav-item nav-btn">
+                            <div class="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm" style="float: left;">
+                                <asp:Menu ID="NavigationMenu" runat="server" EnableViewState="false"
+                                    IncludeStyleBlock="false" Orientation="Horizontal" DataSourceID="SiteMapDataSource1"
+                                    StaticDisplayLevels="1" MaximumDynamicDisplayLevels="1" OnMenuItemDataBound="NavigationMenu_MenuItemDataBound">
+
+                                    <LevelMenuItemStyles>
+                                        <asp:MenuItemStyle CssClass="nav-link link" />
+                                        <asp:MenuItemStyle CssClass="nav-link link dropdown-toggle" />
+                                    </LevelMenuItemStyles>
+                                </asp:Menu>
+                                <div class="nav-item nav-btn" style="width: 50px;">
                                     <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
                                         <LoggedInTemplate>
-                                            <asp:LoginName ID="HeadLoginName" runat="server" CssClass="nav-link btn btn-primary-outline btn-primary" />
-                                            <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutImageUrl="~/Content/images/logout.png"
-                                                LogoutPageUrl="~/Public/Login/Logout.aspx" />
+                                            <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Logout"
+                                                LogoutPageUrl="~/Public/Login/Logout.aspx" CssClass="nav-link btn btn-primary-outline btn-primary" />
                                             </span>
+                                            <asp:LoginName ID="HeadLoginName" runat="server" CssClass="nav-link" />
                                         </LoggedInTemplate>
                                     </asp:LoginView>
                                 </div>
+                                <%--<div class="nav-item nav-btn">
+                                    <a class="nav-link btn btn-primary-outline btn-primary" href="<%= ResolveUrl("~/Public/Login/Login.aspx")%>">Login</a>
+                                </div>--%>
                             </div>
+
+
                             <%--Here End the Menu part--%>
                             <button hidden="" class="navbar-toggler navbar-close" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
                                 <div class="close-icon"></div>
@@ -110,12 +118,12 @@
 
         </section>
 
-        
+
         <%--Here Start the Main Content part--%>
         <div id="body" style="min-height: 75.6vh!important;">
             <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
             <section class="content-wrapper main-content clear-fix">
-                <div style="clear: both; background-color: rgb(238, 238, 238); margin:0 12%;">
+                <div style="clear: both; background-color: rgb(238, 238, 238); margin: 0 12%;">
                     <asp:Panel runat="server" ID="PanelMessage" Style="display: none">
                         <div>
                             <asp:Label ID="LabelMessage" runat="server"></asp:Label>
@@ -125,15 +133,16 @@
                 <asp:ContentPlaceHolder runat="server" ID="MainContent" />
             </section>
         </div>
-        
 
-        <section class="mbr-section mbr-section-md-padding mbr-footer footer1" id="contacts1-8" style="background-color: rgb(46, 46, 46); padding-top: 90px; padding-bottom: 90px;">
+
+        <section class="mbr-section mbr-section-md-padding mbr-footer footer1" id="contacts1-8" style="background-color: rgb(46, 46, 46); padding-top: 50px; padding-bottom: 50px;">
 
             <div class="container">
                 <div class="row">
                     <div class="mbr-footer-content col-xs-12 col-md-3">
                         <div>
-                            <img src="<%= ResolveUrl("~/assets/images/C1_Logo.png")%>"></div>
+                            <img src="<%= ResolveUrl("~/assets/images/C1_Logo.png")%>">
+                        </div>
                     </div>
                     <div class="mbr-footer-content col-xs-12 col-md-3">
                         <p>
@@ -163,13 +172,14 @@
             </div>
         </section>
 
-        <footer class="mbr-small-footer mbr-section mbr-section-nopadding" id="footer1-2" style="background-color: rgb(50, 50, 50); padding-top: 1.75rem; padding-bottom: 1.75rem;">
+        <footer class="mbr-small-footer mbr-section mbr-section-nopadding" id="footer1-2" style="background-color: rgb(50, 50, 50); padding-top: 1.25rem; padding-bottom: 1.25rem;">
 
             <div class="container">
                 <p class="text-xs-center">Copyright (c) 2017 Calendar One.</p>
             </div>
         </footer>
 
+        <script src="<%= ResolveUrl("~/Content/js/moment.min.js")%>"></script>
         <script src="<%= ResolveUrl("~/assets/web/assets/jquery/jquery.min.js")%>"></script>
         <script src="<%= ResolveUrl("~/assets/tether/tether.min.js")%>"></script>
         <script src="<%= ResolveUrl("~/assets/bootstrap/js/bootstrap.min.js")%>"></script>
@@ -179,6 +189,8 @@
         <script src="<%= ResolveUrl("~/assets/viewport-checker/jquery.viewportchecker.js")%>"></script>
         <script src="<%= ResolveUrl("~/assets/jarallax/jarallax.js")%>"></script>
         <script src="<%= ResolveUrl("~/assets/theme/js/script.js")%>"></script>
+        <script src="<%= ResolveUrl("~/Content/js/fullcalendar.js")%>"></script>
+        <script src="<%= ResolveUrl("~/Content/js/flatpickr.2.4.2.js")%>"></script>
 
 
         <input name="animation" type="hidden">

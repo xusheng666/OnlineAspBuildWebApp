@@ -57,7 +57,6 @@
                     ShowStartingNode="false" />
                 <div class="menu-wrap">
                     <div class="menu">
-
                         <div style="z-index: 1000;margin-top:5px; float: left;">
                             <asp:Menu ID="NavigationMenu" runat="server" CssClass="NAVMENU" EnableViewState="false"
                                 IncludeStyleBlock="false" Orientation="Horizontal" DataSourceID="SiteMapDataSource1"
@@ -76,8 +75,10 @@
                         </asp:LoginView>
                     </div>
                 </div>
+                
                 <%--Here End the Menu part--%>
             </div>
+            
         </header>
         <%--Here Start the Main Content part--%>
         <div id="body" style="min-height: 75.6vh!important;">
