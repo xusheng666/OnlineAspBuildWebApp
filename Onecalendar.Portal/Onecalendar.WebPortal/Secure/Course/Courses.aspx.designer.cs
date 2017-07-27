@@ -13,6 +13,15 @@ namespace Onecalendar.WebPortal {
     public partial class Courses {
         
         /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
         /// searchKey control.
         /// </summary>
         /// <remarks>
@@ -20,15 +29,6 @@ namespace Onecalendar.WebPortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox searchKey;
-        
-        /// <summary>
-        /// freetextsearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton freetextsearch;
         
         /// <summary>
         /// lbStartDttm control.

@@ -27,6 +27,18 @@
     <link rel="stylesheet" href="<%= ResolveUrl("~/Content/css/fullcalendar.css")%>" type="text/css" />
     <link rel="stylesheet" href="<%= ResolveUrl("~/Content/css/flatpickr.min.css")%>" type="text/css" />
 
+    <script src="<%= ResolveUrl("~/Content/js/moment.min.js")%>"></script>
+        <script src="<%= ResolveUrl("~/assets/web/assets/jquery/jquery.min.js")%>"></script>
+        <script src="<%= ResolveUrl("~/assets/tether/tether.min.js")%>"></script>
+        <script src="<%= ResolveUrl("~/assets/bootstrap/js/bootstrap.min.js")%>"></script>
+        <script src="<%= ResolveUrl("~/assets/smooth-scroll/smooth-scroll.js")%>"></script>
+        <script src="<%= ResolveUrl("~/assets/dropdown/js/script.min.js")%>"></script>
+        <script src="<%= ResolveUrl("~/assets/touch-swipe/jquery.touch-swipe.min.js")%>"></script>
+        <script src="<%= ResolveUrl("~/assets/viewport-checker/jquery.viewportchecker.js")%>"></script>
+        <script src="<%= ResolveUrl("~/assets/jarallax/jarallax.js")%>"></script>
+        <script src="<%= ResolveUrl("~/assets/theme/js/script.js")%>"></script>
+        <script src="<%= ResolveUrl("~/Content/js/fullcalendar.js")%>"></script>
+        <script src="<%= ResolveUrl("~/Content/js/flatpickr.2.4.2.js")%>"></script>
     <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
 </head>
 <body>
@@ -179,7 +191,7 @@
             </div>
         </footer>
 
-        <script src="<%= ResolveUrl("~/Content/js/moment.min.js")%>"></script>
+        <%--<script src="<%= ResolveUrl("~/Content/js/moment.min.js")%>"></script>
         <script src="<%= ResolveUrl("~/assets/web/assets/jquery/jquery.min.js")%>"></script>
         <script src="<%= ResolveUrl("~/assets/tether/tether.min.js")%>"></script>
         <script src="<%= ResolveUrl("~/assets/bootstrap/js/bootstrap.min.js")%>"></script>
@@ -190,7 +202,7 @@
         <script src="<%= ResolveUrl("~/assets/jarallax/jarallax.js")%>"></script>
         <script src="<%= ResolveUrl("~/assets/theme/js/script.js")%>"></script>
         <script src="<%= ResolveUrl("~/Content/js/fullcalendar.js")%>"></script>
-        <script src="<%= ResolveUrl("~/Content/js/flatpickr.2.4.2.js")%>"></script>
+        <script src="<%= ResolveUrl("~/Content/js/flatpickr.2.4.2.js")%>"></script>--%>
 
 
         <input name="animation" type="hidden">

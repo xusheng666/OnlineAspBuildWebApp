@@ -49,14 +49,30 @@ namespace Onecalendar.WebPortal
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            string startDttmTxt = this.tbStartDttm.Text;
-            string endDttmTxt = this.tbEndDttm.Text;
+            DataTable dt = new DataTable();
+            string searchKey = this.searchKey.Text;
+            if (!String.IsNullOrEmpty(searchKey) && !String.IsNullOrEmpty(searchKey.Trim()))
+            {
+                string decodeKey = HttpUtility.HtmlDecode(searchKey);
 
-            DateTime startDttm = DateTimeUtil.parseToDateTime(startDttmTxt);
-            DateTime endDttm = DateTimeUtil.parseToDateTime(endDttmTxt);
-
-            DataTable dt = _bc.getCoursesByCriteria(startDttmTxt, endDttmTxt) as DataTable;
-
+                dt = _bc.getCoursesByFreetext(decodeKey) as DataTable;
+            }
+            else
+            {
+                string startDttmTxt = this.tbStartDttm.Text;
+                string endDttmTxt = this.tbEndDttm.Text;
+                if (!String.IsNullOrEmpty(startDttmTxt) && !String.IsNullOrEmpty(startDttmTxt.Trim()))
+                {
+                    DateTime startDttm = DateTimeUtil.parseToDateTime(startDttmTxt);
+                    DateTime endDttm = DateTime.Now;
+                    if (!String.IsNullOrEmpty(endDttmTxt) && !String.IsNullOrEmpty(endDttmTxt.Trim()))
+                    {
+                        endDttm = DateTimeUtil.parseToDateTime(endDttmTxt);
+                    }
+                    dt = _bc.getCoursesByCriteria(startDttmTxt, endDttmTxt) as DataTable;
+                }
+            }
+           
             this.gvwDash.DataSource = dt;
             this.gvwDash.DataBind();
         }
