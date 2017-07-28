@@ -1,51 +1,51 @@
-﻿<%@ Page Title="Contact" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="Onecalendar.WebPortal.Contact" %>
+﻿<%@ Page Title="Contact" Language="C#" MasterPageFile="~/SiteModern.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="Onecalendar.WebPortal.Contact" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    <div class="page mar-top30">
-        <div class="title">
-            <h1>Contact us</h1>
-            <br />
-            <h2></h2>
-        </div>
-        <div class="content mar-top30">
-                <div class="contact-form">
-                    <label>
-                        <span>Full name</span>
-                        <input type="text" class="input_text" name="name" id="name" />
-                    </label>
-                    <label>
-                        <span>Email</span>
-                        <input type="text" class="input_text" name="email" id="email" />
-                    </label>
-                    <label>
-                        <span>Subject</span>
-                        <input type="text" class="input_text" name="subject" id="subject" />
-                    </label>
-                    <label>
-                        <span>Message</span>
-                        <textarea class="message" name="feedback" id="feedback"></textarea>
-                        <input type="button" class="button" value="Submit Form" />
-                    </label>
-                </div>
-            <div class="address mar-bottom30">
-                <div class="panel">
-                    <div class="title">
-                        <h1>Address</h1>
+    <section class="mbr-section mbr-after-navbar" id="form1-k" style="background-color: rgb(255, 255, 255); padding-top: 120px; padding-bottom: 120px;">
+
+        <div style="border: dotted; border-color: goldenrod; margin: 0 10%;">
+            <div class="mbr-section mbr-section-nopadding">
+                <div class="container">
+                    <div class="col-xs-12 text-xs-center">
+                        <h3 class="mbr-section-title display-2">Contact Us</h3>
                     </div>
-                    <div class="content">
-                        <p>
-                            CalendarOne Pte Ltd<br />
-                            Blk 334 , Kreta Ayer Road #03-10,<br /> Singapore 080334<br /><br />
-                            Our office is located at junction <br />of Kreta Ayer road and Keong Siak street, <br />
-                            5 minutes walk from Outram MRT station.
-                        </p>
-                        <br />
-                        <p class="padTop"><span>Phone :</span>(65) 6887 4554</p>
-                        <p><span>Email :</span> <a href="enquiry@calendarone.com">enquiry@calendarone.com</a></p>
+                    <div>
+                        <div class="row row-sm-offset">
+                            <div class="col-xs-12 col-md-4" style="width: 100%!important;">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="form1-k-name">Full Name<span class="form-asterisk">*</span></label>
+                                    <asp:TextBox ID="name" class="form-control" placeholder="Enter UserName" runat="server"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-4" style="width: 100%!important;">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="form1-k-email">Email<span class="form-asterisk">*</span></label>
+                                    <asp:TextBox ID="email" class="form-control" placeholder="Enter Email Address" runat="server"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-4" style="width: 100%!important;">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="form1-k-email">Subject<span class="form-asterisk">*</span></label>
+                                    <asp:TextBox ID="subject" class="form-control" placeholder="Enter Subject" runat="server"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-4" style="width: 100%!important;">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="form1-k-email">Message<span class="form-asterisk">*</span></label>
+                                    <asp:TextBox ID="message" rows="7" Height="100px" class="form-control" placeholder="Enter Message" runat="server"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+                        <div><button type="submit" class="btn btn-primary">CONTACT US</button></div>
                     </div>
                 </div>
-                <div class="clearing"></div>
             </div>
         </div>
-    </div>
+    </section>
 </asp:Content>

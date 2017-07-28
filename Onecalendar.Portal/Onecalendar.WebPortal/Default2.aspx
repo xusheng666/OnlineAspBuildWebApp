@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteModern.Master" AutoEventWireup="true" CodeBehind="Default2.aspx.cs" Inherits="Onecalendar.WebPortal.Default2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteHome.Master" AutoEventWireup="true" CodeBehind="Default2.aspx.cs" Inherits="Onecalendar.WebPortal.Default2" %>
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
 <section class="engine"><a rel="external" href="http://www.calendarone.com">http://www.calendarone.com/</a></section>
         <section class="mbr-section mbr-section-hero mbr-section-full mbr-parallax-background mbr-section-with-arrow mbr-after-navbar" id="header1-6" style="background-image: url(assets/images/mbr-2000x1114.jpg);">
@@ -33,7 +33,7 @@
 
                         <div class="mbr-table-cell mbr-right-padding-md-up mbr-valign-top col-md-7 image-size" style="width: 50%;">
                             <div class="mbr-figure">
-                                <iframe class="mbr-embedded-video" src="https://www.youtube.com/embed/Tq7p44IA-1U?rel=0&amp;amp;showinfo=0&amp;autoplay=0&amp;loop=0" width="1280" height="720" frameborder="0" allowfullscreen></iframe>
+                                <%--<iframe class="mbr-embedded-video" src="https://www.youtube.com/embed/Tq7p44IA-1U?rel=0&amp;amp;showinfo=0&amp;autoplay=0&amp;loop=0" width="1280" height="720" frameborder="0" allowfullscreen></iframe>--%>
                             </div>
                         </div>
 

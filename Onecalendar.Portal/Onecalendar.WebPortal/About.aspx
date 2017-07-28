@@ -1,20 +1,22 @@
-﻿<%@ Page Title="About" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="Onecalendar.WebPortal.About" %>
+﻿<%@ Page Title="About" Language="C#" MasterPageFile="~/SiteModern.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="Onecalendar.WebPortal.About" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    <div class="page  mar-top30">
-        <div class="primary-col">
-            <div class="generic bdr-bottom-none">
-                <div class="panel">
-                    <div class="title">
+    <section class="mbr-section mbr-after-navbar" id="form1-k" style="background-color: rgb(255, 255, 255); padding-top: 120px; padding-bottom: 120px;">
+
+        <div style="border: dotted; border-color: goldenrod; margin: 0 10%;">
+            <div class="mbr-section mbr-section-nopadding">
+                <div class="container">
+                    <div class="text-primary">
                         <h1>About us</h1>
                         <h2>MISSION STATEMENT </h2>
                     </div>
-                    <div class="content padBottom">
+                    <div>
+                        
                         <p>CalendarOne aims to be the leading provider of web-based solutions and services that enable our clients to automate and manage their business operations and resources, efficiently and effectively. </p>
                     </div>
                     <div class="clearing"></div>
-                    <div class="title ">
-                        <h1 class="padTop">Company Overview</h1>
+                    <div class="text-primary">
+                        <h2>Company Overview</h2>
                     </div>
                     <div class="content">
                         <p>
@@ -34,11 +36,6 @@
                     </div>
                 </div>
             </div>
-            <div class="clearing"></div>
         </div>
-        <!---primary-col--->
-
-        <!---side-bar--->
-        <div class="clearing"></div>
-    </div>
+    </section>
 </asp:Content>

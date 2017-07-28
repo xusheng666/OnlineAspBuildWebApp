@@ -24,7 +24,7 @@ namespace Onecalendar.WebPortal.Public.Login
                 }
                 FormsAuthentication.SignOut();
                 Session.Abandon();
-                Response.Redirect("~/Default.aspx", false);
+                Response.Redirect("~/Default2.aspx", false);
 
             }
             catch (System.Exception ex)

@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteModern.master.cs" Inherits="Onecalendar.WebPortal.SiteModern" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteHome.Master.cs" Inherits="Onecalendar.WebPortal.SiteHome" %>
 
 <!DOCTYPE html>
 
@@ -43,18 +43,9 @@
 </head>
 <body>
     <form id="Form1" runat="server">
-        <asp:ScriptManager ID="ScriptManager1" runat="server">
-            <Scripts>
-                <%--Framework Scripts--%>
-                <asp:ScriptReference Name="MsAjaxBundle" />
-                <%--<asp:ScriptReference Name="jquery" />
-                <asp:ScriptReference Name="jquery.ui.combined" />--%>
-                <%--Site Scripts--%>
-            </Scripts>
-        </asp:ScriptManager>
         <section id="menu-0">
 
-            <nav class="navbar navbar-dropdown bg-color transparent">
+            <nav class="navbar navbar-dropdown bg-color transparent navbar-fixed-top">
                 <div class="container">
 
                     <div class="mbr-table">
@@ -63,14 +54,38 @@
                             <div class="navbar-brand">
                                 <a href="http://www.calendarone.com" class="navbar-logo">
                                     <img src="<%= ResolveUrl("~/assets/images/C1_Logo.png")%>" alt="Mobirise"></a>
+                                <%--<a class="navbar-caption text-primary" href="http://www.calendarone.com">Calendar One</a>--%>
                             </div>
 
                         </div>
-                        <div class="mbr-table-cell" style="color:white!important;">
+                        <div class="mbr-table-cell">
 
                             <button class="navbar-toggler pull-xs-right hidden-md-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
                                 <div class="hamburger-icon"></div>
                             </button>
+
+                            <%--<ul class="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm" id="exCollapsingNavbar">
+                                <li class="nav-item"><a class="nav-link link" href="courses.html">OVERVIEW</a></li>
+                                <li class="nav-item"><a class="nav-link link" href="Default.aspx">COURSE EVENTS</a></li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link link dropdown-toggle" data-toggle="dropdown-submenu" href="http://www.calendarone.com/" aria-expanded="false">FEATURES</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="courses.html">Mobile friendly</a>
+                                        <a class="dropdown-item" href="http://www.calendarone.com/">Based on Bootstrap</a>
+                                        <div class="dropdown">
+                                            <a class="dropdown-item dropdown-toggle" data-toggle="dropdown-submenu" href="http://www.calendarone.com/">Trendy blocks</a>
+                                            <div class="dropdown-menu dropdown-submenu">
+                                                <a class="dropdown-item" href="http://www.calendarone.com/">Image/content slider</a>
+                                                <a class="dropdown-item" href="http://www.calendarone.com/">Contact forms</a><a class="dropdown-item" href="http://www.calendarone.com/">Image gallery</a><a class="dropdown-item" href="http://www.calendarone.com/">Mobile menu</a><a class="dropdown-item" href="http://www.calendarone.com/">Google maps</a><a class="dropdown-item" href="http://www.calendarone.com/">Social buttons</a><a class="dropdown-item" href="http://www.calendarone.com/">Google fonts</a><a class="dropdown-item" href="http://www.calendarone.com/">Video background</a>
+                                            </div>
+                                        </div>
+                                        <a class="dropdown-item" href="http://www.calendarone.com/">Host anywhere</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown"><a class="nav-link link dropdown-toggle" data-toggle="dropdown-submenu" href="http://www.calendarone.com/" aria-expanded="false">HELP</a><div class="dropdown-menu"><a class="dropdown-item" href="http://forums.mobirise.com/">Forum</a><a class="dropdown-item" href="http://www.calendarone.com/">Tutorials</a><a class="dropdown-item" href="http://www.calendarone.com/">Contact us</a></div>
+                                </li>
+                                <li class="nav-item nav-btn"><a class="nav-link btn btn-primary-outline btn-primary" href="http://www.calendarone.com/">Register / Login</a></li>
+                            </ul>--%>
 
                             <%--Here Start the Menu part--%>
                             <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" SiteMapProvider="AspXmlSiteMapProvider"
@@ -99,7 +114,7 @@
                             </div>
 
                             <%--Here End the Menu part--%>
-                            <button hidden="" style="background: #282828!important;" class="navbar-toggler navbar-close" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+                            <button hidden="" class="navbar-toggler navbar-close" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
                                 <div class="close-icon"></div>
                             </button>
 

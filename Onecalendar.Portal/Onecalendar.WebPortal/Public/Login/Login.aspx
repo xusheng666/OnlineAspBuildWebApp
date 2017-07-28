@@ -39,27 +39,19 @@
     <section class="mbr-section mbr-after-navbar" id="form1-k" style="background-color: rgb(255, 255, 255); padding-top: 120px; padding-bottom: 120px;">
 
         <div style="border: dotted; border-color: goldenrod; margin: 0 30%;">
-            <div class="mbr-section mbr-section__container mbr-section__container--middle">
+            <div class="mbr-section mbr-section-nopadding">
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-12 text-xs-center">
                             <h3 class="mbr-section-title display-2">Login</h3>
                             <small class="mbr-section-subtitle">login to our mentor world.</small>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mbr-section mbr-section-nopadding">
-                <div class="container">
-                    <div class="row">
                         <div class="col-xs-12 col-lg-10 col-lg-offset-1" data-form-type="formoid">
 
 
                             <div data-form-alert="true">
                                 <div hidden="" data-form-alert-success="true" class="alert alert-form alert-success text-xs-center">Thanks for filling out form!</div>
                             </div>
-
-
 
                             <input type="hidden" value="h1fOvtApgTInMZvw9y3WE+iewKMaVyDqbf4nOL16VxMZncK6bns9z+3GvipVGxsDaPBwbTfXEgO+espmIwQScu3tGKEHDHR6Dex2NgGDdH4vDAZhXCS2aAZgJAF4ijbJ" data-form-email="true">
 
