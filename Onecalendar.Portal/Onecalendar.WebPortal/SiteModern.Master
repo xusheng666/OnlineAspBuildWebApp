@@ -68,16 +68,16 @@
                         </div>
                         <div class="mbr-table-cell" style="color:white!important;">
 
-                            <button class="navbar-toggler pull-xs-right hidden-md-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+                            <%--<button class="navbar-toggler pull-xs-right hidden-md-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
                                 <div class="hamburger-icon"></div>
-                            </button>
+                            </button>--%>
 
                             <%--Here Start the Menu part--%>
                             <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" SiteMapProvider="AspXmlSiteMapProvider"
                                 ShowStartingNode="false" />
 
                             <div class="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm" style="float: left;">
-                                <asp:Menu ID="NavigationMenu" runat="server" EnableViewState="false"
+                                <asp:Menu ID="NavigationMenu" runat="server" EnableViewState="false" 
                                     IncludeStyleBlock="false" Orientation="Horizontal" DataSourceID="SiteMapDataSource1"
                                     StaticDisplayLevels="1" MaximumDynamicDisplayLevels="1" OnMenuItemDataBound="NavigationMenu_MenuItemDataBound">
 
@@ -85,6 +85,7 @@
                                         <asp:MenuItemStyle CssClass="nav-link link" />
                                         <asp:MenuItemStyle CssClass="nav-link link dropdown-toggle" />
                                     </LevelMenuItemStyles>
+                                    <DynamicMenuStyle CssClass="nav-link dropdown-menu" />
                                 </asp:Menu>
                                 <div class="nav-item nav-btn" style="width: 50px;">
                                     <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">

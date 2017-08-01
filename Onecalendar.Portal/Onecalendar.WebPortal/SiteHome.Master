@@ -100,6 +100,7 @@
                                         <asp:MenuItemStyle CssClass="nav-link link" />
                                         <asp:MenuItemStyle CssClass="nav-link link dropdown-toggle" />
                                     </LevelMenuItemStyles>
+                                    <DynamicMenuStyle CssClass="dropdown-menu" />
                                 </asp:Menu>
                                 <div class="nav-item nav-btn" style="width: 50px;">
                                     <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">

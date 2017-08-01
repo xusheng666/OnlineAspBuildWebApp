@@ -14,6 +14,7 @@ textarea,
 .mbr-footer .mbr-contacts li {
   font-family: 'Raleway', sans-serif;
 }
+.staticmenucolor{background-color:blue}
 .btn,
 .alert,
 h1,
@@ -439,7 +440,8 @@ h6,
 }
 #menu-0 .link[aria-expanded="true"],
 #menu-0 .dropdown-menu {
-  background: #000000;
+  /*background: linear-gradient(#e8ddcd, #85a29c);*/
+  background:#2c2c2c;
 }
 #menu-0 .nav-dropdown-sm .link:focus,
 #menu-0 .nav-dropdown-sm .link:hover,
@@ -451,7 +453,7 @@ h6,
 #menu-0 .nav-dropdown-sm,
 #menu-0 .nav-dropdown-sm .link[aria-expanded="true"],
 #menu-0 .nav-dropdown-sm .dropdown-menu {
-  background: #000000;
+  background:#2c2c2c;
 }
 #menu-0 .bg-color.transparent .link {
   color: #c0a375;
