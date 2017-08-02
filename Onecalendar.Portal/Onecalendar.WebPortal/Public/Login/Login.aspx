@@ -72,13 +72,11 @@
                                         <asp:TextBox ID="password" class="form-control-label" placeholder="Enter Password" runat="server" TextMode="Password"></asp:TextBox>
                                     </div>
                                 </div>
-
-
                             </div>
-
-
-                            <div style="margin: 0 30%;">
-                                <asp:Button ID="submit" class="btn btn-primary" runat="server" OnClick="submit_Click" Text="Login" /></div>
+                            <div style="margin: 0 15%;">
+                                <asp:Button ID="submit" class="btn btn-primary" runat="server" OnClick="submit_Click" Text="Login" />
+                                <asp:Button ID="register" class="btn btn-primary" runat="server" OnClick="register_Click" Text="Register" />
+                            </div>
                         </div>
                     </div>
                 </div>

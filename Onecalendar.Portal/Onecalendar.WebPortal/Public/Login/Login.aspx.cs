@@ -55,5 +55,10 @@ namespace Onecalendar.WebPortal.Secure.Login
 
             Response.Redirect("~/Secure/Course/Courses.aspx", false);
         }
+
+        protected void register_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Public/UserRegistration.aspx", false);
+        }
     }
 }
