@@ -15,24 +15,26 @@
             </div>
             <div class="form-group">
                 <div class="table table-bordered">
-                    <div>
+                    <div style="margin: 0 2%">
                         <span>Company Name</span>
                         <asp:TextBox ID="companyName" class="form-control" runat="server" />
                     </div>
-                    <div>
+                    <div style="margin: 0 2%">
                         <span>Company Detail</span>
                         <asp:TextBox ID="companyDetail" class="form-control" runat="server" />
                     </div>
-                    <div>
+                    <div style="margin: 0 2%">
                         <span>Company Contact Info</span>
                         <asp:TextBox ID="contactInfo" class="form-control" runat="server" />
                     </div>
-                    <div>
+                    <div style="margin: 0 2%">
                         <span>Company Location</span>
                         <asp:TextBox ID="location" class="form-control" runat="server" />
                     </div>
-                    <asp:Button runat="server" ID="btnGoToList" class="btn btn-primary" Text="Back to Company List" OnClick="btnGoToList_Click" />
-                    <asp:Button runat="server" ID="btnAddCompany" class="btn btn-primary" Style="margin-left: 20px;" Text="Add New Company" OnClick="btnAddCompany_Click" />
+                    <div style="margin: 2%">
+                        <asp:Button runat="server" ID="btnGoToList" class="btn btn-primary" Text="Back to Company List" OnClick="btnGoToList_Click" />
+                        <asp:Button runat="server" ID="btnAddCompany" class="btn btn-primary" Style="margin-left: 20px;" Text="Add New Company" OnClick="btnAddCompany_Click" />
+                    </div>
                 </div>
             </div>
         </div>

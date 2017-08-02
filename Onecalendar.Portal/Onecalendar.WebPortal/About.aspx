@@ -6,9 +6,8 @@
         <div style="border: dotted; border-color: goldenrod; margin: 0 10%;">
             <div class="mbr-section mbr-section-nopadding">
                 <div class="container">
-                    <div class="text-primary">
-                        <h1>About us</h1>
-                        <h2>MISSION STATEMENT </h2>
+                    <div class="text-primary" style="margin:2% 0">
+                        <h3>Mission Statement</h3>
                     </div>
                     <div>
                         
@@ -16,7 +15,7 @@
                     </div>
                     <div class="clearing"></div>
                     <div class="text-primary">
-                        <h2>Company Overview</h2>
+                        <h3>Company Overview</h3>
                     </div>
                     <div class="content">
                         <p>

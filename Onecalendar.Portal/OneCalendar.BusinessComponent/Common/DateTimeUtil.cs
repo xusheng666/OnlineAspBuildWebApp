@@ -11,7 +11,7 @@ namespace OneCalendar.BusinessComponent.Common
     {
         public static DateTime parseToDateTime(string DateTimeValue)
         {
-            DateTime dt = DateTime.ParseExact(DateTimeValue, "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture);
+            DateTime dt = DateTime.ParseExact(DateTimeValue, Constants.DateTimeFormat.searchDateTimeFormat, CultureInfo.InvariantCulture);
             return dt;
         }
     }

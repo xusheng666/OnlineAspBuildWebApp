@@ -30,6 +30,11 @@ namespace OneCalendar.BusinessComponent
             public const string ACTIVE = "A";
             public const string INACTIVE = "I";
         }
+
+        public class DateTimeFormat
+        {
+            public const string searchDateTimeFormat = "yyyy-MM-dd HH:mm";
+        }
     }
 
     public class ConnectionStrings

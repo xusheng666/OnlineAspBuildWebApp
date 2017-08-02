@@ -26,16 +26,15 @@
                     </div>
                     <div>
                         <span>Description</span>
-                        <asp:TextBox TextMode="MultiLine" ID="description" class="form-control" runat="server" />
+                        <asp:TextBox TextMode="MultiLine" ID="description" class="form-control" runat="server" rows="5"/>
                     </div>
                     <div>
                         <span>Tag</span>
                         <asp:TextBox ID="courseTag" class="form-control" runat="server" />
                     </div>
-                    <asp:Button runat="server" ID="btnAddCourse" class="btn btn-primary" Text="Add New Course" OnClick="btnAddCourse_Click" />
-                    <asp:Button runat="server" ID="btnGoCourses" class="btn btn-primary" Style="margin-left: 20px;" Text="Back to Course List" OnClick="btnGoCourses_Click" />
                 </div>
-
+                <asp:Button runat="server" ID="btnAddCourse" class="btn btn-primary" Text="Add New Course" OnClick="btnAddCourse_Click" />
+                <asp:Button runat="server" ID="btnGoCourses" class="btn btn-primary" Style="margin-left: 20px;" Text="Back to Course List" OnClick="btnGoCourses_Click" />
             </div>
         </div>
     </section>

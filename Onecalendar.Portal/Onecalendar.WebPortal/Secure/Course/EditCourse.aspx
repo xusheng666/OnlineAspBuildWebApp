@@ -25,7 +25,7 @@
                         </div>
                         <div>
                             <span>Course Image</span>
-                            <asp:Image ID="image" runat="server" ImageUrl="dummay" alt="image"/>
+                            <asp:Image ID="image" runat="server" ImageUrl="dummay" alt="image" CssClass="imgsize"/>
                         </div>
                         <div>
                             <span>Upload New Course Image</span>
@@ -46,7 +46,7 @@
                             <asp:UpdatePanel ID="UpdatePanelCR" runat="server">
                                 <ContentTemplate>
                                     <asp:GridView CssClass="gridview" ID="gvwCourseEvents" runat="server" Visible="true"
-                                        ShowHeaderEmpty="true" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false" Width="90%"
+                                        ShowHeaderEmpty="true" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false" Width="100%"
                                         OnRowCancelingEdit="gvwDash_RowCancelingEdit"
                                         OnRowEditing="gvwDash_RowEditing"
                                         OnRowUpdating="gvwDash_RowUpdating" ShowFooter="True">
@@ -99,7 +99,7 @@
                                                     <asp:TextBox Width="100px" ID="txtNewPrice" runat="server"></asp:TextBox>
                                                 </FooterTemplate>
                                             </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="Start Date" HeaderStyle-HorizontalAlign="Left" HeaderStyle-Width="10px">
+                                            <asp:TemplateField HeaderText="Start Date <br/>(yyyy-MM-dd HH:mm)" HeaderStyle-HorizontalAlign="Left" HeaderStyle-Width="10px">
                                                 <ItemTemplate>
                                                     <asp:Label Width="100px" ID="lblStartDttm" runat="server" Text='<%# Bind("START_DTTM") %>'></asp:Label>
                                                 </ItemTemplate>
@@ -110,7 +110,7 @@
                                                     <asp:TextBox Width="100px" ID="txtNewStartDttm" runat="server" class="Calender"></asp:TextBox><%--<img src='<%= ResolveUrl("~/Content/images/calendar.png")%>' />--%>
                                                 </FooterTemplate>
                                             </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="End Date" HeaderStyle-HorizontalAlign="Left" HeaderStyle-Width="10px">
+                                            <asp:TemplateField HeaderText="End Date<br/>(yyyy-MM-dd HH:mm)" HeaderStyle-HorizontalAlign="Left" HeaderStyle-Width="10px">
                                                 <ItemTemplate>
                                                     <asp:Label Width="100px" ID="lblEndDttm" runat="server" Text='<%# Bind("END_DTTM") %>'></asp:Label>
                                                 </ItemTemplate>
@@ -122,8 +122,8 @@
                                                 </FooterTemplate>
                                             </asp:TemplateField>
                                             <%--below are control actions--%>
-                                            <asp:CommandField ButtonType="Link" ShowEditButton="true" ItemStyle-Width="50px" />
-                                            <asp:TemplateField ItemStyle-Width="50px">
+                                            <asp:CommandField ButtonType="Link" ShowEditButton="true" ItemStyle-Width="20px" />
+                                            <asp:TemplateField ItemStyle-Width="20px">
                                                 <ItemTemplate>
                                                     <asp:LinkButton ID="lnkRemove" runat="server"
                                                         CommandArgument='<%# Bind("COURSEEVENTID")%>'

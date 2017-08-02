@@ -30,6 +30,10 @@ namespace Onecalendar.WebPortal
             //}
             this.gvwDash.DataSource = dt;
             this.gvwDash.DataBind();
+
+            // set the from date to end date
+            this.tbStartDttm.Text = System.DateTime.Now.ToString(Constants.DateTimeFormat.searchDateTimeFormat);
+            this.tbEndDttm.Text = System.DateTime.Now.AddMonths(3).ToString(Constants.DateTimeFormat.searchDateTimeFormat);
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)

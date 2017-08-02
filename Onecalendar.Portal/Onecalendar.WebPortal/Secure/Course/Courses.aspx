@@ -36,11 +36,11 @@
                     <div class="label" style="width: 100%; padding: 10px 0px 10px 10px;margin-bottom:10px; text-align: left; background-color: #808080;">
                         Search Criteria:
                     </div>
-                    <div class="form-inline">
+                    <div class="form-inline" style="margin: 10px;">
                         <asp:Label class="control-label" ID="Label1" Text="Key Word :" runat="server" />
                         <asp:TextBox ID="searchKey" runat="server" type="text" value="" placeholder="Search Keyword" class="form-control" />
                     </div>
-                    <div class="form-inline" style="padding: 10px 0;">
+                    <div class="form-inline" style="margin: 10px;">
                         <asp:Label class="control-label" ID="lbStartDttm" Text="Start Date :" runat="server" />
                         <asp:TextBox ID="tbStartDttm" class="flatpickr" runat="server" Style="width: 10em;" placeholder="Select Start Date.." />
                         <asp:Label class="control-label" ID="lbEndDttm" Text="End Date :" runat="server" />

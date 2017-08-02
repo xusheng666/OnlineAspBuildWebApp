@@ -19,10 +19,10 @@
                     <asp:GridView CssClass="table table-bordered" ID="gvwDash" runat="server" Visible="true" ShowHeaderEmpty="true" AutoGenerateColumns="false"
                         Width="100%">
                         <Columns>
-                            <asp:BoundField HeaderText="Name" DataField="COMPANY_NAME" HeaderStyle-Width="20%" />
-                            <asp:BoundField HeaderText="Description" DataField="COMPANY_DETAIL" HeaderStyle-Width="35%" />
-                            <asp:BoundField HeaderText="Contact Info" DataField="COMPANY_CONTACT" HeaderStyle-Width="35%" />
-                            <asp:BoundField HeaderText="Location" DataField="COMPANY_LOCATION" HeaderStyle-Width="35%" />
+                            <asp:BoundField HeaderText="Name" DataField="COMPANY_NAME" />
+                            <asp:BoundField HeaderText="Description" DataField="COMPANY_DETAIL" />
+                            <asp:BoundField HeaderText="Contact Info" DataField="COMPANY_CONTACT" />
+                            <asp:BoundField HeaderText="Location" DataField="COMPANY_LOCATION" />
                             <asp:TemplateField HeaderText="Action" HeaderStyle-Width="10%" ItemStyle-HorizontalAlign="Center">
                                 <ItemTemplate>
                                     <asp:HyperLink ID="Edit" runat="server"
