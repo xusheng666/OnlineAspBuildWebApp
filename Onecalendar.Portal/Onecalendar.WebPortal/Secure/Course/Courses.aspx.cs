@@ -16,7 +16,10 @@ namespace Onecalendar.WebPortal
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            CourseDataBind();
+            if (!IsPostBack)
+            {
+                CourseDataBind();
+            }
         }
 
         private void CourseDataBind()
@@ -32,8 +35,8 @@ namespace Onecalendar.WebPortal
             this.gvwDash.DataBind();
 
             // set the from date to end date
-            this.tbStartDttm.Text = System.DateTime.Now.ToString(Constants.DateTimeFormat.searchDateTimeFormat);
-            this.tbEndDttm.Text = System.DateTime.Now.AddMonths(3).ToString(Constants.DateTimeFormat.searchDateTimeFormat);
+            this.tbStartDttm.Text = System.DateTime.Now.AddMonths(-1).ToString(Constants.DateTimeFormat.searchDateTimeFormat);
+            //this.tbEndDttm.Text = System.DateTime.Now.AddMonths(3).ToString(Constants.DateTimeFormat.searchDateTimeFormat);
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)
@@ -55,14 +58,12 @@ namespace Onecalendar.WebPortal
         {
             DataTable dt = new DataTable();
             string searchKey = this.searchKey.Text;
-            if (!String.IsNullOrEmpty(searchKey) && !String.IsNullOrEmpty(searchKey.Trim()))
-            {
+            //if (!String.IsNullOrEmpty(searchKey) && !String.IsNullOrEmpty(searchKey.Trim()))
+            //{
                 string decodeKey = HttpUtility.HtmlDecode(searchKey);
 
-                dt = _bc.getCoursesByFreetext(decodeKey) as DataTable;
-            }
-            else
-            {
+                //dt = _bc.getCoursesByFreetext(decodeKey) as DataTable;
+
                 string startDttmTxt = this.tbStartDttm.Text;
                 string endDttmTxt = this.tbEndDttm.Text;
                 if (!String.IsNullOrEmpty(startDttmTxt) && !String.IsNullOrEmpty(startDttmTxt.Trim()))
@@ -73,9 +74,13 @@ namespace Onecalendar.WebPortal
                     {
                         endDttm = DateTimeUtil.parseToDateTime(endDttmTxt);
                     }
-                    dt = _bc.getCoursesByCriteria(startDttmTxt, endDttmTxt) as DataTable;
+                    dt = _bc.getCoursesByCriteria(decodeKey, startDttmTxt, endDttmTxt) as DataTable;
                 }
-            }
+            //}
+            //else
+            //{
+                
+            //}
            
             this.gvwDash.DataSource = dt;
             this.gvwDash.DataBind();

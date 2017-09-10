@@ -55,14 +55,20 @@ namespace OneCalendar.BusinessComponent
             _da.DeleteCourseEventByID(eventId);
         }
 
-        public DataTable getCoursesByCriteria(String startDttm, String endDttm)
+        public DataTable getCoursesByCriteria(String searchKey, String startDttm, String endDttm)
         {
-            return _da.getCoursesByCriteria(startDttm, endDttm);
+            return _da.getCoursesByCriteria(searchKey, startDttm, endDttm);
         }
 
         public DataTable getCoursesByFreetext(string searchKey)
         {
             return _da.getCoursesByFreetext(searchKey);
+        }
+
+
+        public DataTable getCoursesByCriteriaAdmin(string decodeKey, string startDttmTxt, string endDttmTxt)
+        {
+            return _da.getCoursesByCriteriaAdmin(decodeKey, startDttmTxt, endDttmTxt);
         }
     }
 }

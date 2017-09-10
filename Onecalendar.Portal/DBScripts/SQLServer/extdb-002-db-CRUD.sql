@@ -1397,6 +1397,7 @@ CREATE PROCEDURE P_BIZ001_COURSE_I
   @p_course_filename nvarchar(100),
   @p_course_tag nvarchar(100),
   @p_company_id nvarchar(36),
+  @p_status char(1),
   @p_created_by nvarchar(256),
   @p_created_time datetime,
   @p_transaction_id varchar(50)
@@ -1444,6 +1445,7 @@ BEGIN
       COURSE_FILENAME,
       COURSE_TAG,
       COMPANY_ID,
+	  STATUS,
       CREATED_BY,
       CREATED_TIME,
       LAST_UPDATED_BY,
@@ -1461,6 +1463,7 @@ BEGIN
 	  @p_course_filename,
 	  @p_course_tag,
 	  @p_company_id,
+	  @p_status,
 	  @p_created_by,
 	  @p_created_time,
 	  @p_created_by,
@@ -1493,6 +1496,7 @@ CREATE PROCEDURE P_BIZ001_COURSE_U
 	@p_course_filename nvarchar(100),
 	@p_course_tag nvarchar(100),
 	@p_company_id nvarchar(36),
+	@p_status char(1),
 	@p_last_updated_by nvarchar(256),
 	@p_last_updated_time datetime,
 	@o_version_no int,
@@ -1538,6 +1542,7 @@ BEGIN
         COURSE_FILENAME = @p_course_filename,
         COURSE_TAG = @p_course_tag,
         COMPANY_ID = @p_company_id,
+		STATUS = @p_status,
         LAST_UPDATED_BY = @p_last_updated_by,
         LAST_UPDATED_TIME = @p_last_updated_time,
         VERSION_NO = VERSION_NO+1,
@@ -1649,6 +1654,7 @@ CREATE PROCEDURE P_BIZ001_COURSE_S
   @p_course_filename nvarchar(100),
   @p_course_tag nvarchar(100),
   @p_company_id nvarchar(36),
+  @p_status char(1),
   @p_created_by nvarchar(256),
   @p_created_time datetime,
   @p_last_updated_by nvarchar(256),
@@ -1690,6 +1696,7 @@ BEGIN
       t.COURSE_FILENAME,
       t.COURSE_TAG,
       t.COMPANY_ID,
+	  t.STATUS,
       t.CREATED_BY,
       t.CREATED_TIME,
       t.LAST_UPDATED_BY,
@@ -1705,13 +1712,14 @@ BEGIN
     AND COURSE_FILENAME  = @p_course_filename
     AND COURSE_TAG  = @p_course_tag
     AND COMPANY_ID  = @p_company_id
+	AND STATUS = @p_status
     AND CREATED_BY  = @p_created_by
     AND CREATED_TIME  = @p_created_time
     AND LAST_UPDATED_BY  = @p_last_updated_by
     AND LAST_UPDATED_TIME  = @p_last_updated_time
     AND VERSION_NO  = @p_version_no
     AND TRANSACTION_ID  = @p_transaction_id
-    
+    AND STATUS = 'A' -- only approved will be search out.
 
     --Recommend when the stored procedure will be called by other stored procedure
     RETURN @@ERROR

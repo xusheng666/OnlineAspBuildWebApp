@@ -21,6 +21,7 @@ BEGIN
 	  t.COURSE_TAG,
 	  c.COMPANY_DETAIL,
 	  c.COMPANY_CONTACT,
+	  t.STATUS,
       t.CREATED_BY,
       t.CREATED_TIME,
       t.LAST_UPDATED_BY,
@@ -31,7 +32,7 @@ BEGIN
 	JOIN T_CMN001_USER u ON t.USERID = u.LOGINID
 	LEFT JOIN T_CMN003_COMPANY c ON c.COMPANY_ID = u.COMPANY_ID
     WHERE COURSEID  = @p_courseid
-    
+	
 END
 SET XACT_ABORT OFF
 GO
@@ -139,6 +140,7 @@ BEGIN
       t.COURSE_DETAIL,
 	  t.COURSE_IMAGEPATH,
       t.COURSE_FILENAME,
+	  t.STATUS,
       t.CREATED_BY,
       t.CREATED_TIME,
       t.LAST_UPDATED_BY,
@@ -146,6 +148,7 @@ BEGIN
       t.VERSION_NO,
       t.TRANSACTION_ID
     FROM T_BIZ001_COURSE t
+	WHERE STATUS = 'A' -- only approved will be search out.
    
     --Recommend when the stored procedure will be called by other stored procedure
     RETURN @@ERROR
@@ -577,6 +580,7 @@ GO
 
 CREATE PROCEDURE [dbo].[P_QUERY_COURSE_BY_DATETIME]
 (
+  @p_freetext nvarchar(50),
   @p_start_dttm nvarchar(50),
   @p_end_dttm nvarchar(50)
 )
@@ -612,8 +616,9 @@ BEGIN
     FROM T_BIZ001_COURSE t
 	JOIN T_BIZ002_COURSE_EVENT e ON e.COURSEID = t.COURSEID
 	WHERE (@p_start_dttm IS NULL OR e.START_DTTM <= CAST(@p_start_dttm as DATETIME))
-	AND (@p_end_dttm IS NULL OR e.END_DTTM >= CAST(@p_end_dttm as DATETIME))
-   
+	AND (@p_end_dttm IS NULL OR @p_end_dttm ='' OR e.END_DTTM >= CAST(@p_end_dttm as DATETIME))
+	AND (@p_freetext IS NULL OR @p_freetext ='' OR COURSE_NAME like '%'+@p_freetext+'%' OR COURSE_DETAIL like '%'+@p_freetext+'%')
+    AND STATUS = 'A' -- only approved will be search out.
     --Recommend when the stored procedure will be called by other stored procedure
     RETURN @@ERROR
 
@@ -622,13 +627,15 @@ SET XACT_ABORT OFF
 
 GO
 
-IF OBJECT_ID( 'dbo.P_QUERY_COURSE_BY_FREE_TEXT', 'P' ) IS NOT NULL
-  DROP  PROCEDURE  dbo.P_QUERY_COURSE_BY_FREE_TEXT
+IF OBJECT_ID( 'dbo.P_QUERY_COURSE_BY_ADMIN', 'P' ) IS NOT NULL
+  DROP  PROCEDURE  dbo.P_QUERY_COURSE_BY_ADMIN
 GO
 
-CREATE PROCEDURE [dbo].[P_QUERY_COURSE_BY_FREE_TEXT]
+CREATE PROCEDURE [dbo].[P_QUERY_COURSE_BY_ADMIN]
 (
-  @freetext nvarchar(50)
+  @p_freetext nvarchar(50),
+  @p_start_dttm nvarchar(50),
+  @p_end_dttm nvarchar(50)
 )
 AS
 /*
@@ -651,8 +658,9 @@ BEGIN
       t.USERID,
       t.COURSE_NAME,
       t.COURSE_DETAIL,
-      t.COURSE_IMAGEPATH,
+	  t.COURSE_IMAGEPATH,
       t.COURSE_FILENAME,
+	  t.STATUS,
       t.CREATED_BY,
       t.CREATED_TIME,
       t.LAST_UPDATED_BY,
@@ -660,9 +668,11 @@ BEGIN
       t.VERSION_NO,
       t.TRANSACTION_ID
     FROM T_BIZ001_COURSE t
-	WHERE COURSE_NAME like '%@freetext%'
-	OR COURSE_DETAIL like '%@freetext%' 
-   
+	LEFT JOIN T_BIZ002_COURSE_EVENT e ON e.COURSEID = t.COURSEID
+	WHERE (@p_start_dttm IS NULL or @p_start_dttm IS NULL OR e.START_DTTM IS NULL OR e.START_DTTM <= CAST(@p_start_dttm as DATETIME))
+	AND (@p_end_dttm IS NULL OR @p_end_dttm ='' OR e.END_DTTM IS NULL OR e.END_DTTM >= CAST(@p_end_dttm as DATETIME))
+	AND (@p_freetext IS NULL OR @p_freetext ='' OR COURSE_NAME LIKE '%'+@p_freetext+'%' OR COURSE_DETAIL LIKE '%'+@p_freetext+'%')
+    
     --Recommend when the stored procedure will be called by other stored procedure
     RETURN @@ERROR
 

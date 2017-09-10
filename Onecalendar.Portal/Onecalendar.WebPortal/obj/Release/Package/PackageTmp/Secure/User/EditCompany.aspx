@@ -1,41 +1,44 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditCompany.aspx.cs" Inherits="Onecalendar.WebPortal.Secure.User.EditCompany" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteModern.Master" AutoEventWireup="true" CodeBehind="EditCompany.aspx.cs" Inherits="Onecalendar.WebPortal.Secure.User.EditCompany" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="page mar-top30">
-        <div class="title">
-            <h1>Create Company</h1>
-            <br />
-            <h2></h2>
-        </div>
-        <div class="content">
-            <div class="course-form">
-                <label>
-                    <span>Company Name</span>
-                    <asp:TextBox ID="companyName" class="input_text" runat="server" />
-                </label>
-                <label>
-                    <span>Company Detail</span>
-                    <asp:TextBox ID="companyDetail" class="input_text" runat="server" />
-                </label>
-                <label>
-                    <span>Company Contact Info</span>
-                    <asp:TextBox ID="contactInfo" class="input_text" runat="server" />
-                </label>
-                <label>
-                    <span>Company Location</span>
-                    <asp:TextBox ID="location" class="input_text" runat="server" />
-                </label>
-                <label>
-                    <span style="width: 50%; margin: 10px 0px;">Users under this company:</span>
-                </label>
-                <label>
+    <section class="mbr-section mbr-after-navbar" id="form1-k" style="background-color: rgb(255, 255, 255); padding-top: 120px; padding-bottom: 120px;">
+
+        <div style="border: dotted; border-color: goldenrod; margin: 0 10%;">
+            <div class="mbr-section mbr-section-nopadding">
+                <div class="col-xs-12 text-xs-center">
+                    <h3 class="mbr-section-title display-2">Update Company</h3>
+                </div>
+            </div>
+            <div class="mbr-section mbr-section-nopadding">
+                <div class="form-group">
+                    <div>
+                        <span>Company Name</span>
+                        <asp:TextBox ID="companyName" class="form-control" runat="server" />
+                    </div>
+                    <div>
+                        <span>Company Detail</span>
+                        <asp:TextBox ID="companyDetail" class="form-control" runat="server" />
+                    </div>
+                    <div>
+                        <span>Company Contact Info</span>
+                        <asp:TextBox ID="contactInfo" class="form-control" runat="server" />
+                    </div>
+                    <div>
+                        <span>Company Location</span>
+                        <asp:TextBox ID="location" class="form-control" runat="server" />
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <span style="width: 50%; margin: 10px 0px;">Users under this company:</span>
+                    </div>
                     <asp:UpdatePanel ID="UpdatePanelCR" runat="server">
                         <ContentTemplate>
-                            <asp:GridView CssClass="gridview" ID="gvwUsers" runat="server" Visible="true"
+                            <asp:GridView CssClass="table table-bordered" ID="gvwUsers" runat="server" Visible="true"
                                 ShowHeaderEmpty="true" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false" Width="90%"
                                 OnRowCancelingEdit="gvwDash_RowCancelingEdit"
                                 OnRowEditing="gvwDash_RowEditing"
@@ -108,9 +111,10 @@
                             <asp:AsyncPostBackTrigger ControlID="gvwUsers" />
                         </Triggers>
                     </asp:UpdatePanel>
-                </label>
-                <asp:Button runat="server" ID="btnUpdateCompany" class="button" Text="Update Company" OnClick="btnUpdateCompany_Click" />
-                <asp:Button Style="margin-left: 20px!important;" runat="server" ID="btnBackCompany" class="button" Text="Back to Company List" OnClick="btnBackCompany_Click" />
+                </div>
+                <asp:Button runat="server" ID="btnUpdateCompany" class="btn btn-primary" Text="Update Company" OnClick="btnUpdateCompany_Click" />
+                <asp:Button Style="margin-left: 20px!important;" runat="server" ID="btnBackCompany" class="btn btn-primary" Text="Back to Company List" OnClick="btnBackCompany_Click" />
+            </div>
         </div>
-    </div>
+    </section>
 </asp:Content>

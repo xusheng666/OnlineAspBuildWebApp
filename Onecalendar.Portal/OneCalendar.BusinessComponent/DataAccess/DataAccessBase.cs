@@ -154,7 +154,7 @@ namespace OneCalendar.BusinessComponent
         {
             BIZCourseDataSet ds = new BIZCourseDataSet();
             DbCommand cmd = this.Helper.BuildDbCommand(SPName);
-            this.Helper.AssignParameterValues(cmd, paramsArray[0]);
+            this.Helper.AssignParameterValues(cmd, paramsArray);
             this.Helper.Fill(ds.T_BIZ001_COURSE, cmd);
             return ds;
         }

@@ -67,6 +67,15 @@ namespace Onecalendar.WebPortal {
         protected global::System.Web.UI.WebControls.LoginView HeadLoginView;
         
         /// <summary>
+        /// HeadLoginName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LoginName HeadLoginName;
+        
+        /// <summary>
         /// FeaturedContent control.
         /// </summary>
         /// <remarks>

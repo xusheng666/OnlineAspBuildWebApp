@@ -101,10 +101,10 @@ namespace Onecalendar.WebPortal.Secure.Course
             {// for have existing records
                 foreach (DataRow item in courseEvents.Rows)
                 {
-                    dt.Rows.Add(item["COURSEEVENTID"], item["SCHEDULE"], item["LOCATION"], item["Price"], item["START_DTTM"], item["END_DTTM"]);
+                    dt.Rows.Add(item["COURSEEVENTID"], item["SCHEDULE"], item["LOCATION"], item["Price"], DateTimeUtil.parseToStringFormat((DateTime)item["START_DTTM"]), DateTimeUtil.parseToStringFormat((DateTime)item["END_DTTM"]));
                 }
 
-                this.gvwCourseEvents.DataSource = courseEvents;
+                this.gvwCourseEvents.DataSource = dt;
                 this.gvwCourseEvents.DataBind();
 
                 if (gvwCourseEvents.Rows.Count > 0)

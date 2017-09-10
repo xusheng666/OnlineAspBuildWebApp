@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EventsCalendar.aspx.cs" Inherits="Onecalendar.WebPortal.Secure.EventsCalendar" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteModern.Master" AutoEventWireup="true" CodeBehind="EventsCalendar.aspx.cs" Inherits="Onecalendar.WebPortal.Secure.EventsCalendar" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <script>
@@ -19,7 +19,7 @@
                 events: {
                     url: '/Tuition/Handler/JsonCalendarHandler.ashx',
                     type: 'POST',
-                    error: function() {
+                    error: function () {
                         alert('there was an error while fetching events!');
                     },
                     //color: 'yellow',   // a non-ajax option
@@ -51,7 +51,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="page mar-top30" style="width:64%!important;padding-right:11%;">
-        <div id='calendar'></div>
+    <div class="mbr-section mbr-after-navbar" style="background-color: rgb(255, 255, 255); padding-top: 120px; padding-bottom: 120px;">
+        <div style="border: dotted; border-color: goldenrod; margin: 0 10%; padding: 20px;">
+            <div id='calendar'></div>
+        </div>
     </div>
 </asp:Content>

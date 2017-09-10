@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <script>
-
+        //fullcalendar https://fullcalendar.io/
         $(document).ready(function () {
 
             $('#calendar').fullCalendar({
@@ -51,9 +51,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="mbr-section mbr-after-navbar" style="background-color: rgb(255, 255, 255); padding-top: 120px; padding-bottom: 120px;">
-        <div style="border: dotted; border-color: goldenrod; margin: 0 10%; padding: 20px;">
-            <div id='calendar'></div>
-        </div>
+    <div style="border: dotted; border-color: goldenrod; margin: 0 10%; padding: 20px;">
+        <div id='calendar'></div>
     </div>
 </asp:Content>

@@ -14,5 +14,11 @@ namespace OneCalendar.BusinessComponent.Common
             DateTime dt = DateTime.ParseExact(DateTimeValue, Constants.DateTimeFormat.searchDateTimeFormat, CultureInfo.InvariantCulture);
             return dt;
         }
+
+        public static String parseToStringFormat(DateTime DateTimeValue)
+        {
+            String formatStrDt = DateTimeValue.ToString(Constants.DateTimeFormat.searchDateTimeFormat);
+            return formatStrDt;
+        }
     }
 }

@@ -31,6 +31,7 @@ namespace Onecalendar.WebPortal.Secure.Course
                 courseRow.COURSE_NAME = this.courseName.Text;
                 courseRow.COURSE_DETAIL = this.description.Text;
                 courseRow.COURSE_TAG = this.courseTag.Text;
+                courseRow.STATUS = Constants.CourseStatus.PENDING;
                 
                 if (fileUpload.HasFile)
                 {

@@ -77,7 +77,7 @@
                                 ShowStartingNode="false" />
 
                             <div class="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm" style="float: left;">
-                                <asp:Menu ID="NavigationMenu" runat="server" EnableViewState="false" 
+                                <asp:Menu ID="NavigationMenu" runat="server" EnableViewState="false" CssClass="asp-menu"
                                     IncludeStyleBlock="false" Orientation="Horizontal" DataSourceID="SiteMapDataSource1"
                                     StaticDisplayLevels="1" MaximumDynamicDisplayLevels="1" OnMenuItemDataBound="NavigationMenu_MenuItemDataBound">
 
@@ -93,12 +93,12 @@
                                             <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Logout"
                                                 LogoutPageUrl="~/Public/Login/Logout.aspx" CssClass="nav-link btn btn-primary-outline btn-primary" />
                                             </span>
-                                            <asp:LoginName ID="HeadLoginName" runat="server" CssClass="nav-link" />
+                                            
                                         </LoggedInTemplate>
                                     </asp:LoginView>
                                 </div>
                             </div>
-
+                            
                             <%--Here End the Menu part--%>
                             <button hidden="" style="background: #282828!important;" class="navbar-toggler navbar-close" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
                                 <div class="close-icon"></div>
@@ -106,7 +106,9 @@
 
                         </div>
                     </div>
-
+                    <div style="position: relative;float: right;margin-right:10px;">
+                        <asp:LoginName ID="HeadLoginName" runat="server" CssClass="nav-link" />
+                    </div>
                 </div>
             </nav>
 
@@ -117,14 +119,17 @@
         <div class="mbr-table-md-up" id="body" style="min-height: 75.6vh!important;">
             <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
             <section class="content-wrapper main-content clear-fix">
-                <div style="clear: both; background-color: rgb(238, 238, 238); margin: 0 12%;">
-                    <asp:Panel runat="server" ID="PanelMessage" Style="display: none">
-                        <div>
-                            <asp:Label ID="LabelMessage" runat="server"></asp:Label>
-                        </div>
-                    </asp:Panel>
-                </div>
-                <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+                
+                <section class="mbr-section mbr-after-navbar" id="form1-k" style="background-color: rgb(255, 255, 255); padding-top: 120px; padding-bottom: 120px;">
+                    <div style="clear: both; background-color: rgb(238, 238, 238); margin: 0 12%;">
+                        <asp:Panel runat="server" ID="PanelMessage" Style="display: none">
+                            <div style="width:100%;">
+                                <asp:Label ID="LabelMessage" runat="server"></asp:Label>
+                            </div>
+                        </asp:Panel>
+                    </div>
+                    <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+                </section>
             </section>
         </div>
 

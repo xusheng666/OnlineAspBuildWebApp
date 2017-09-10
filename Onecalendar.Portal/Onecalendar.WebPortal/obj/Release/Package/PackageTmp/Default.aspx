@@ -1,114 +1,58 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Onecalendar.WebPortal._Default" %>
-
-<%@ Register Src="~/CustomControl/SideBarCustControl.ascx" TagPrefix="uc1" TagName="SideBarCustControl" %>
-<asp:Content runat="server" ID="FeaturedContent" ContentPlaceHolderID="FeaturedContent">
-    <%-- below for slides show in the home page --%>
-    <%--<section class="featured">
-        <div class="banner-wrap">
-            <div class="banner">
-                <div class="banner-img">
-                    <div id="carousel">
-                        <div id="slides">
-                            <ul>
-                                <li>
-                                    <img src="Content/images/banner1.jpg" alt="Slide 1" /></li>
-                                <li>
-                                    <img src="Content/images/banner2.jpg" alt="Slide 2" /></li>
-                                <li>
-                                    <img src="Content/images/banner3.jpg" alt="Slide 3" /></li>
-                            </ul>
-                            <div class="clear"></div>
-                        </div>
-                        <div class="clear"></div>
-                        <div id="buttons">
-                            <a href="#" id="prev">prev</a> <a href="#" id="next">next</a>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="clearing"></div>
-        </div>
-    </section>--%>
-</asp:Content>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteHome.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Onecalendar.WebPortal.Default2" %>
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+<section class="engine"><a rel="external" href="http://www.calendarone.com">http://www.calendarone.com/</a></section>
+        <section class="mbr-section mbr-section-hero mbr-section-full mbr-parallax-background mbr-section-with-arrow mbr-after-navbar" id="header1-6" style="background-image: url(assets/images/mbr-2000x1114.jpg);">
 
-    <div class="page">
-        <div class="primary-col">
-            <div class="generic">
-                <div class="panel">
-                    <div class="title" style="float: left;">
-                        <h1>Avaiable Courses</h1>
-                    </div>
-                    <div style="float: right;">
-                        <div class="searchtext">
-                            <asp:TextBox ID="searchKey" runat="server" type="text" name="s" value="" placeholder="Search" CssClass="searchtext" />
+            <div class="mbr-overlay" style="opacity: 0.5; background-color: rgb(0, 0, 0);"></div>
+
+            <div class="mbr-table-cell">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="mbr-section col-md-10 col-md-offset-1 text-xs-center">
+
+                            <h1 class="mbr-section-title display-1">One Tuition Portal</h1>
+                            <p class="mbr-section-lead lead">Life like an endless road, so we keep learning and improving.&nbsp;<br>
+                                with a mentor you can go eaiser and further.</p>
+                            <div class="mbr-section-btn"><a class="btn btn-lg btn-primary" href="<%= ResolveUrl("~/Secure/Course/AddCourse.aspx")%>">I want to publish course event</a> 
+                                <a class="btn btn-lg btn-white btn-white-outline" href="<%= ResolveUrl("~/Secure/Course/Courses.aspx")%>">I want to view avaiable mentor events</a></div>
                         </div>
-                        <a><img src="<%= ResolveUrl("~/Content/images/search-bt.jpg")%>" alt="search" /></a>
                     </div>
                 </div>
-                <hr />
             </div>
-            <div class="clearing"></div>
-            <div class="wrap-1">
-                <asp:ListView runat="server" ID="lvCourses" OnPagePropertiesChanging="OnPagePropertiesChanging"
-                    GroupPlaceholderID="groupPlaceHolder1" ItemPlaceholderID="itemPlaceHolder1"  OnItemCommand="lvCourses_ItemCommand" >
-                    <LayoutTemplate>
-                        <table style="width:100%;">
-                            <%--<tr runat="server" id="itemPlaceholder"></tr>--%>
-                            <asp:PlaceHolder runat="server" ID="groupPlaceHolder1"></asp:PlaceHolder>
-                            <tr>
-                                <td colspan="3">
-                                    <asp:DataPager ID="DataPager1" runat="server" PagedControlID="lvCourses" PageSize="4">
-                                        <Fields>
-                                            <asp:NextPreviousPagerField ButtonType="Link" ShowFirstPageButton="false" ShowPreviousPageButton="true"
-                                                ShowNextPageButton="false" />
-                                            <asp:NumericPagerField ButtonType="Link" />
-                                            <asp:NextPreviousPagerField ButtonType="Link" ShowNextPageButton="true" ShowLastPageButton="false" ShowPreviousPageButton="false" />
-                                        </Fields>
-                                    </asp:DataPager>
-                                </td>
-                            </tr>
-                        </table>
-                    </LayoutTemplate>
-                    <GroupTemplate>
-                        <tr>
-                            <asp:PlaceHolder runat="server" ID="itemPlaceHolder1"></asp:PlaceHolder>
-                        </tr>
-                    </GroupTemplate>
-                    <ItemTemplate>
-                        <tr runat="server">
-                            <td runat="server">
-                                <div class="content mar-top30">
-                                    <img src="<%#Eval("COURSE_IMAGEPATH")%>" alt="image" class="float-left mar-right30 imgdisplay" />
-                                    <asp:LinkButton ID="courseName" runat="server" CommandName="view" CommandArgument='<%#Eval("COURSEID")%>'><h2><%#Eval("COURSE_NAME") %></h2></asp:LinkButton>
-                                    <p><%#Eval("COURSE_DETAIL") %></p>
-                                </div>
-                            </td>
-                        </tr>
-                    </ItemTemplate>
-                </asp:ListView>
-            </div>
-            <%--<div class="generic bdr-bottom-none">
-                <div class=" panel">
-                    <div class="title">
-                        <h1>Curabitur euismod risus vitae nisl facilisis vitae</h1>
-                    </div>
-                    <div class="content">
-                        <h2>Integer congue gravida eros ac interdum. Nam suscipit, eros vitae pulvinar dapibus, leo
-                            <br />
-                            augue scelerisque lorem, ut elementum augue elit non </h2>
-                        <p>Vestibulum purus metus, luctus euismod mattis nec, tristique vitae ipsum. Phasellus dapibus, nisi ut interdum fermentum, turpis tellus semper massa, sit amet placerat sapien justo non ipsum. Vestibulum enim erat, mattis vel aliquet quis, mollis sit amet ligula. Mauris lobortis blandit aliquam. Curabitur quam risus, condimentum vel eleifend et, tincidunt vitae lacu et urna eu eros euismod te.</p>
-                        <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
-                        <div class="button"><a href="#">More Info</a></div>
+
+            <div class="mbr-arrow mbr-arrow-floating" aria-hidden="true"><a href="#msg-box4-l"><i class="mbr-arrow-icon"></i></a></div>
+
+        </section>
+    <section class="mbr-section" id="msg-box4-l" style="background-color: rgb(242, 242, 242); padding-top: 120px; padding-bottom: 120px;">
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="mbr-table-md-up">
+
+                        <div class="mbr-table-cell mbr-right-padding-md-up mbr-valign-top col-md-7 image-size" style="width: 50%;">
+                            <div class="mbr-figure">
+                                <%--<iframe class="mbr-embedded-video" src="https://www.youtube.com/embed/Tq7p44IA-1U?rel=0&amp;amp;showinfo=0&amp;autoplay=0&amp;loop=0" width="1280" height="720" frameborder="0" allowfullscreen></iframe>--%>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="mbr-table-cell col-md-5 text-xs-center text-md-left content-size">
+                            <h3 class="mbr-section-title display-2">INTRO WITH YOUTUBE VIDEO</h3>
+
+
+                            <div><a class="btn btn-primary" href="http://www.calendarone.com">MORE</a></div>
+                        </div>
+
+
+
+
                     </div>
                 </div>
-            </div>--%>
-            <div class="clearing"></div>
-        </div>
-        <!---primary-col--->
-        <uc1:SideBarCustControl runat="server" ID="SideBarCustControl" />
-        <!---side-bar--->
-        <div class="clearing"></div>
-    </div>
-</asp:Content>
+            </div>
+
+        </section>
+    </asp:Content>

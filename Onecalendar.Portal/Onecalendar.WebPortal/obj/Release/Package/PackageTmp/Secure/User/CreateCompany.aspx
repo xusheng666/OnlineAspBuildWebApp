@@ -1,36 +1,42 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CreateCompany.aspx.cs" Inherits="Onecalendar.WebPortal.Secure.User.CreateCompany" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteModern.Master" AutoEventWireup="true" CodeBehind="CreateCompany.aspx.cs" Inherits="Onecalendar.WebPortal.Secure.User.CreateCompany" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="page mar-top30">
-        <div class="title">
-            <h1>Create Company</h1>
-            <br />
-            <h2></h2>
+    <section class="mbr-section mbr-after-navbar" id="form1-k" style="background-color: rgb(255, 255, 255); padding-top: 120px; padding-bottom: 120px;">
+
+        <div style="border: dotted; border-color: goldenrod; margin: 0 10%;">
+            <div class="mbr-section mbr-section-nopadding">
+                <div class="col-xs-12 text-xs-center">
+                    <h3 class="mbr-section-title display-2">Create Company</h3>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="table table-bordered">
+                    <div style="margin: 0 2%">
+                        <span>Company Name</span>
+                        <asp:TextBox ID="companyName" class="form-control" runat="server" />
+                    </div>
+                    <div style="margin: 0 2%">
+                        <span>Company Detail</span>
+                        <asp:TextBox ID="companyDetail" class="form-control" runat="server" />
+                    </div>
+                    <div style="margin: 0 2%">
+                        <span>Company Contact Info</span>
+                        <asp:TextBox ID="contactInfo" class="form-control" runat="server" />
+                    </div>
+                    <div style="margin: 0 2%">
+                        <span>Company Location</span>
+                        <asp:TextBox ID="location" class="form-control" runat="server" />
+                    </div>
+                    <div style="margin: 2%">
+                        <asp:Button runat="server" ID="btnGoToList" class="btn btn-primary" Text="Back to Company List" OnClick="btnGoToList_Click" />
+                        <asp:Button runat="server" ID="btnAddCompany" class="btn btn-primary" Style="margin-left: 20px;" Text="Add New Company" OnClick="btnAddCompany_Click" />
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="content">
-            <div class="course-form">
-                <label>
-                    <span>Company Name</span>
-                    <asp:TextBox ID="companyName" class="input_text" runat="server" />
-                </label>
-                <label>
-                    <span>Company Detail</span>
-                    <asp:TextBox ID="companyDetail" class="input_text" runat="server" />
-                </label>
-                <label>
-                    <span>Company Contact Info</span>
-                    <asp:TextBox ID="contactInfo" class="input_text" runat="server" />
-                </label>
-                <label>
-                    <span>Company Location</span>
-                    <asp:TextBox ID="location" class="input_text" runat="server" />
-                </label>
-                <asp:Button runat="server" ID="btnGoToList" class="button" Text="Back to Company List" OnClick="btnGoToList_Click"   />
-                <asp:Button runat="server" ID="btnAddCompany" class="button" style="margin-left:20px;" Text="Add New Company" OnClick="btnAddCompany_Click"   />
-        </div>
-    </div>
+    </section>
 </asp:Content>

@@ -64,11 +64,20 @@ namespace OneCalendar.BusinessComponent.DataAccess
             return ds;
         }
 
-        internal DataTable getCoursesByCriteria(String startDttm, String endDttm)
+        internal DataTable getCoursesByCriteria(String searchKey, String startDttm, String endDttm)
         {
             BIZCourseDataSet ds = new BIZCourseDataSet();
             DbCommand cmd = this.Helper.BuildDbCommand(SPNameConstants.P_QUERY_COURSE_BY_DATETIME);
-            this.Helper.AssignParameterValues(cmd, startDttm, endDttm);
+            this.Helper.AssignParameterValues(cmd, searchKey, startDttm, endDttm);
+            this.Helper.Fill(ds.T_BIZ001_COURSE, cmd);
+            return ds.T_BIZ001_COURSE;
+        }
+
+        internal DataTable getCoursesByCriteriaAdmin(String searchKey, String startDttm, String endDttm)
+        {
+            BIZCourseDataSet ds = new BIZCourseDataSet();
+            DbCommand cmd = this.Helper.BuildDbCommand(SPNameConstants.P_QUERY_COURSE_BY_ADMIN);
+            this.Helper.AssignParameterValues(cmd, searchKey, startDttm, endDttm);
             this.Helper.Fill(ds.T_BIZ001_COURSE, cmd);
             return ds.T_BIZ001_COURSE;
         }
@@ -81,5 +90,6 @@ namespace OneCalendar.BusinessComponent.DataAccess
             this.Helper.Fill(ds.T_BIZ001_COURSE, cmd);
             return ds.T_BIZ001_COURSE;
         }
+
     }
 }

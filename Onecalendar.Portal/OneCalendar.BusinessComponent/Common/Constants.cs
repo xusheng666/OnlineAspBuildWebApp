@@ -23,6 +23,14 @@ namespace OneCalendar.BusinessComponent
         public class UserRoles
         {
             public const string VIEW_ONLY_ROLE = "VO";
+            public const string PROCESS_ROLE = "PO";
+            public const string ADMIN_ROLE = "AO";
+        }
+
+        public class CourseStatus
+        {
+            public const string PENDING = "P";
+            public const string APPROVED = "A";
         }
 
         public class UserStatus
@@ -64,6 +72,7 @@ namespace OneCalendar.BusinessComponent
         public const string P_DELETE_COMPANY_BY_ID = "P_DELETE_COMPANY_BY_ID";
         public const string P_QUERY_COMPANY_BY_ID = "P_QUERY_COMPANY_BY_ID";
         public const string P_QUERY_COURSE_BY_DATETIME = "P_QUERY_COURSE_BY_DATETIME";
+        public const string P_QUERY_COURSE_BY_ADMIN = "P_QUERY_COURSE_BY_ADMIN";
         public const string P_QUERY_COURSE_BY_FREE_TEXT = "P_QUERY_COURSE_BY_FREE_TEXT";
     }
 
