@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Courses" Language="C#" MasterPageFile="~/SiteModern.Master" AutoEventWireup="true" CodeBehind="Courses.aspx.cs" Inherits="Onecalendar.WebPortal.Courses" %>
+﻿<%@ Page Title="Courses" Language="C#" MasterPageFile="~/SiteModern.Master" AutoEventWireup="true" CodeBehind="ManageCourses.aspx.cs" Inherits="Onecalendar.WebPortal.ManageCourses" %>
 
 <%@ Register Src="~/CustomControl/SideBarCustControl.ascx" TagPrefix="uc1" TagName="SideBarCustControl" %>
 
@@ -23,10 +23,6 @@
             <div class="row">
                 <div class="col-xs-12 text-xs-center">
                     <h3 class="mbr-section-title display-2">Courses</h3>
-                    <%--<div class="searchtext">
-                                <asp:TextBox ID="searchKey" runat="server" type="text" name="s" value="" placeholder="Search" style="vertical-align:middle;" />
-                                <asp:ImageButton ID="freetextsearch" ImageUrl="~/Content/images/search-bt.jpg" runat="server" OnClick="btnFreetextSearch_Click" />
-                            </div>--%>
                 </div>
             </div>
 
@@ -56,22 +52,20 @@
                 Course Result:
             </div>
             <div class="table table-bordered">
-                <div>
-                    <asp:Button ID="btnAdd" class="btn btn-primary" Text="Add New Course" runat="server" OnClick="btnAdd_Click" />
-                </div>
 
                 <asp:GridView CssClass="gridview" ID="gvwDash" runat="server" Visible="true" ShowHeaderEmpty="true" AutoGenerateColumns="false"
-                    Width="90%" AllowPaging="true" OnPageIndexChanging="OnPageIndexChanging" PageSize="5">
+                    Width="100%" AllowPaging="true" OnPageIndexChanging="OnPageIndexChanging" PageSize="5">
                     <Columns>
                         <asp:BoundField HeaderText="Name" DataField="COURSE_NAME" HeaderStyle-Width="20%" />
-                        <asp:BoundField HeaderText="Description" DataField="COURSE_DETAIL" HeaderStyle-Width="35%" />
+                        <asp:BoundField HeaderText="Description" DataField="COURSE_DETAIL" HeaderStyle-Width="30%" />
                         <asp:ImageField DataImageUrlField="COURSE_IMAGEPATH" HeaderStyle-Width="35%" ControlStyle-CssClass="img-thumbnail"></asp:ImageField>
-                        <asp:TemplateField HeaderText="Action" HeaderStyle-Width="10%" ItemStyle-HorizontalAlign="Center">
+                        <asp:TemplateField HeaderText="Action" HeaderStyle-Width="15%" ItemStyle-HorizontalAlign="Center">
                             <ItemTemplate>
-                                <asp:HyperLink ID="Edit" runat="server"
-                                    NavigateUrl='<%# "~/Secure/Course/EditCourse.aspx?CourseId=" + Eval("COURSEID")  %>'>Edit</asp:HyperLink>
-                                <asp:LinkButton ID="btnDelete" runat="server" CommandArgument='<%#Eval("COURSEID")%>' OnCommand="lnkDelete" Text="Delete"
-                                    OnClientClick="return confirm ('Are you sure you want to delete this course?')">
+                                <asp:LinkButton ID="btnPublish" runat="server" CommandArgument='<%#Eval("COURSEID")%>' OnCommand="lnkPublish" Text="Publish"
+                                    OnClientClick="return confirm ('Are you sure you want to publish this course?')" Visible='<%#Eval("STATUS").Equals("P")%>'>
+                                </asp:LinkButton>
+                                <asp:LinkButton ID="btnUnPublish" runat="server" CommandArgument='<%#Eval("COURSEID")%>' OnCommand="lnkUnPublish" Text="Un-Publish"
+                                    OnClientClick="return confirm ('Are you sure you want to un-publish this course?')" Visible='<%#Eval("STATUS").Equals("A")%>'>
                                 </asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>

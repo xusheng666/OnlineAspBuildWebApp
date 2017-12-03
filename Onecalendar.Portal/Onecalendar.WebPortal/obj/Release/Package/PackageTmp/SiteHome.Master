@@ -93,7 +93,7 @@
 
                             <div class="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm" style="float: left;">
                                 <asp:Menu ID="NavigationMenu" runat="server" EnableViewState="false"
-                                    IncludeStyleBlock="false" Orientation="Horizontal" DataSourceID="SiteMapDataSource1"
+                                    IncludeStyleBlock="false" Orientation="Horizontal" DataSourceID="SiteMapDataSource1" CssClass="asp-menu"
                                     StaticDisplayLevels="1" MaximumDynamicDisplayLevels="1" OnMenuItemDataBound="NavigationMenu_MenuItemDataBound">
 
                                     <LevelMenuItemStyles>
@@ -108,8 +108,11 @@
                                             <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Logout"
                                                 LogoutPageUrl="~/Public/Login/Logout.aspx" CssClass="nav-link btn btn-primary-outline btn-primary" />
                                             </span>
-                                            <asp:LoginName ID="HeadLoginName" runat="server" CssClass="nav-link" />
+                                            <%--<asp:LoginName ID="HeadLoginName" runat="server" CssClass="nav-link" />--%>
                                         </LoggedInTemplate>
+                                        <AnonymousTemplate>
+                                            <asp:LinkButton runat="server" class="nav-link link" style="padding-top:-10px;" href="./Public/UserRegistration.aspx">Register</asp:LinkButton>
+                                        </AnonymousTemplate>
                                     </asp:LoginView>
                                 </div>
                             </div>

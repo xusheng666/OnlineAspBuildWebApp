@@ -45,9 +45,9 @@ namespace Onecalendar.WebPortal.Public
             }
         }
 
-        protected void btnBackHome_Click(object sender, EventArgs e)
+        protected void btnBackCourses_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Default.aspx");
+            Response.Redirect("~/Public/CoursesList.aspx");
         }
     }
 }

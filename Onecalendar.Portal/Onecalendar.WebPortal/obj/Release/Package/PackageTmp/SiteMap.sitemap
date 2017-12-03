@@ -2,13 +2,15 @@
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
   <siteMapNode url="~/#doNothing" type="doNothing" title="doNothing" description="Home">
     <siteMapNode url="~/Default.aspx" title="Home" description="Home"/>
-    <siteMapNode url="~/Secure/Course/Courses.aspx" title="Courses" description="Courses"/>
-    <siteMapNode url="~/Secure/Event/EventsCalendar.aspx" title="Events" description="Events Calendar"/>
+    <siteMapNode url="~/Secure/Course/Courses.aspx" title="Courses" description="Courses" roles="AO,PO"/>
+    <siteMapNode url="~/Secure/Event/EventsCalendar.aspx" title="Events" description="Events Calendar" roles="AO,PO"/>
     <siteMapNode url="~/Secure/User/CreateCompany.aspx" type="doNothing" title="System Admin" description="Admin">
       <siteMapNode url="~/Secure/User/ManageUser.aspx" title="Manage User" description="Manage User"/>
       <siteMapNode url="~/Secure/User/ListCompany.aspx" title="List Company" description="List Company"/>
+      <siteMapNode url="~/Secure/Course/ManageCourses.aspx" title="Manage Courses" description="Manage Courses"/>
     </siteMapNode>
     <siteMapNode url="~/Contact.aspx" title="Contact" description="Contact"/>
+    <!--<siteMapNode url="~/Public/UserRegistration.aspx" title="Register" description="Register"/>-->
     <!--<siteMapNode url="http://www.calendarone.com/en-us/home.aspx" title="Register"  description="Registration" roles="*"/>-->
     <siteMapNode url="~/About.aspx" title="About" description="About"/>
   </siteMapNode>

@@ -49,6 +49,15 @@ namespace Onecalendar.WebPortal.Secure.Course {
         protected global::System.Web.UI.WebControls.TextBox courseTag;
         
         /// <summary>
+        /// regURL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox regURL;
+        
+        /// <summary>
         /// btnAddCourse control.
         /// </summary>
         /// <remarks>

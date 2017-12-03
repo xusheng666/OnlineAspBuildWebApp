@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Courses" Language="C#" MasterPageFile="~/SiteModern.Master" AutoEventWireup="true" CodeBehind="Courses.aspx.cs" Inherits="Onecalendar.WebPortal.Courses" %>
+﻿<%@ Page Title="Courses" Language="C#" MasterPageFile="~/SiteModern.Master" AutoEventWireup="true" CodeBehind="CoursesList.aspx.cs" Inherits="Onecalendar.WebPortal.CoursesList" %>
 
 <%@ Register Src="~/CustomControl/SideBarCustControl.ascx" TagPrefix="uc1" TagName="SideBarCustControl" %>
 
@@ -22,7 +22,7 @@
         <div class="mbr-section mbr-section__container mbr-section__container--middle">
             <div class="row">
                 <div class="col-xs-12 text-xs-center">
-                    <h3 class="mbr-section-title display-2">Courses</h3>
+                    <h3 class="mbr-section-title display-2">View Mentor Events</h3>
                     <%--<div class="searchtext">
                                 <asp:TextBox ID="searchKey" runat="server" type="text" name="s" value="" placeholder="Search" style="vertical-align:middle;" />
                                 <asp:ImageButton ID="freetextsearch" ImageUrl="~/Content/images/search-bt.jpg" runat="server" OnClick="btnFreetextSearch_Click" />
@@ -56,10 +56,6 @@
                 Course Result:
             </div>
             <div class="table table-bordered">
-                <div>
-                    <asp:Button ID="btnAdd" class="btn btn-primary" Text="Add New Course" runat="server" OnClick="btnAdd_Click" />
-                </div>
-
                 <asp:GridView CssClass="gridview" ID="gvwDash" runat="server" Visible="true" ShowHeaderEmpty="true" AutoGenerateColumns="false"
                     Width="90%" AllowPaging="true" OnPageIndexChanging="OnPageIndexChanging" PageSize="5">
                     <Columns>
@@ -69,10 +65,8 @@
                         <asp:TemplateField HeaderText="Action" HeaderStyle-Width="10%" ItemStyle-HorizontalAlign="Center">
                             <ItemTemplate>
                                 <asp:HyperLink ID="Edit" runat="server"
-                                    NavigateUrl='<%# "~/Secure/Course/EditCourse.aspx?CourseId=" + Eval("COURSEID")  %>'>Edit</asp:HyperLink>
-                                <asp:LinkButton ID="btnDelete" runat="server" CommandArgument='<%#Eval("COURSEID")%>' OnCommand="lnkDelete" Text="Delete"
-                                    OnClientClick="return confirm ('Are you sure you want to delete this course?')">
-                                </asp:LinkButton>
+                                    NavigateUrl='<%# "~/Public/CourseDetailView.aspx?CourseId=" + Eval("COURSEID")  %>'>View</asp:HyperLink>
+                                <asp:HyperLink ID="Register" runat="server" NavigateUrl='<%# Eval("COURSE_REG_URL") %>'>Register</asp:HyperLink>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

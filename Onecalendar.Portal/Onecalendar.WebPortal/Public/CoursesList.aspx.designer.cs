@@ -7,99 +7,81 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Onecalendar.WebPortal.Secure.Course {
+namespace Onecalendar.WebPortal {
     
     
-    public partial class EditCourse {
+    public partial class CoursesList {
         
         /// <summary>
-        /// courseName control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox courseName;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// image control.
+        /// searchKey control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image image;
+        protected global::System.Web.UI.WebControls.TextBox searchKey;
         
         /// <summary>
-        /// fileUpload control.
+        /// lbStartDttm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fileUpload;
+        protected global::System.Web.UI.WebControls.Label lbStartDttm;
         
         /// <summary>
-        /// description control.
+        /// tbStartDttm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox description;
+        protected global::System.Web.UI.WebControls.TextBox tbStartDttm;
         
         /// <summary>
-        /// regURL control.
+        /// lbEndDttm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox regURL;
+        protected global::System.Web.UI.WebControls.Label lbEndDttm;
         
         /// <summary>
-        /// courseTag control.
+        /// tbEndDttm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox courseTag;
+        protected global::System.Web.UI.WebControls.TextBox tbEndDttm;
         
         /// <summary>
-        /// UpdatePanelCR control.
+        /// btnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanelCR;
+        protected global::System.Web.UI.WebControls.Button btnSearch;
         
         /// <summary>
-        /// gvwCourseEvents control.
+        /// gvwDash control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvwCourseEvents;
-        
-        /// <summary>
-        /// btnUpdateCourse control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdateCourse;
-        
-        /// <summary>
-        /// btnBackCourses control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBackCourses;
+        protected global::System.Web.UI.WebControls.GridView gvwDash;
     }
 }

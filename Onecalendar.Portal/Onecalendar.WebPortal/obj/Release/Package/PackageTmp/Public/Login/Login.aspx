@@ -36,7 +36,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
 
-    <section class="mbr-section mbr-after-navbar" id="form1-k" style="background-color: rgb(255, 255, 255); padding-top: 120px; padding-bottom: 120px;">
+    <%--<section class="mbr-section mbr-after-navbar" id="form1-k" style="background-color: rgb(255, 255, 255); padding-top: 120px; padding-bottom: 120px;">--%>
 
         <div style="border: dotted; border-color: goldenrod; margin: 0 30%;">
             <div class="mbr-section mbr-section-nopadding">
@@ -82,6 +82,6 @@
                 </div>
             </div>
         </div>
-    </section>
+    <%--</section>--%>
 
 </asp:Content>

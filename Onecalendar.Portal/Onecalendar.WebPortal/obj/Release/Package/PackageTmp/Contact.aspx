@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="Contact" Language="C#" MasterPageFile="~/SiteModern.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="Onecalendar.WebPortal.Contact" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    <section class="mbr-section mbr-after-navbar" id="form1-k" style="background-color: rgb(255, 255, 255); padding-top: 120px; padding-bottom: 120px;">
 
         <div style="border: dotted; border-color: goldenrod; margin: 0 10%;">
             <div class="mbr-section mbr-section-nopadding">
@@ -47,5 +46,4 @@
                 </div>
             </div>
         </div>
-    </section>
 </asp:Content>

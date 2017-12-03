@@ -84,14 +84,17 @@
         <div id="body" style="min-height: 75.6vh!important;">
             <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
             <section class="content-wrapper main-content clear-fix">
-                <div style="clear: both; background-color: rgb(238, 238, 238); margin:0 12%;">
-                    <asp:Panel runat="server" ID="PanelMessage" Style="display: none">
-                        <div>
-                            <asp:Label ID="LabelMessage" runat="server"></asp:Label>
-                        </div>
-                    </asp:Panel>
-                </div>
-                <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+
+                <section class="mbr-section mbr-after-navbar" id="form1-k" style="background-color: rgb(255, 255, 255); padding-top: 120px; padding-bottom: 120px;">
+                    <div style="clear: both; background-color: rgb(238, 238, 238); margin: 0 12%;">
+                        <asp:Panel runat="server" ID="PanelMessage" Style="display: none">
+                            <div>
+                                <asp:Label ID="LabelMessage" runat="server"></asp:Label>
+                            </div>
+                        </asp:Panel>
+                    </div>
+                    <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+                </section>
             </section>
         </div>
         <%--Here Start the Footer part--%>
