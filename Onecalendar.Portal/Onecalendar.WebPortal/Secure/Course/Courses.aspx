@@ -68,11 +68,14 @@
                         <asp:ImageField DataImageUrlField="COURSE_IMAGEPATH" HeaderStyle-Width="35%" ControlStyle-CssClass="img-thumbnail"></asp:ImageField>
                         <asp:TemplateField HeaderText="Action" HeaderStyle-Width="10%" ItemStyle-HorizontalAlign="Center">
                             <ItemTemplate>
-                                <asp:HyperLink ID="Edit" runat="server"
+                                <asp:HyperLink ID="Edit" runat="server" Visible='<%# Eval("SOURCE").Equals("P") %>'
                                     NavigateUrl='<%# "~/Secure/Course/EditCourse.aspx?CourseId=" + Eval("COURSEID")  %>'>Edit</asp:HyperLink>
-                                <asp:LinkButton ID="btnDelete" runat="server" CommandArgument='<%#Eval("COURSEID")%>' OnCommand="lnkDelete" Text="Delete"
+                                <asp:LinkButton ID="btnDelete" runat="server" CommandArgument='<%#Eval("COURSEID")%>' 
+                                    OnCommand="lnkDelete" Text="Delete" Visible='<%# Eval("SOURCE").Equals("P") %>'
                                     OnClientClick="return confirm ('Are you sure you want to delete this course?')">
                                 </asp:LinkButton>
+                                <asp:HyperLink ID="HyperLink1" runat="server" Visible='<%# !Eval("SOURCE").Equals("P") %>'
+                                    NavigateUrl='<%# "~/Public/CourseDetailView.aspx?CourseId=" + Eval("COURSEID")  %>'>View</asp:HyperLink>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

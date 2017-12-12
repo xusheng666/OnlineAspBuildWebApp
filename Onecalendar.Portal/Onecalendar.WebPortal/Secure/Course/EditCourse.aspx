@@ -129,7 +129,7 @@
                                         <asp:TemplateField ItemStyle-Width="20px">
                                             <ItemTemplate>
                                                 <asp:LinkButton ID="lnkRemove" runat="server"
-                                                    CommandArgument='<%# Bind("COURSEEVENTID")%>'
+                                                    CommandArgument='<%# Bind("COURSEEVENTID")%>' 
                                                     OnClientClick="return confirm ('Are you sure you want to delete this row?')"
                                                     Text="Delete" OnClick="DeleteEvent"></asp:LinkButton>
                                             </ItemTemplate>

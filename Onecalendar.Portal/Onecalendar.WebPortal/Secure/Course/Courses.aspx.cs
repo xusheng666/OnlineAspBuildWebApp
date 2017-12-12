@@ -18,21 +18,17 @@ namespace Onecalendar.WebPortal
         {
             if (!IsPostBack)
             {
-                CourseDataBind();
+                CourseDataBind(sender, e);
             }
         }
 
-        private void CourseDataBind()
+        private void CourseDataBind(object sender, EventArgs e)
         {
             //String companyId = GetLoginCompanyID();
-            DataTable dt = _bc.getAllCourses() as DataTable;
-            //dt.Columns.Add(new DataColumn("PictureURL", typeof(string)));
-            //foreach (DataRow row in dt.Rows)
-            //{
-            //    row["PictureURL"] = ResolveUrl("~/Content/images/img7.jpg");
-            //}
-            this.gvwDash.DataSource = dt;
-            this.gvwDash.DataBind();
+            //DataTable dt = _bc.getAllCourses() as DataTable;
+            //this.gvwDash.DataSource = dt;
+            //this.gvwDash.DataBind();
+            //btnSearch_Click(sender, e);
 
             // set the from date to end date
             this.tbStartDttm.Text = System.DateTime.Now.AddMonths(-1).ToString(Constants.DateTimeFormat.searchDateTimeFormat);
@@ -51,36 +47,28 @@ namespace Onecalendar.WebPortal
             {
                 _bc.DeleteCourseByID(courseId);
             }
-            CourseDataBind();
+            CourseDataBind(sender, e);
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
             string searchKey = this.searchKey.Text;
-            //if (!String.IsNullOrEmpty(searchKey) && !String.IsNullOrEmpty(searchKey.Trim()))
-            //{
-                string decodeKey = HttpUtility.HtmlDecode(searchKey);
+            
+            string decodeKey = HttpUtility.HtmlDecode(searchKey);
 
-                //dt = _bc.getCoursesByFreetext(decodeKey) as DataTable;
-
-                string startDttmTxt = this.tbStartDttm.Text;
-                string endDttmTxt = this.tbEndDttm.Text;
-                if (!String.IsNullOrEmpty(startDttmTxt) && !String.IsNullOrEmpty(startDttmTxt.Trim()))
+            string startDttmTxt = this.tbStartDttm.Text;
+            string endDttmTxt = this.tbEndDttm.Text;
+            if (!String.IsNullOrEmpty(startDttmTxt) && !String.IsNullOrEmpty(startDttmTxt.Trim()))
+            {
+                DateTime startDttm = DateTimeUtil.parseToDateTime(startDttmTxt);
+                DateTime endDttm = DateTime.Now;
+                if (!String.IsNullOrEmpty(endDttmTxt) && !String.IsNullOrEmpty(endDttmTxt.Trim()))
                 {
-                    DateTime startDttm = DateTimeUtil.parseToDateTime(startDttmTxt);
-                    DateTime endDttm = DateTime.Now;
-                    if (!String.IsNullOrEmpty(endDttmTxt) && !String.IsNullOrEmpty(endDttmTxt.Trim()))
-                    {
-                        endDttm = DateTimeUtil.parseToDateTime(endDttmTxt);
-                    }
-                    dt = _bc.getCoursesByCriteria(decodeKey, startDttmTxt, endDttmTxt) as DataTable;
+                    endDttm = DateTimeUtil.parseToDateTime(endDttmTxt);
                 }
-            //}
-            //else
-            //{
-                
-            //}
+                dt = _bc.getCoursesByCriteria(decodeKey, startDttmTxt, endDttmTxt, HttpContext.Current.User.Identity.Name) as DataTable;
+            }
            
             this.gvwDash.DataSource = dt;
             this.gvwDash.DataBind();
@@ -109,6 +97,7 @@ namespace Onecalendar.WebPortal
         /// <param name="e"></param>
         protected void OnPageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            btnSearch_Click(sender, e);
             gvwDash.PageIndex = e.NewPageIndex;
             gvwDash.DataBind();
         }

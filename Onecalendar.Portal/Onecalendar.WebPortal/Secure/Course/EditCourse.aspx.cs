@@ -30,9 +30,18 @@ namespace Onecalendar.WebPortal.Secure.Course
                         courseTag.Text = course.Rows[0]["COURSE_TAG"].ToString();
                         regURL.Text = course.Rows[0]["COURSE_REG_URL"].ToString();
                         this.EventDataBind();
+                        //if (String.IsNullOrEmpty(course.Rows[0]["USERID"].ToString()))
+                        //{
+
+                        //}
+                        //else
+                        //{
+
+                        //}
                     }
                     else
                     {
+
                         ShowMessage("No Course Found!", MessageSeverity.Information);
                     }
                 }

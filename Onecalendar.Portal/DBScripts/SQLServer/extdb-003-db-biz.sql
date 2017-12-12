@@ -2,6 +2,8 @@ IF OBJECT_ID( 'dbo.P_QUERY_COURSE_BY_ID_FOR_VIEW', 'P' ) IS NOT NULL
   DROP  PROCEDURE  dbo.P_QUERY_COURSE_BY_ID_FOR_VIEW
 GO
 
+--select * from [AVAIABLE_COURSE]
+-- drop procedure P_QUERY_COURSE_BY_ID_FOR_VIEW
 CREATE PROCEDURE P_QUERY_COURSE_BY_ID_FOR_VIEW
 (
   @p_courseid nvarchar(36)
@@ -29,8 +31,8 @@ BEGIN
       t.LAST_UPDATED_TIME,
       t.VERSION_NO,
       t.TRANSACTION_ID
-    FROM T_BIZ001_COURSE t
-	JOIN T_CMN001_USER u ON t.USERID = u.LOGINID
+    FROM [AVAIABLE_COURSE] t
+	LEFT JOIN T_CMN001_USER u ON t.USERID = u.LOGINID
 	LEFT JOIN T_CMN003_COMPANY c ON c.COMPANY_ID = u.COMPANY_ID
     WHERE COURSEID  = @p_courseid
 	
@@ -65,7 +67,7 @@ BEGIN
       t.LAST_UPDATED_TIME,
       t.VERSION_NO,
       t.TRANSACTION_ID
-    FROM T_BIZ002_COURSE_EVENT t
+    FROM [AVAIABLE_COURSE_EVENT] t
     WHERE COURSEID  = @p_courseid
     
 END
@@ -97,7 +99,7 @@ BEGIN
       t.LAST_UPDATED_TIME,
       t.VERSION_NO,
       t.TRANSACTION_ID
-    FROM T_BIZ002_COURSE_EVENT t
+    FROM [AVAIABLE_COURSE_EVENT] t
     WHERE COURSEEVENTID  = @p_eventid
     
 END
@@ -148,9 +150,66 @@ BEGIN
       t.LAST_UPDATED_BY,
       t.LAST_UPDATED_TIME,
       t.VERSION_NO,
+      t.TRANSACTION_ID,
+	  t.SOURCE
+    FROM [AVAIABLE_COURSE] t
+	LEFT JOIN T_CMN001_USER u ON (t.USERID = u.LOGINID OR t.USERID IS NULL)
+	WHERE t.STATUS = 'A' -- only approved will be search out.
+   
+    --Recommend when the stored procedure will be called by other stored procedure
+    RETURN @@ERROR
+
+END
+SET XACT_ABORT OFF
+
+GO
+
+IF OBJECT_ID( 'dbo.P_QUERY_COURSES_FOR_PUBLISH', 'P' ) IS NOT NULL
+  DROP  PROCEDURE  dbo.P_QUERY_COURSES_FOR_PUBLISH
+GO
+
+CREATE PROCEDURE [dbo].[P_QUERY_COURSES_FOR_PUBLISH]
+AS
+/*
+Module  : 
+Author  : SQL Generator
+Date    : 30-01-2017
+Desc    : Retrieves records from T_BIZ001_COURSE
+Returns: 0 if successful, else SQL error code
+
+Change Revision
+-----------------------------------------------------
+Date           Author            Remark
+
+*/
+
+--It will stop stored procedure when there is error, but if the stored procedure will be called by others, the caller stored procedure should check the return value.
+--For example, 
+/*
+	--Application ID Validation and Retrieval
+	EXEC @v_error = P_IC_APP_GET_ID @p_app_name, @v_app_id OUTPUT
+	IF @v_error <> 0 RETURN  @v_error
+
+*/
+SET XACT_ABORT ON
+
+BEGIN
+    SELECT 
+      t.COURSEID,
+      t.USERID,
+      t.COURSE_NAME,
+      t.COURSE_DETAIL,
+	  t.COURSE_IMAGEPATH,
+      t.COURSE_FILENAME,
+	  t.STATUS,
+	  t.COURSE_REG_URL,
+      t.CREATED_BY,
+      t.CREATED_TIME,
+      t.LAST_UPDATED_BY,
+      t.LAST_UPDATED_TIME,
+      t.VERSION_NO,
       t.TRANSACTION_ID
-    FROM T_BIZ001_COURSE t
-	WHERE STATUS = 'A' -- only approved will be search out.
+    FROM [T_BIZ001_COURSE] t
    
     --Recommend when the stored procedure will be called by other stored procedure
     RETURN @@ERROR
@@ -437,7 +496,7 @@ BEGIN
       t.LAST_UPDATED_TIME,
       t.VERSION_NO,
       t.TRANSACTION_ID
-    FROM T_BIZ002_COURSE_EVENT t
+    FROM [AVAIABLE_COURSE_EVENT] t
 	
 	RETURN @@ERROR
 
@@ -584,7 +643,8 @@ CREATE PROCEDURE [dbo].[P_QUERY_COURSE_BY_DATETIME]
 (
   @p_freetext nvarchar(50),
   @p_start_dttm nvarchar(50),
-  @p_end_dttm nvarchar(50)
+  @p_end_dttm nvarchar(50),
+  @p_userID nvarchar(50)
 )
 AS
 /*
@@ -615,13 +675,40 @@ BEGIN
       t.LAST_UPDATED_BY,
       t.LAST_UPDATED_TIME,
       t.VERSION_NO,
-      t.TRANSACTION_ID
-    FROM T_BIZ001_COURSE t
-	JOIN T_BIZ002_COURSE_EVENT e ON e.COURSEID = t.COURSEID
-	WHERE (@p_start_dttm IS NULL OR e.START_DTTM <= CAST(@p_start_dttm as DATETIME))
-	AND (@p_end_dttm IS NULL OR @p_end_dttm ='' OR e.END_DTTM >= CAST(@p_end_dttm as DATETIME))
+      t.TRANSACTION_ID,
+	  t.SOURCE
+    FROM [AVAIABLE_COURSE] t
+	LEFT JOIN [AVAIABLE_COURSE_EVENT] e ON e.COURSEID = t.COURSEID
+	WHERE t.SOURCE == 'P'
+	AND (@p_start_dttm IS NULL OR @p_start_dttm ='' OR e.START_DTTM >= CAST(@p_start_dttm as DATETIME))
+	AND (@p_end_dttm IS NULL OR @p_end_dttm ='' OR e.END_DTTM <= CAST(@p_end_dttm as DATETIME))
 	AND (@p_freetext IS NULL OR @p_freetext ='' OR COURSE_NAME like '%'+@p_freetext+'%' OR COURSE_DETAIL like '%'+@p_freetext+'%')
     AND STATUS = 'A' -- only approved will be search out.
+	AND t.USERID is not null and t.SOURCE = 'P'
+	--and Exists (select * from T_CMN001_USER where LOGINID =@p_userID and USER_ROLE_ARR='AO')
+	UNION ALL
+	SELECT 
+      t.COURSEID,
+      t.USERID,
+      t.COURSE_NAME,
+      t.COURSE_DETAIL,
+	  t.COURSE_IMAGEPATH,
+      t.COURSE_FILENAME,
+	  t.COURSE_REG_URL,
+      t.CREATED_BY,
+      t.CREATED_TIME,
+      t.LAST_UPDATED_BY,
+      t.LAST_UPDATED_TIME,
+      t.VERSION_NO,
+      t.TRANSACTION_ID,
+	  t.SOURCE
+    FROM [AVAIABLE_COURSE] t
+	LEFT JOIN [AVAIABLE_COURSE_EVENT] e ON e.COURSEID = t.COURSEID
+	WHERE t.SOURCE != 'P'
+	AND (@p_freetext IS NULL OR @p_freetext ='' OR COURSE_NAME like '%'+@p_freetext+'%' OR COURSE_DETAIL like '%'+@p_freetext+'%')
+    AND STATUS = 'A' -- only approved will be search out.
+	AND t.USERID is not null
+	and Exists (select * from T_CMN001_USER where LOGINID =@p_userID and USER_ROLE_ARR='AO')
     --Recommend when the stored procedure will be called by other stored procedure
     RETURN @@ERROR
 

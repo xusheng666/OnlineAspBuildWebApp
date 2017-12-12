@@ -57,7 +57,7 @@
             </div>
             <div class="table table-bordered">
                 <asp:GridView CssClass="gridview" ID="gvwDash" runat="server" Visible="true" ShowHeaderEmpty="true" AutoGenerateColumns="false"
-                    Width="90%" AllowPaging="true" OnPageIndexChanging="OnPageIndexChanging" PageSize="10">
+                    Width="90%" AllowPaging="true" OnPageIndexChanging="OnPageIndexChanging" PageSize="5">
                     <Columns>
                         <asp:BoundField HeaderText="Name" DataField="COURSE_NAME" HeaderStyle-Width="20%" />
                         <asp:BoundField HeaderText="Description" DataField="COURSE_DETAIL" HeaderStyle-Width="35%" />

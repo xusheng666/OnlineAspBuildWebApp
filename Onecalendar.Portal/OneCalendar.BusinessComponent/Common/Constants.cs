@@ -74,6 +74,8 @@ namespace OneCalendar.BusinessComponent
         public const string P_QUERY_COURSE_BY_DATETIME = "P_QUERY_COURSE_BY_DATETIME";
         public const string P_QUERY_COURSE_BY_ADMIN = "P_QUERY_COURSE_BY_ADMIN";
         public const string P_QUERY_COURSE_BY_FREE_TEXT = "P_QUERY_COURSE_BY_FREE_TEXT";
+
+        public const string P_QUERY_COURSES_FOR_PUBLISH = "P_QUERY_COURSES_FOR_PUBLISH";
     }
 
     public class QueryStringNames

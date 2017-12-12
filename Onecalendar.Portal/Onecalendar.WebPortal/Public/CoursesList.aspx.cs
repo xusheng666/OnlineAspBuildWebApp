@@ -35,40 +35,41 @@ namespace Onecalendar.WebPortal
             this.gvwDash.DataBind();
 
             // set the from date to end date
-            this.tbStartDttm.Text = System.DateTime.Now.AddMonths(-1).ToString(Constants.DateTimeFormat.searchDateTimeFormat);
+            //this.tbStartDttm.Text = System.DateTime.Now.AddMonths(-1).ToString(Constants.DateTimeFormat.searchDateTimeFormat);
             //this.tbEndDttm.Text = System.DateTime.Now.AddMonths(3).ToString(Constants.DateTimeFormat.searchDateTimeFormat);
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
+            DataTable dt = searchResult();
+           
+            this.gvwDash.DataSource = dt;
+            this.gvwDash.DataBind();
+        }
+
+        private DataTable searchResult()
+        {
             DataTable dt = new DataTable();
             string searchKey = this.searchKey.Text;
             //if (!String.IsNullOrEmpty(searchKey) && !String.IsNullOrEmpty(searchKey.Trim()))
             //{
-                string decodeKey = HttpUtility.HtmlDecode(searchKey);
+            string decodeKey = HttpUtility.HtmlDecode(searchKey);
 
-                //dt = _bc.getCoursesByFreetext(decodeKey) as DataTable;
+            //dt = _bc.getCoursesByFreetext(decodeKey) as DataTable;
 
-                string startDttmTxt = this.tbStartDttm.Text;
-                string endDttmTxt = this.tbEndDttm.Text;
-                if (!String.IsNullOrEmpty(startDttmTxt) && !String.IsNullOrEmpty(startDttmTxt.Trim()))
+            string startDttmTxt = this.tbStartDttm.Text;
+            string endDttmTxt = this.tbEndDttm.Text;
+            if (!String.IsNullOrEmpty(startDttmTxt) && !String.IsNullOrEmpty(startDttmTxt.Trim()))
+            {
+                DateTime startDttm = DateTimeUtil.parseToDateTime(startDttmTxt);
+                DateTime endDttm = DateTime.Now;
+                if (!String.IsNullOrEmpty(endDttmTxt) && !String.IsNullOrEmpty(endDttmTxt.Trim()))
                 {
-                    DateTime startDttm = DateTimeUtil.parseToDateTime(startDttmTxt);
-                    DateTime endDttm = DateTime.Now;
-                    if (!String.IsNullOrEmpty(endDttmTxt) && !String.IsNullOrEmpty(endDttmTxt.Trim()))
-                    {
-                        endDttm = DateTimeUtil.parseToDateTime(endDttmTxt);
-                    }
-                    dt = _bc.getCoursesByCriteria(decodeKey, startDttmTxt, endDttmTxt) as DataTable;
+                    endDttm = DateTimeUtil.parseToDateTime(endDttmTxt);
                 }
-            //}
-            //else
-            //{
-                
-            //}
-           
-            this.gvwDash.DataSource = dt;
-            this.gvwDash.DataBind();
+                dt = _bc.getCoursesByCriteria(decodeKey, startDttmTxt, endDttmTxt, HttpContext.Current.User.Identity.Name) as DataTable;
+            }
+            return dt;
         }
 
         protected void btnFreetextSearch_Click(object sender, EventArgs e)
@@ -94,6 +95,9 @@ namespace Onecalendar.WebPortal
         /// <param name="e"></param>
         protected void OnPageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            DataTable dt = _bc.getAllCourses() as DataTable;
+
+            gvwDash.DataSource = dt;
             gvwDash.PageIndex = e.NewPageIndex;
             gvwDash.DataBind();
         }

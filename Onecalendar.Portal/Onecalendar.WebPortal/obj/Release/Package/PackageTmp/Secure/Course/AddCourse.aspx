@@ -31,6 +31,10 @@
                     <span>Tag</span>
                     <asp:TextBox ID="courseTag" class="form-control" runat="server" />
                 </div>
+                <div>
+                    <span>Registration URL</span>
+                    <asp:TextBox ID="regURL" class="form-control" runat="server" />
+                </div>
             </div>
             <asp:Button runat="server" ID="btnAddCourse" class="btn btn-primary" Text="Add New Course" OnClick="btnAddCourse_Click" />
             <asp:Button runat="server" ID="btnGoCourses" class="btn btn-primary" Style="margin-left: 20px;" Text="Back to Course List" OnClick="btnGoCourses_Click" />

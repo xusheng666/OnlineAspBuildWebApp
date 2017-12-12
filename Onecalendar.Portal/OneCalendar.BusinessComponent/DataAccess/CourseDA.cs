@@ -16,6 +16,11 @@ namespace OneCalendar.BusinessComponent.DataAccess
             return QueryDataTableWithParameters(SPNameConstants.P_QUERY_COURSES_FOR_VIEW);
         }
 
+        public DataTable getCoursesPublishDataTable()
+        {
+            return QueryDataTableWithParameters(SPNameConstants.P_QUERY_COURSES_FOR_PUBLISH);
+        }
+        
         public DataSet getAllCoursesCourseEvents()
         {
             return QueryEventDataSetWithParameters(SPNameConstants.P_QUERY_ALL_COURSES_EVENTS);
@@ -64,11 +69,11 @@ namespace OneCalendar.BusinessComponent.DataAccess
             return ds;
         }
 
-        internal DataTable getCoursesByCriteria(String searchKey, String startDttm, String endDttm)
+        internal DataTable getCoursesByCriteria(String searchKey, String startDttm, String endDttm, String loginUserID)
         {
             BIZCourseDataSet ds = new BIZCourseDataSet();
             DbCommand cmd = this.Helper.BuildDbCommand(SPNameConstants.P_QUERY_COURSE_BY_DATETIME);
-            this.Helper.AssignParameterValues(cmd, searchKey, startDttm, endDttm);
+            this.Helper.AssignParameterValues(cmd, searchKey, startDttm, endDttm, loginUserID);
             this.Helper.Fill(ds.T_BIZ001_COURSE, cmd);
             return ds.T_BIZ001_COURSE;
         }

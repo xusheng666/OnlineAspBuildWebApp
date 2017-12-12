@@ -16,7 +16,10 @@ namespace OneCalendar.BusinessComponent
         {
             return _da.getCoursesViewDataTable();
         }
-
+        public DataTable getCoursesForPublish()
+        {
+            return _da.getCoursesPublishDataTable();
+        }
         public DataSet getAllCourseEvents()
         {
             return _da.getAllCoursesCourseEvents();
@@ -55,9 +58,9 @@ namespace OneCalendar.BusinessComponent
             _da.DeleteCourseEventByID(eventId);
         }
 
-        public DataTable getCoursesByCriteria(String searchKey, String startDttm, String endDttm)
+        public DataTable getCoursesByCriteria(String searchKey, String startDttm, String endDttm, String userID)
         {
-            return _da.getCoursesByCriteria(searchKey, startDttm, endDttm);
+            return _da.getCoursesByCriteria(searchKey, startDttm, endDttm, userID);
         }
 
         public DataTable getCoursesByFreetext(string searchKey)

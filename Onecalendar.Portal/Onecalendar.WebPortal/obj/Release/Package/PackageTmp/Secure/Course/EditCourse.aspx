@@ -35,6 +35,10 @@
                         <asp:TextBox TextMode="MultiLine" ID="description" class="form-control" runat="server" />
                     </div>
                     <div>
+                        <span>Registration URL</span>
+                        <asp:TextBox ID="regURL" class="form-control" runat="server" />
+                    </div>
+                    <div>
                         <span>Tag</span>
                         <asp:TextBox ID="courseTag" class="form-control" runat="server" />
                     </div>
