@@ -23,6 +23,7 @@ namespace OneCalendar.BusinessComponent
         public class UserRoles
         {
             public const string VIEW_ONLY_ROLE = "VO";
+            public const string MOBILE_PEDIA_ROLE = "MO";
             public const string PROCESS_ROLE = "PO";
             public const string ADMIN_ROLE = "AO";
         }
@@ -54,6 +55,7 @@ namespace OneCalendar.BusinessComponent
     {
         // below are course and events
         public const string P_QUERY_COURSES_FOR_VIEW = "P_QUERY_COURSES_FOR_VIEW";
+        public const string P_QUERY_M_NEW_COURSES = "P_QUERY_M_NEW_COURSES";
         public const string P_QUERY_COURSE_BY_ID_FOR_VIEW = "P_QUERY_COURSE_BY_ID_FOR_VIEW";
         public const string P_DELETE_COURSE_BY_ID = "P_DELETE_COURSE_BY_ID";
         public const string P_QUERY_COURSE_EVENTS_BY_ID_FOR_VIEW = "P_QUERY_COURSE_EVENTS_BY_ID_FOR_VIEW";

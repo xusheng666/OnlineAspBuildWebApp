@@ -311,6 +311,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Default.aspx" />
+    <Content Include="Handler\JsonAPICourseQuery.ashx" />
     <Content Include="Index.aspx" />
     <Content Include="packages.config" />
     <Content Include="Public\CourseDetailView.aspx" />
@@ -337,6 +338,8 @@
     <Content Include="Handler\JsonCalendarHandler.ashx" />
     <Content Include="Handler\JSonFormatCourses.ashx" />
     <Content Include="SiteHome.Master" />
+    <Content Include="Handler\JsonMNewCourses.ashx" />
+    <Content Include="Handler\PediaUserHandler.ashx" />
     <None Include="Properties\PublishProfiles\New.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Public\UserRegistration.aspx" />
@@ -450,6 +453,16 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\JsonMNewCourses.ashx.cs">
+      <DependentUpon>JsonMNewCourses.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\JsonAPICourseQuery.ashx.cs">
+      <DependentUpon>JsonAPICourseQuery.ashx</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Handler\PediaUserHandler.ashx.cs">
+      <DependentUpon>PediaUserHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="Public\CoursesList.aspx.cs">
       <DependentUpon>CoursesList.aspx</DependentUpon>

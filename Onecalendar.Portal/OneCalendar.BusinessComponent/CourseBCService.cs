@@ -16,6 +16,10 @@ namespace OneCalendar.BusinessComponent
         {
             return _da.getCoursesViewDataTable();
         }
+        public DataTable getNewCourses()
+        {
+            return _da.getMNewCoursesViewDataTable();
+        }
         public DataTable getCoursesForPublish()
         {
             return _da.getCoursesPublishDataTable();

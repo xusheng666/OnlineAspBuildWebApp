@@ -16,11 +16,22 @@ namespace Onecalendar.WebPortal.Handler
 
         public void ProcessRequest(HttpContext context)
         {
+            string keyword = string.Empty;
+            DataTable courseDT = new DataTable();
             context.Response.ContentType = "text/plain";
             context.Response.Expires = -1;
             IList<CourseDTO> tasksList = new List<CourseDTO>();
             CourseBCService _bc = new CourseBCService();
-            DataTable courseDT = _bc.getAllCourses();
+
+            if (context.Request.QueryString.Count >= 1)
+            {
+                keyword = context.Request.QueryString["Keyword"];
+                courseDT = _bc.getCoursesByFreetext(keyword);
+            }
+            else
+            {
+                courseDT = _bc.getAllCourses();
+            }
             foreach (DataRow item in courseDT.Rows)
             {
                 if (item["COURSEID"] == null || String.IsNullOrEmpty(item["COURSEID"].ToString()))
@@ -32,6 +43,7 @@ namespace Onecalendar.WebPortal.Handler
                     CourseID = item["COURSEID"].ToString(),
                     CourseName = item["COURSE_NAME"].ToString(),
                     CourseDetail = item["COURSE_DETAIL"].ToString(),
+                    CourseRegURL = item["COURSE_REG_URL"].ToString()
                 };
 
                 BIZCourseDataSet eventDS = (BIZCourseDataSet)_bc.getCourseDSEventByCourseId(item["COURSEID"].ToString());
@@ -87,6 +99,7 @@ namespace Onecalendar.WebPortal.Handler
             public string CourseID { get; set; }
             public string CourseName { get; set; }
             public string CourseDetail { get; set; }
+            public string CourseRegURL { get; set; }
             public List<EventDTO> EventList { get; set; }
         }
         public class EventDTO

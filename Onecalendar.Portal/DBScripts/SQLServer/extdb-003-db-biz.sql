@@ -154,8 +154,68 @@ BEGIN
 	  t.SOURCE
     FROM [AVAIABLE_COURSE] t
 	LEFT JOIN T_CMN001_USER u ON (t.USERID = u.LOGINID OR t.USERID IS NULL)
-	WHERE t.STATUS = 'A' -- only approved will be search out.
+	WHERE t.STATUS = 'A' 
+	AND t.USERID is not null-- only approved will be search out.
    
+    --Recommend when the stored procedure will be called by other stored procedure
+    RETURN @@ERROR
+
+END
+SET XACT_ABORT OFF
+
+GO
+
+IF OBJECT_ID( 'dbo.P_QUERY_M_NEW_COURSES', 'P' ) IS NOT NULL
+  DROP  PROCEDURE  dbo.P_QUERY_M_NEW_COURSES
+GO
+
+CREATE PROCEDURE [dbo].[P_QUERY_M_NEW_COURSES]
+AS
+/*
+Module  : 
+Author  : SQL Generator
+Date    : 30-01-2017
+Desc    : Retrieves records from T_BIZ001_COURSE
+Returns: 0 if successful, else SQL error code
+
+Change Revision
+-----------------------------------------------------
+Date           Author            Remark
+
+*/
+
+--It will stop stored procedure when there is error, but if the stored procedure will be called by others, the caller stored procedure should check the return value.
+--For example, 
+/*
+	--Application ID Validation and Retrieval
+	EXEC @v_error = P_IC_APP_GET_ID @p_app_name, @v_app_id OUTPUT
+	IF @v_error <> 0 RETURN  @v_error
+
+*/
+SET XACT_ABORT ON
+
+BEGIN
+    SELECT 
+      t.COURSEID,
+      t.USERID,
+      t.COURSE_NAME,
+      t.COURSE_DETAIL,
+	  t.COURSE_IMAGEPATH,
+      t.COURSE_FILENAME,
+	  t.STATUS,
+	  t.COURSE_REG_URL,
+      t.CREATED_BY,
+      t.CREATED_TIME,
+      t.LAST_UPDATED_BY,
+      t.LAST_UPDATED_TIME,
+      t.VERSION_NO,
+      t.TRANSACTION_ID,
+	  t.SOURCE
+    FROM [AVAIABLE_COURSE] t
+	LEFT JOIN T_CMN001_USER u ON (t.USERID = u.LOGINID OR t.USERID IS NULL)
+	WHERE t.STATUS = 'A' 
+	AND t.USERID is not null-- only approved will be search out.
+    AND DATEDIFF(day, t.LAST_UPDATED_TIME , CURRENT_TIMESTAMP) <= 30
     --Recommend when the stored procedure will be called by other stored procedure
     RETURN @@ERROR
 
@@ -679,7 +739,7 @@ BEGIN
 	  t.SOURCE
     FROM [AVAIABLE_COURSE] t
 	LEFT JOIN [AVAIABLE_COURSE_EVENT] e ON e.COURSEID = t.COURSEID
-	WHERE t.SOURCE == 'P'
+	WHERE t.SOURCE = 'P'
 	AND (@p_start_dttm IS NULL OR @p_start_dttm ='' OR e.START_DTTM >= CAST(@p_start_dttm as DATETIME))
 	AND (@p_end_dttm IS NULL OR @p_end_dttm ='' OR e.END_DTTM <= CAST(@p_end_dttm as DATETIME))
 	AND (@p_freetext IS NULL OR @p_freetext ='' OR COURSE_NAME like '%'+@p_freetext+'%' OR COURSE_DETAIL like '%'+@p_freetext+'%')
@@ -764,6 +824,57 @@ BEGIN
 	AND (@p_end_dttm IS NULL OR @p_end_dttm ='' OR e.END_DTTM IS NULL OR e.END_DTTM >= CAST(@p_end_dttm as DATETIME))
 	AND (@p_freetext IS NULL OR @p_freetext ='' OR COURSE_NAME LIKE '%'+@p_freetext+'%' OR COURSE_DETAIL LIKE '%'+@p_freetext+'%')
     
+    --Recommend when the stored procedure will be called by other stored procedure
+    RETURN @@ERROR
+
+END
+SET XACT_ABORT OFF
+
+GO
+
+IF OBJECT_ID( 'dbo.P_QUERY_COURSE_BY_FREE_TEXT', 'P' ) IS NOT NULL
+  DROP  PROCEDURE  dbo.P_QUERY_COURSE_BY_FREE_TEXT
+GO
+
+CREATE PROCEDURE [dbo].[P_QUERY_COURSE_BY_FREE_TEXT]
+(
+  @freetext nvarchar(50)
+)
+AS
+/*
+Module  : 
+Author  : SQL Generator
+Date    : 30-01-2017
+Desc    : Retrieves records from T_BIZ001_COURSE
+Returns: 0 if successful, else SQL error code
+
+Change Revision
+-----------------------------------------------------
+Date           Author            Remark
+
+*/
+SET XACT_ABORT ON
+
+BEGIN
+    SELECT distinct
+      t.COURSEID,
+      t.USERID,
+      t.COURSE_NAME,
+      t.COURSE_DETAIL,
+      t.COURSE_IMAGEPATH,
+      t.COURSE_FILENAME,
+	  t.COURSE_REG_URL,
+      t.CREATED_BY,
+      t.CREATED_TIME,
+      t.LAST_UPDATED_BY,
+      t.LAST_UPDATED_TIME,
+      t.VERSION_NO,
+      t.TRANSACTION_ID
+    FROM [AVAIABLE_COURSE] t
+    WHERE t.USERID is not null
+	AND (COURSE_NAME like '%'+@freetext+'%'
+    OR COURSE_DETAIL like '%'+@freetext+'%')
+   
     --Recommend when the stored procedure will be called by other stored procedure
     RETURN @@ERROR
 

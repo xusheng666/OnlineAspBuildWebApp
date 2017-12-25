@@ -96,5 +96,10 @@ namespace OneCalendar.BusinessComponent.DataAccess
             return ds.T_BIZ001_COURSE;
         }
 
+
+        internal DataTable getMNewCoursesViewDataTable()
+        {
+            return QueryDataTableWithParameters(SPNameConstants.P_QUERY_M_NEW_COURSES);
+        }
     }
 }
