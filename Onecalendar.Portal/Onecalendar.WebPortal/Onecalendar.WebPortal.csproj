@@ -88,6 +88,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
@@ -340,6 +341,7 @@
     <Content Include="SiteHome.Master" />
     <Content Include="Handler\JsonMNewCourses.ashx" />
     <Content Include="Handler\PediaUserHandler.ashx" />
+    <Content Include="Handler\JsonChatbotMessages.ashx" />
     <None Include="Properties\PublishProfiles\New.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Public\UserRegistration.aspx" />
@@ -447,12 +449,24 @@
     <Compile Include="BIReport\BIReportTest.aspx.designer.cs">
       <DependentUpon>BIReportTest.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ChatBot\Framework\Activity.cs" />
+    <Compile Include="ChatBot\Framework\Conversation.cs" />
+    <Compile Include="ChatBot\Framework\HttpClient.cs" />
+    <Compile Include="ChatBot\Framework\HttpRequest.cs" />
+    <Compile Include="ChatBot\Framework\HttpResponse.cs" />
+    <Compile Include="ChatBot\Framework\Member.cs" />
+    <Compile Include="ChatBot\Framework\Message.cs" />
+    <Compile Include="ChatBot\Framework\MessageType.cs" />
+    <Compile Include="ChatBot\Framework\Response.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\JsonChatbotMessages.ashx.cs">
+      <DependentUpon>JsonChatbotMessages.ashx</DependentUpon>
     </Compile>
     <Compile Include="Handler\JsonMNewCourses.ashx.cs">
       <DependentUpon>JsonMNewCourses.ashx</DependentUpon>

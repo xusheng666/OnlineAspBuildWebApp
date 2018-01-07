@@ -68,8 +68,9 @@ namespace Onecalendar.WebPortal
                     endDttm = DateTimeUtil.parseToDateTime(endDttmTxt);
                 }
                 dt = _bc.getCoursesByCriteria(decodeKey, startDttmTxt, endDttmTxt, HttpContext.Current.User.Identity.Name) as DataTable;
+
             }
-           
+            
             this.gvwDash.DataSource = dt;
             this.gvwDash.DataBind();
         }

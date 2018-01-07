@@ -215,7 +215,7 @@ BEGIN
 	LEFT JOIN T_CMN001_USER u ON (t.USERID = u.LOGINID OR t.USERID IS NULL)
 	WHERE t.STATUS = 'A' 
 	AND t.USERID is not null-- only approved will be search out.
-    AND DATEDIFF(day, t.LAST_UPDATED_TIME , CURRENT_TIMESTAMP) <= 30
+    AND (DATEDIFF(day, t.LAST_UPDATED_TIME , CURRENT_TIMESTAMP) <= 300 OR DATEDIFF(day, t.CREATED_TIME , CURRENT_TIMESTAMP) <= 300)
     --Recommend when the stored procedure will be called by other stored procedure
     RETURN @@ERROR
 
@@ -738,13 +738,16 @@ BEGIN
       t.TRANSACTION_ID,
 	  t.SOURCE
     FROM [AVAIABLE_COURSE] t
-	LEFT JOIN [AVAIABLE_COURSE_EVENT] e ON e.COURSEID = t.COURSEID
+	LEFT JOIN [AVAIABLE_COURSE_EVENT] e ON e.COURSEID = t.COURSEID 
+	
 	WHERE t.SOURCE = 'P'
-	AND (@p_start_dttm IS NULL OR @p_start_dttm ='' OR e.START_DTTM >= CAST(@p_start_dttm as DATETIME))
-	AND (@p_end_dttm IS NULL OR @p_end_dttm ='' OR e.END_DTTM <= CAST(@p_end_dttm as DATETIME))
+	--AND (t.CREATED_TIME >= CAST(@p_start_dttm as DATETIME) AND (@p_end_dttm is not null and t.CREATED_TIME <= CAST(@p_end_dttm as DATETIME)))
+	--AND DATEDIFF(day, t.CREATED_TIME, CONVERT(Datetime, @p_start_dttm, 112))>=0 AND Datediff(day, t.CREATED_TIME , CONVERT(Datetime, @p_end_dttm, 112))<=0
+	AND (t.CREATED_TIME >= CAST(@p_start_dttm as DATETIME))
+	AND (@p_end_dttm IS NULL or @p_end_dttm ='' OR t.CREATED_TIME <= CAST(@p_end_dttm as DATETIME))
 	AND (@p_freetext IS NULL OR @p_freetext ='' OR COURSE_NAME like '%'+@p_freetext+'%' OR COURSE_DETAIL like '%'+@p_freetext+'%')
     AND STATUS = 'A' -- only approved will be search out.
-	AND t.USERID is not null and t.SOURCE = 'P'
+	AND t.USERID is not null
 	--and Exists (select * from T_CMN001_USER where LOGINID =@p_userID and USER_ROLE_ARR='AO')
 	UNION ALL
 	SELECT 
@@ -768,7 +771,8 @@ BEGIN
 	AND (@p_freetext IS NULL OR @p_freetext ='' OR COURSE_NAME like '%'+@p_freetext+'%' OR COURSE_DETAIL like '%'+@p_freetext+'%')
     AND STATUS = 'A' -- only approved will be search out.
 	AND t.USERID is not null
-	and Exists (select * from T_CMN001_USER where LOGINID =@p_userID and USER_ROLE_ARR='AO')
+	AND EXISTS (select * from T_CMN001_USER where LOGINID =@p_userID and USER_ROLE_ARR='AO')
+	ORDER BY T.CREATED_TIME DESC
     --Recommend when the stored procedure will be called by other stored procedure
     RETURN @@ERROR
 
