@@ -78,6 +78,15 @@ namespace OneCalendar.BusinessComponent.DataAccess
             return ds.T_BIZ001_COURSE;
         }
 
+        internal DataTable getCoursesByParameter(String category, String location, String orderby)
+        {
+            BIZCourseDataSet ds = new BIZCourseDataSet();
+            DbCommand cmd = this.Helper.BuildDbCommand(SPNameConstants.P_QUERY_COURSE_BY_PARAMETER);
+            this.Helper.AssignParameterValues(cmd, category, location, orderby);
+            this.Helper.Fill(ds.T_BIZ001_COURSE, cmd);
+            return ds.T_BIZ001_COURSE;
+        }
+
         internal DataTable getCoursesByCriteriaAdmin(String searchKey, String startDttm, String endDttm)
         {
             BIZCourseDataSet ds = new BIZCourseDataSet();

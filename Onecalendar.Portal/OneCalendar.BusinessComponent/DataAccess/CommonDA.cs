@@ -21,6 +21,11 @@ namespace OneCalendar.BusinessComponent.DataAccess
             return QueryDataTableWithParameters(SPNameConstants.P_QUERY_ALL_COMPANY);
         }
 
+        public DataTable getAllParameters()
+        {
+            return QueryDataTableWithParameters(SPNameConstants.P_QUERY_GET_PARAMETERS);
+        }
+
         public CMNUserDataSet getCompanyDataSetById(string companyId)
         {
             CMNUserDataSet ds = new CMNUserDataSet();

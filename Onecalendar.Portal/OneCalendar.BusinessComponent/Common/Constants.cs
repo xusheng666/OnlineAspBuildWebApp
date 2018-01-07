@@ -71,9 +71,11 @@ namespace OneCalendar.BusinessComponent
         public const string P_QUERY_ALL_COURSES_EVENTS = "P_QUERY_ALL_COURSES_EVENTS";
         // below for company
         public const string P_QUERY_ALL_COMPANY = "P_QUERY_ALL_COMPANY";
+        public const string P_QUERY_GET_PARAMETERS = "P_QUERY_GET_PARAMETERS";
         public const string P_DELETE_COMPANY_BY_ID = "P_DELETE_COMPANY_BY_ID";
         public const string P_QUERY_COMPANY_BY_ID = "P_QUERY_COMPANY_BY_ID";
         public const string P_QUERY_COURSE_BY_DATETIME = "P_QUERY_COURSE_BY_DATETIME";
+        public const string P_QUERY_COURSE_BY_PARAMETER = "P_QUERY_COURSE_BY_PARAMETER";
         public const string P_QUERY_COURSE_BY_ADMIN = "P_QUERY_COURSE_BY_ADMIN";
         public const string P_QUERY_COURSE_BY_FREE_TEXT = "P_QUERY_COURSE_BY_FREE_TEXT";
 

@@ -67,6 +67,11 @@ namespace OneCalendar.BusinessComponent
             return _da.getCoursesByCriteria(searchKey, startDttm, endDttm, userID);
         }
 
+        public DataTable getCoursesByParameter(String category, String location, String orderby)
+        {
+            return _da.getCoursesByParameter(category, location, orderby);
+        }
+
         public DataTable getCoursesByFreetext(string searchKey)
         {
             return _da.getCoursesByFreetext(searchKey);

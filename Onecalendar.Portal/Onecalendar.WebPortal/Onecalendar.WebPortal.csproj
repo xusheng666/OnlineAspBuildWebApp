@@ -342,6 +342,7 @@
     <Content Include="Handler\JsonMNewCourses.ashx" />
     <Content Include="Handler\PediaUserHandler.ashx" />
     <Content Include="Handler\JsonChatbotMessages.ashx" />
+    <Content Include="Handler\JsonQueryParameter.ashx" />
     <None Include="Properties\PublishProfiles\New.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Public\UserRegistration.aspx" />
@@ -464,6 +465,9 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\JsonQueryParameter.ashx.cs">
+      <DependentUpon>JsonQueryParameter.ashx</DependentUpon>
     </Compile>
     <Compile Include="Handler\JsonChatbotMessages.ashx.cs">
       <DependentUpon>JsonChatbotMessages.ashx</DependentUpon>

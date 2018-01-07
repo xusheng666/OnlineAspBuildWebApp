@@ -31,5 +31,10 @@ namespace OneCalendar.BusinessComponent
         {
             return _da.getCompanyDataSetById(companyId);
         }
+
+        public DataTable getAllParameters()
+        {
+            return _da.getAllParameters();
+        }
     }
 }

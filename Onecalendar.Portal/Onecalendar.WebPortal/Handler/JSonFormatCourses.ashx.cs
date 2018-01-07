@@ -32,6 +32,16 @@ namespace Onecalendar.WebPortal.Handler
             {
                 courseDT = _bc.getAllCourses();
             }
+            CastDataTable2TaskList(courseDT, tasksList, _bc);
+
+            System.Web.Script.Serialization.JavaScriptSerializer oSerializer =
+             new System.Web.Script.Serialization.JavaScriptSerializer();
+            string sJSON = oSerializer.Serialize(tasksList);
+            context.Response.Write(sJSON);
+        }
+
+        public void CastDataTable2TaskList(DataTable courseDT, IList<CourseDTO> tasksList, CourseBCService _bc)
+        {
             foreach (DataRow item in courseDT.Rows)
             {
                 if (item["COURSEID"] == null || String.IsNullOrEmpty(item["COURSEID"].ToString()))
@@ -67,11 +77,6 @@ namespace Onecalendar.WebPortal.Handler
                 course.EventList = eventList;
                 tasksList.Add(course);
             }
-
-            System.Web.Script.Serialization.JavaScriptSerializer oSerializer =
-             new System.Web.Script.Serialization.JavaScriptSerializer();
-            string sJSON = oSerializer.Serialize(tasksList);
-            context.Response.Write(sJSON);
         }
 
         private long ToUnixTimespan(DateTime date)
