@@ -8,8 +8,10 @@
       <siteMapNode url="~/Secure/User/ManageUser.aspx" title="Manage User" description="Manage User"/>
       <!--<siteMapNode url="~/Secure/User/ListCompany.aspx" title="List Company" description="List Company"/>-->
       <siteMapNode url="~/Secure/Course/ManageCourses.aspx" title="Manage Courses" description="Manage Courses"/>
+      <siteMapNode url="~/BIReport/BIReportTest.aspx" title="Dashboard" description="Dashboard"/>
     </siteMapNode>
     <siteMapNode url="~/Contact.aspx" title="Contact" description="Contact"/>
+    
     <!--<siteMapNode url="~/Public/UserRegistration.aspx" title="Register" description="Register"/>-->
     <!--<siteMapNode url="http://www.calendarone.com/en-us/home.aspx" title="Register"  description="Registration" roles="*"/>-->
     <siteMapNode url="~/About.aspx" title="About" description="About"/>
