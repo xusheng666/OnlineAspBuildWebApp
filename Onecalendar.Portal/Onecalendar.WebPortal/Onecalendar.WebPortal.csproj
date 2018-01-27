@@ -83,6 +83,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Library\Net.Future.Transactions.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Library\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
@@ -459,6 +462,11 @@
     <Compile Include="ChatBot\Framework\Message.cs" />
     <Compile Include="ChatBot\Framework\MessageType.cs" />
     <Compile Include="ChatBot\Framework\Response.cs" />
+    <Compile Include="ChatBot\Helpers\CalOneBotAnswer.cs" />
+    <Compile Include="ChatBot\Helpers\CalOneBotData.cs" />
+    <Compile Include="ChatBot\Helpers\IntentDefinition.cs" />
+    <Compile Include="ChatBot\Helpers\RestService.cs" />
+    <Compile Include="ChatBot\Helpers\Wit.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

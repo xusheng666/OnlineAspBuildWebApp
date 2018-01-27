@@ -47,3 +47,4 @@ C:\cloudasp\testWebApp\Onecalendar.Portal\Onecalendar.WebPortal\bin\Microsoft.Re
 C:\cloudasp\testWebApp\Onecalendar.Portal\Onecalendar.WebPortal\bin\Microsoft.ReportViewer.DataVisualization.dll
 C:\cloudasp\testWebApp\Onecalendar.Portal\Onecalendar.WebPortal\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
 C:\cloudasp\testWebApp\Onecalendar.Portal\Onecalendar.WebPortal\bin\Microsoft.ReportViewer.WebForms.dll
+C:\cloudasp\testWebApp\Onecalendar.Portal\Onecalendar.WebPortal\bin\Newtonsoft.Json.dll
